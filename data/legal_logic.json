@@ -115,7 +115,10 @@
       "westlaw_history": {
         "citation": "Westlaw Advantage - 3 full text History for Burt v Gates.rtf",
         "case_numbers_in_history": 3,
-        "includes": ["354 F.Supp.2d 156 (principal decision)", "322 F.Supp.2d 189 (standing ruling)"]
+        "includes": [
+          "354 F.Supp.2d 156 (principal decision)",
+          "322 F.Supp.2d 189 (standing ruling)"
+        ]
       }
     },
     {
@@ -168,6 +171,12 @@
         "citation": "Westlaw Advantage - 14 full text History for Griggs v Duke Power Co.rtf",
         "cases_in_history": 14,
         "note": "Extensive litigation history reflecting significance of the case in employment discrimination law"
+      },
+      "operational_test_threshold": {
+        "threshold": "90% disproportionate impact",
+        "description": "When institutional action disproportionately excludes members of a protected class — the operational threshold is approximately 90% exclusion of nationals from a particular country (the Griggs factual context: Duke Power's test excluded 90% of Black applicants while passing 58% of white applicants) — the identity-based character of the conduct predominates.",
+        "burden_shift": "Once the 90% disproportionate impact threshold is established, the burden shifts to the institution to demonstrate legitimate mission-related justification for the exclusionary practice.",
+        "application_to_matrix": "The operational test for the disentanglement matrix: institutional conduct falls in the Exclusive Inclusion quadrant (Institutional/Identity) when it produces disproportionate impact on a protected identity group at or near the 90% threshold, regardless of stated institutional intent."
       }
     },
     {
@@ -245,7 +254,10 @@
       "westlaw_history": {
         "citation": "Westlaw Advantage - 4 full text History for Turner v Victoria.rtf",
         "cases_in_history": 4,
-        "includes": ["Trial court dismissal (2019)", "Court of Appeal decision (67 Cal.App.5th 1099, 2021)"]
+        "includes": [
+          "Trial court dismissal (2019)",
+          "Court of Appeal decision (67 Cal.App.5th 1099, 2021)"
+        ]
       }
     }
   ],
@@ -348,7 +360,25 @@
         "Reform 1 (stakeholder standing created by statute) has the highest option-foreclosure value because reversing it requires legislative action; Reform 3 (operational test) has the lowest because it can be reversed through IRS guidance without legislation"
       ],
       "evidence": "Harvard won a judicial victory in 2025 declaring the funding freeze unconstitutional. Yet the governance void persists at Harvard. Columbia and Brown settled for nine figures and adopted compliance measures. The governance void persists at Columbia and Brown. The pattern — large compliance costs, zero structural reform — is precisely what the option value theory predicts: rational institutions prefer paying to preserve the reversion option over accepting structural foreclosure.",
-      "reform_design_implication": "Effective reforms must be designed to maximize option-foreclosure value: legal mechanisms that are costly to reverse (statutes over regulations, judicial precedent over agency guidance, contract rights over policy commitments) are more effective at breaking the option-value dynamic than administratively convenient mechanisms that preserve institutional reversion flexibility."
+      "reform_design_implication": "Effective reforms must be designed to maximize option-foreclosure value: legal mechanisms that are costly to reverse (statutes over regulations, judicial precedent over agency guidance, contract rights over policy commitments) are more effective at breaking the option-value dynamic than administratively convenient mechanisms that preserve institutional reversion flexibility.",
+      "option_foreclosure_threshold": {
+        "description": "The Option Value Theory predicts institutions will choose reversible compliance until governance reform forecloses the option to revert. The 90% disproportionate impact threshold from the Operational Test (Griggs-derived) provides the empirical trigger for identifying when institutional conduct has crossed from permissible governance discretion into systematic identity-based exclusion.",
+        "griggs_derived_threshold": "The 90% disproportionate impact standard — when institutional action excludes approximately 90% of a protected-class group — is the operational trigger drawn from the Griggs v. Duke Power Co. disparate impact doctrine and its applications. See Griggs v. Duke Power Co., 401 U.S. 424 (1971). When institutional action meets this threshold, the identity-based character predominates, and the burden shifts to the institution to demonstrate mission-related justification.",
+        "connection_to_option_value": "Institutions engaged in rational option-value preservation are most incentivized to remain below the 90% disproportionate impact threshold — accepting marginal compliance that avoids triggering the Griggs burden-shift while preserving the core governance structure that enables faction capture. The option-foreclosure reforms (Reforms 1-3) are designed to lower the threshold at which accountability is triggered, making it economically rational to eliminate the governance void rather than manage it.",
+        "reversibility_analysis": {
+          "reversible_compliance_actions": [
+            "Adopting antisemitism definitions (reinterpretable under future pressure)",
+            "Appointing Title VI liaisons (reassignable)",
+            "Conducting climate surveys (findings deprioritizable)",
+            "Title VI settlements without governance conditions (revisable practices)"
+          ],
+          "option_foreclosing_reforms": [
+            "Reform 1 (Stakeholder Standing): Once enacted, students have legal standing that cannot be unilaterally revoked",
+            "Reform 2 (Mission Specificity): Once specific operational benchmarks are encoded in charter, departure is a cognizable fiduciary breach under all six Buckles norms",
+            "Reform 3 (Operational Test): Once 501(c)(3) status is conditioned on governance accountability, the institution cannot unilaterally revert without losing tax-exempt status"
+          ]
+        }
+      }
     }
   ],
   "doctrinal_synthesis": {

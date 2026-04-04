@@ -42,7 +42,23 @@
             "incidents": "Faculty boycott endorsers held academic leadership positions shaping curricula, pedagogy, and speaker selection through captured governance structures"
           }
         ],
-        "federal_response": "Federal officials launched Title VI investigations into more than sixty institutions. Nine-figure settlements extracted from Columbia, Brown, and others. Conditions imposed: definitions of antisemitism, liaisons, climate surveys. No settlement required governance reform."
+        "federal_response": "Federal officials launched Title VI investigations into more than sixty institutions. Nine-figure settlements extracted from Columbia, Brown, and others. Conditions imposed: definitions of antisemitism, liaisons, climate surveys. No settlement required governance reform.",
+        "additional_sources": [
+          {
+            "citation": "Sharon Avni & Nicole Samuel, 'An Unprecedented Year in Jewish Education and American Jewish Life: Antisemitism on Campus After October 7, 2023,' Journal of Jewish Education, 91(2), 103-106 (2025), DOI: 10.1080/15244113.2025.2496588",
+            "journal": "Journal of Jewish Education",
+            "year": 2025,
+            "type": "Editor's note / special issue introduction",
+            "methodology": "Scholarly synthesis and editorial overview of peer-reviewed research on antisemitism on campus following October 7, 2023; introduces special issue of the Journal of Jewish Education",
+            "key_findings": [
+              "The October 7, 2023 Hamas attack sent shockwaves through Jewish communities immediately, making American college and university campuses 'ground zero' for campus conflict",
+              "Students and faculty on both sides of the Israeli-Palestinian conflict reacted with grief, fear, and anger; institutional responses were inconsistent and contested",
+              "The article frames the volume as documenting 'an unprecedented year' in Jewish education — acknowledging that the scale of documented harm exceeded historical comparators",
+              "University responses exposed institutional inability to enforce anti-discrimination commitments, consistent with the governance void thesis"
+            ],
+            "relevance_to_governance_void": "Avni & Samuel (2025) provides peer-reviewed framing for the Jewish student case study's central empirical claim: that October 7 revealed, rather than created, the governance void that left Jewish students structurally unprotected despite formal inclusion commitments."
+          }
+        ]
       },
       "governance_problem": {
         "description": "At multiple University of California campuses, departmental units used delegated authority to advance coordinated campaigns that fueled exclusion and intimidation of Jewish student groups. The Board of Regents had no governance mechanism to intervene in departmental conduct.",
@@ -65,7 +81,27 @@
         "source": "Documented at four public research universities with formal gender equity programs in computer science departments",
         "key_finding": "Computer science departments with formal gender equity programs systematically excluded Women of Color through race-avoidant governance processes that prioritized gender while erasing race.",
         "mechanism_detail": "Institutional DEI roles were narrowly defined around gender diversity; race was excluded from the operational definition of 'diversity' in program design, metrics, and eligibility. Women of Color were formally included in the category 'women' but excluded from the practices that substantively addressed barriers to inclusion.",
-        "pattern": "Four separate institutions with similar formal commitments produced the same exclusionary pattern — consistent with the hypothesis that governance architecture, not individual actors, generates the outcome"
+        "pattern": "Four separate institutions with similar formal commitments produced the same exclusionary pattern — consistent with the hypothesis that governance architecture, not individual actors, generates the outcome",
+        "primary_source": {
+          "citation": "Julia Rose Karpicz, Tomoko M. Nakajima & Justin A. Gutzwa, 'Challenging Normalized Gendered Racism in Departmental Efforts to Broaden Participation in Computer Science,' Journal of Women and Gender in Higher Education, 17(4), 357-379 (2024), DOI: 10.1080/26379112.2024.2373479",
+          "journal": "Journal of Women and Gender in Higher Education",
+          "year": 2024,
+          "methodology": {
+            "design": "Multi-site qualitative study examining race-avoidant governance in four public research universities with formal gender equity programs in computer science departments",
+            "sites": "Four public research universities with formal gender equity programs in CS",
+            "theoretical_framework": "Gendered racism framework; institutional analysis of how race and gender intersect in DEI program design",
+            "data_collection": "Interviews with program participants, faculty, and administrators; document analysis of program materials and policies"
+          },
+          "key_findings": [
+            "Computer science departments with formal gender equity programs systematically excluded Women of Color through race-avoidant governance processes",
+            "Institutional DEI roles were narrowly defined around gender; race was excluded from the operational definition of 'diversity' in program design, metrics, and eligibility",
+            "Women of Color were formally included in the category 'women' but excluded from practices substantively addressing barriers to inclusion — a textbook exclusive inclusion pattern",
+            "Four separate institutions with similar formal commitments produced the same exclusionary pattern — consistent with governance architecture as the causal mechanism, not individual actors",
+            "Post-SFFA (Students for Fair Admissions v. Harvard, 600 U.S. 181 (2023)) institutional caution created incentives to design programs claiming race-neutrality; Women of Color bore the cost of institutions optimizing for legal defensibility over substantive inclusion",
+            "The article introduces the term 'gendered racism' to capture the intersection that race-avoidant DEI programs systematically erase"
+          ],
+          "governance_void_connection": "The Karpicz et al. study documents the second-order diversity mechanism: each individual programmatic decision appeared legally defensible in isolation; the aggregate pattern was systematic exclusion of Women of Color. No single decision-maker could be held accountable for the pattern — the disaggregated governance architecture prevented accountability."
+        }
       },
       "governance_problem": {
         "description": "DEI committee structures were designed to address gender; they lacked authority or mandate to address the intersection of race and gender. Faculty and administrators with decision-making authority over program design had no accountability mechanism requiring them to address race-gender intersection.",
@@ -186,7 +222,60 @@
           "subject": "Kathleen Oveta McElroy, Texas A&M journalism program hire",
           "facts": "Hired to head revived journalism program in June 2023; administration and board of regents members complained about her DEI background and race research; interim dean told her certain people might force leadership to fire her; McElroy walked away; A&M investigated; interim dean and president resigned; McElroy settled for $1 million; internal report confirmed emails from administrators and regents showing political issues over DEI played a role; Bermúdez told McElroy that being 'a black woman who worked at The New York Times' with a DEI background was a problem",
           "significance": "Documents intersection of race and viewpoint exclusion operating through captured board governance; external accountability (financial settlement) resolved the individual case but not the governance structure"
-        }
+        },
+        "additional_sources": [
+          {
+            "citation": "Stanley Rothman, S. Robert Lichter & Neil Nevitte, 'Politics and Professional Advancement Among College Faculty,' The Forum, 3(1) (2005). DOI: 10.2202/1540-8884.1067",
+            "journal": "The Forum (Walter de Gruyter)",
+            "year": 2005,
+            "methodology": {
+              "design": "Nationally representative survey of college faculty",
+              "sample": "1,643 faculty members from 183 four-year colleges and universities; randomly sampled",
+              "variables": "Ideological self-identification; professional accomplishment measures (publications, grants, institutional rank); institutional quality (Carnegie classification)"
+            },
+            "key_findings": [
+              "Liberals and Democrats outnumber conservatives and Republicans in American college faculty by large margins; differences are not limited to elite universities or social sciences and humanities",
+              "Controlling for professional accomplishment and other individual characteristics, conservatives and Republicans teach at lower-quality institutions than liberals and Democrats — suggesting ideologically-based discrimination in professional advancement",
+              "Similar effects found for gender (women teach at lower-quality schools than professional accomplishments would predict) and religiosity (practicing Christians teach at lower-quality schools)",
+              "The correlation between ideology and institutional quality persists after controlling for professional merit, supporting the hypothesis that ideological homogeneity in academia is self-reinforcing"
+            ],
+            "relevance": "Provides early empirical foundation for the faculty ideological homogeneity thesis; methodology employs controls for professional merit to isolate the ideology-advancement correlation — directly relevant to the governance void theory's claim that the mechanism is structural rather than attitudinal."
+          },
+          {
+            "citation": "Richard E. Redding, 'Likes Attract: The Sociopolitical Groupthink of (Social) Psychologists,' Perspectives on Psychological Science, 7(5), 512-515 (2012), DOI: 10.1177/1745691612455206",
+            "journal": "Perspectives on Psychological Science (SAGE)",
+            "year": 2012,
+            "methodology": {
+              "design": "Narrative review and synthesis of empirical literature on sociopolitical discrimination in academic psychology; responds to Inbar & Lammers (2012) empirical findings",
+              "theoretical_framework": "Groupthink theory applied to sociopolitical discrimination; analysis of self-reinforcing exclusion mechanisms"
+            },
+            "key_findings": [
+              "Empirical evidence documents substantial levels of discrimination against conservative professors and policy perspectives in the academy; this is not merely anecdotal",
+              "Sociopolitical discrimination is difficult to overcome because sociopolitical values are often a core component of self-identity — parallel to how racial or gender identity functions in discrimination analysis",
+              "Tendency to marginalize the sociopolitical 'other' is coupled with groupthink that presupposes such discrimination is acceptable (e.g., because conservatives are self-interestedly motivated or conservatism is represented elsewhere)",
+              "The assumptions underlying promotion of racial, ethnic, gender, and sexual orientation diversity apply equally to sociopolitical diversity — making ideological exclusion analytically parallel to identity-group exclusion",
+              "Gartner (1986) mock admissions study: professors rated a religious conservative applicant less likely to be admitted to graduate programs — direct experimental evidence of discriminatory decision-making"
+            ],
+            "relevance": "Redding (2012) provides the analytical parallel that Exclusive Inclusion exploits: the same governance mechanisms that enable racial or gender exclusion also enable ideological exclusion. The structural argument transcends any single identity group."
+          },
+          {
+            "citation": "Keith E. Whittington, 'Intellectual Diversity Mandates and the Freedom to Teach' (SSRN Working Paper, 2024), ssrn.com/abstract=5057350",
+            "year": 2024,
+            "author": "Keith E. Whittington, David Boies Professor of Law, Yale Law School; Founding Chair, Academic Freedom Alliance",
+            "methodology": {
+              "design": "Legal and policy analysis of Indiana Senate Bill 202 (adopted 2024), the first state intellectual diversity mandate imposed on public university classroom teaching",
+              "scope": "Examines conceptual, normative, and practical problems with intellectual diversity mandates; considers constitutional dimensions of state legislative intervention in classroom instruction"
+            },
+            "key_findings": [
+              "Indiana SB 202 is the first law to impose an 'intellectual diversity' mandate on public university classroom teaching; it is part of a larger movement of state legislative intervention",
+              "Intellectual diversity mandates pose significant threats to traditional principles of academic freedom — the freedom of university professors to teach in accord with their own professional judgment",
+              "The mandate is likely to lower the quality of university education while failing to accomplish its intended policy aims — demonstrating that state intervention as a reform mechanism is inferior to governance reform targeting the structural void",
+              "The article distinguishes intellectual diversity mandates (less dangerous) from 'divisive concepts' bans (more dangerous) but treats both as extraordinary political intrusions into faculty autonomy",
+              "Whittington's analysis of the freedom to teach anchors the academic freedom dimension of the faculty case study — the governance void creates conditions where both the Jurisdictional Retreat and external state intervention are used to suppress faculty with non-conforming views"
+            ],
+            "relevance": "Whittington (2024) establishes that legislative intellectual diversity mandates — the external reform mechanism — are inadequate substitutes for governance reform. This supports the Exclusive Inclusion argument that Reform 1 (stakeholder standing) and Reform 2 (mission specificity) are preferable to state content mandates because they work through governance accountability rather than speech compulsion."
+          }
+        ]
       },
       "governance_problem": {
         "description": "Faculty hiring in many departments operates through informal culture and committee discretion that effectively screens out candidates whose views deviate from the dominant institutional consensus, substituting ideological conformity for open intellectual inquiry.",
@@ -215,7 +304,26 @@
             "finding": "ADA and Section 504 legal entitlements for students with disabilities function as contingent privileges dependent on individual accommodation officers; systematic under-enforcement documented"
           }
         ],
-        "pattern": "Students with documented disabilities hold legal entitlements — accommodations required by ADA and Section 504 — that are systematically not delivered because the delivery mechanism depends on individual agent discretion without internal accountability structure."
+        "pattern": "Students with documented disabilities hold legal entitlements — accommodations required by ADA and Section 504 — that are systematically not delivered because the delivery mechanism depends on individual agent discretion without internal accountability structure.",
+        "additional_sources": [
+          {
+            "citation": "Megan MacKenzie, Özlem Sensoy, Genevieve Fuji Johnson, Nathalie Sinclair & Laurel Weldon, 'How Universities Gaslight EDI&I Initiatives: Mapping Institutional Resistance to Structural Change,' IJEPL, 19(1) (2023)",
+            "journal": "International Journal of Education Policy and Leadership (IJEPL)",
+            "year": 2023,
+            "institution": "Simon Fraser University",
+            "methodology": {
+              "design": "Qualitative case study of two EDI&I (Equity, Diversity, Inclusion, and Indigenization) initiatives at post-secondary institutions; close examination of 'pushback' against initiatives",
+              "theoretical_framework": "Introduces concept of 'institutional gaslighting' — universities simultaneously embracing EDI&I discourse while deploying strategies preventing dismantling of systemic inequalities"
+            },
+            "key_findings": [
+              "Despite visibility of EDI&I discourses within large institutions, research has documented only modest advancements on stated values",
+              "Blocks to advancement stem from the structural nature of racist and sexist domination, especially embeddedness in formal and informal institutional norms",
+              "Introduces concept of 'institutional gaslighting': universities paradoxically embrace EDI&I discourse while simultaneously deploying strategies preventing dismantling systemic inequalities",
+              "This gaslighting dynamic is designed to help identify forms of resistance in settings of high stated value — directly paralleling the governance void theory's explanation of inclusive language with exclusionary structural outcomes"
+            ],
+            "relevance": "MacKenzie et al. (2023) documents the institutional gaslighting dynamic from a different theoretical direction but converges on the same structural diagnosis as Exclusive Inclusion: formal EDI&I commitments do not produce substantive inclusion when governance architecture lacks accountability mechanisms. The 'institutional gaslighting' framing is an alternative theoretical vocabulary for the governance void."
+          }
+        ]
       },
       "governance_problem": {
         "description": "Accommodation offices operate as the implementing agent for statutory disability rights. The principal-agent chain from board to disability services officer is long and unmonitored; each link has discretion; no stakeholder can compel delivery of the entitlement through internal governance channels.",
@@ -230,5 +338,23 @@
       },
       "why_governance_void_explains": "The disability case isolates the governance void as the causal variable by controlling for legal entitlement: students with disabilities have strong formal rights and still face systematic exclusion because the governance structure contains no enforcement mechanism for the affected stakeholder. If formal legal rights were sufficient, the disability case would not exist. The governance void explains the gap."
     }
-  ]
+  ],
+  "hospital_community_benefit_source": {
+    "citation": "Michael D. Rozier, 'Nonprofit Hospital Community Benefit in the U.S.: A Scoping Review From 2010 to 2019,' Frontiers in Public Health, 8:72 (2020), DOI: 10.3389/fpubh.2020.00072",
+    "journal": "Frontiers in Public Health",
+    "year": 2020,
+    "institution": "Saint Louis University",
+    "methodology": {
+      "design": "Scoping review of peer-reviewed literature published 2010-2019 on nonprofit hospital community benefit",
+      "search_strategy": "OvidSP MEDLINE, PubMed, and SCOPUS searches; qualitative organization using axial coding methodology",
+      "scope": "Governance, CHNA/CHIP process, community programs, spending patterns, population health, policy recommendations"
+    },
+    "key_findings": [
+      "IRS Schedule H (2009) and ACA Section 501(r) (2010) significantly increased transparency and accountability for nonprofit hospital community benefit activities",
+      "Literature clustered around spending and needs assessments; governance is an area with relatively little known — consistent with the governance void thesis",
+      "Policy recommendations focus on accountability for impact, enhancing collaboration, and incentivizing action in areas other than clinical care",
+      "The 501(r) model demonstrates that operational governance accountability requirements are legally feasible for 501(c)(3) institutions — directly supporting Reform 3 (Operational Test)"
+    ],
+    "relevance_to_reform_003": "Rozier (2020) documents the existing hospital community benefit standard that serves as the legal model for Reform 3 (Operational Test). The article shows that the hospital accountability mechanism (IRS Schedule H + ACA Section 501(r) CHNAs) has produced measurable transparency gains and governance attention. The same mechanism, applied to universities, could condition 501(c)(3) status on demonstrated governance structures preventing systematic identity-based exclusion."
+  }
 }
