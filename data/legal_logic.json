@@ -1,0 +1,398 @@
+{
+  "schema_version": "2.0",
+  "description": "Legal mapping file for web UI encoding of the core doctrinal framework. Contains FAIR doctrine, Burt v. Gates limits, Griggs disparate impact logic, Option Value Theory economic logic, and Buckles/Palmiter duty of obedience frameworks. All citations are preserved in data values for display and linking.",
+  "cases": [
+    {
+      "id": "legal_001",
+      "case_name": "Rumsfeld v. Forum for Academic and Institutional Rights, Inc.",
+      "citation": "547 U.S. 47 (2006)",
+      "short_name": "Rumsfeld v. FAIR",
+      "court": "United States Supreme Court",
+      "date": "March 6, 2006",
+      "vote": "8-0 (Justice Alito not participating)",
+      "author": "Chief Justice Roberts",
+      "procedural_history": [
+        {
+          "stage": "District Court (D.N.J.)",
+          "citation": "291 F.Supp.2d 269 (D.N.J. 2003)",
+          "holding": "Denied preliminary injunction; concluded recruiting is conduct not speech; any expressive aspect is 'entirely ancillary to its dominant economic purpose'; plaintiff FAIR had standing"
+        },
+        {
+          "stage": "Third Circuit Court of Appeals",
+          "holding": "Reversed; held Solomon Amendment regulated speech in addition to expressive conduct; ordered preliminary injunction against enforcement"
+        },
+        {
+          "stage": "United States Supreme Court",
+          "holding": "Reversed Third Circuit; held Solomon Amendment constitutional; upheld conditioning of federal funding on equal military recruiter access"
+        }
+      ],
+      "background": "The Solomon Amendment conditioned federal funding on universities allowing military recruiters 'access to campuses, or access to students on campuses, for purposes of military recruiting in a manner that is at least equal in quality and scope to the access to campuses and to students that is provided to any other employer.' FAIR, an association of law schools and law faculties opposing the military's 'Don't Ask, Don't Tell' policy, challenged the Amendment as an unconstitutional condition on the receipt of federal funds.",
+      "key_holdings": [
+        {
+          "holding": "Equal access = conduct regulation, not speech regulation",
+          "quote": "The Solomon Amendment neither limits what law schools may say nor requires them to say anything.",
+          "significance": "Establishes that requiring institutional conduct (equal access) does not constitute compelled speech even when the conduct has expressive dimensions"
+        },
+        {
+          "holding": "Any speech burden is 'plainly incidental' to conduct regulation",
+          "quote": "Any burden on expression is plainly incidental to the Solomon Amendment's regulation of conduct.",
+          "significance": "Sets the legal standard for when conduct conditions with incidental speech effects are constitutionally permissible: the speech burden must be incidental to, not the purpose of, the conduct regulation"
+        },
+        {
+          "holding": "Compelled scheduling assistance for military recruiters is not equivalent to Barnette-style compelled speech",
+          "quote": "Compelling a law school that sends scheduling e-mails for other recruiters to send one for a military recruiter is simply not the same as forcing a student to pledge allegiance, or forcing a Jehovah's Witness to display the motto 'Live Free or Die,' and it trivializes the freedom protected in Barnette and Wooley to suggest that it is.",
+          "significance": "Limits the scope of compelled speech doctrine in the institutional access context"
+        },
+        {
+          "holding": "Congress may condition federal spending without violating First Amendment if it could directly impose the same requirement",
+          "quote": "Because the First Amendment would not prevent Congress from directly imposing the Solomon Amendment's access requirement, the statute does not place an unconstitutional condition on the receipt of federal funds.",
+          "significance": "Establishes constitutional floor for spending-power conditions on institutional conduct"
+        },
+        {
+          "holding": "Expressive association doctrine does not prevent government from requiring equal access to students",
+          "quote": "A school's recruiting services lack the expressive character that would make the forced inclusion of military recruiters unconstitutional.",
+          "significance": "Limits the scope of Boy Scouts v. Dale-style expressive association claims in the institutional access context"
+        }
+      ],
+      "relevance_to_exclusive_inclusion": {
+        "disentanglement_matrix_axis_1": "The FAIR doctrine operationalizes the Institutional Actor axis of the disentanglement matrix. When a department or institutional unit acts through official channels and deploys institutional authority, that conduct is regulable regardless of its expressive dimensions. The conduct-speech distinction established in FAIR means that governance conditions targeting institutional conduct (equal access, governance process accountability) do not constitute impermissible speech regulation even if they indirectly affect institutional expression.",
+        "reform_3_constitutional_basis": "FAIR is the primary constitutional basis for Reform 3 (Operational Test). Just as conditioning federal funding on equal military recruiter access was upheld as conduct regulation, conditioning 501(c)(3) exemption on governance structures preventing systematic identity-based exclusion targets institutional conduct, not speech. The test 'neither limits what [institutions] may say nor requires them to say anything' about their views on identity, diversity, or any other topic.",
+        "jurisdictional_retreat_limit": "FAIR limits the Jurisdictional Retreat: institutions cannot claim First Amendment protection for institutional conduct (using official channels and resources) simply because that conduct has expressive dimensions. The expressive association and compelled speech doctrines do not immunize institutional deployment of governance authority against accountability requirements."
+      },
+      "secondary_sources": [
+        {
+          "citation": "2 Smolla & Nimmer on Freedom of Speech § 17:1.60 (April 2026 Update)",
+          "author": "Rodney A. Smolla",
+          "description": "Treatise analysis of FAIR; documents the Court's 8-0 holding and its reasoning that the Solomon Amendment regulated conduct rather than speech"
+        },
+        {
+          "citation": "2006 Sup. Ct. Rev. 47",
+          "author": "Richard A. Posner",
+          "title": "A Note on Rumsfeld v. FAIR and the Legal Academy",
+          "description": "Judge Posner's analysis noting the decision was 'neither momentous nor unexpected'; examines how law schools' non-discrimination policies led to the Solomon Amendment litigation; observes that law schools' denial of recruiting assistance to military was itself a form of discrimination"
+        },
+        {
+          "citation": "31 J. Legal Prof. 75 (2007)",
+          "author": "Matthew D. van Dalen",
+          "title": "Rumsfeld v. FAIR, A Free Speech Setback or Strategic Military Victory?",
+          "description": "Analysis of whether FAIR was primarily a First Amendment or military policy decision; examines how the federal government's equal-access policy operated after September 11, 2001"
+        }
+      ]
+    },
+    {
+      "id": "legal_002",
+      "case_name": "Burt v. Rumsfeld (Gates)",
+      "citation": "354 F.Supp.2d 156 (D. Conn. 2005)",
+      "short_name": "Burt v. Gates",
+      "court": "United States District Court, District of Connecticut",
+      "date": "January 31, 2005",
+      "judge": "Judge Janet C. Hall",
+      "prior_related_decision": "Burt v. Rumsfeld, 322 F.Supp.2d 189 (D. Conn. 2004) (standing ruling)",
+      "background": "Yale Law School faculty members (led by Professor Robert Burt) brought an action against Secretary of Defense Rumsfeld, challenging the Solomon Amendment as applied to Yale. Yale Law School had a non-discrimination policy prohibiting campus recruiting by employers who discriminated on the basis of sexual orientation; YLS's recruiting programs occurred off-campus, and plaintiffs argued YLS was not in violation of the Solomon Amendment.",
+      "holdings": [
+        {
+          "holding": "Statute violated faculty's free speech rights — SUSTAINED",
+          "description": "District Court held that the Solomon Amendment, as applied, violated the faculty's First Amendment free speech rights by compelling them to officially aid military recruiting",
+          "note": "This holding was reversed by the Supreme Court in FAIR (2006)"
+        },
+        {
+          "holding": "Statute violated faculty's expressive association rights — SUSTAINED",
+          "description": "District Court held that the Solomon Amendment violated faculty's First Amendment expressive association rights by forcing them to associate with military recruiters whose acknowledged beliefs conflicted with YLS's",
+          "note": "This holding was reversed by the Supreme Court in FAIR (2006)"
+        },
+        {
+          "holding": "Statute did NOT violate any substantive due process right to educational autonomy — DENIED",
+          "quote": "The Court finds that the Solomon Amendment does not violate any substantive due process right to educational autonomy.",
+          "description": "This is the holding that survived FAIR: there is no substantive due process right to educational autonomy that extends to blocking equal access obligations. Courts have not recognized academic freedom as a constitutional right that permits universities to exclude parties from access to students.",
+          "significance": "CRITICAL HOLDING FOR EXCLUSIVE INCLUSION ANALYSIS: Burt v. Gates establishes that academic freedom and educational autonomy do not constitute a constitutional right to block equal access obligations. This limits the Jurisdictional Retreat: institutions cannot claim constitutional protection for institutional deployment of official authority to exclude identity groups on the ground that such exclusion constitutes protected educational autonomy."
+        }
+      ],
+      "relevance_to_exclusive_inclusion": {
+        "jurisdictional_retreat_limit": "Burt v. Gates is the primary case authority for the proposition that academic freedom does not extend to institutional exclusion. There is no substantive due process right to educational autonomy that shields institutional conduct producing identity-based exclusion from accountability requirements. Institutions cannot claim that their governance decisions regarding hiring, curriculum, speaker selection, or access fall within a constitutionally protected educational autonomy zone that forecloses all external accountability.",
+        "distinction_from_individual_academic_freedom": "The case involved institutional faculty action, not individual faculty expression. The District Court found no constitutional right to educational autonomy even where the claimed autonomy concerned academic non-discrimination commitments. This reinforces the Institutional/Individual axis in the disentanglement matrix: when acting as an institution (through official faculty channels), constitutional protection is narrower than for individual expression.",
+        "post_fair_status": "The free speech and association holdings were reversed by the Supreme Court in FAIR. The educational autonomy holding — that there is no substantive due process right to block equal access — was not disturbed and retains precedential force. FAIR in fact strengthened the educational autonomy limitation by holding that the Solomon Amendment's conduct requirements did not implicate any recognized constitutional right of institutions."
+      },
+      "westlaw_history": {
+        "citation": "Westlaw Advantage - 3 full text History for Burt v Gates.rtf",
+        "case_numbers_in_history": 3,
+        "includes": ["354 F.Supp.2d 156 (principal decision)", "322 F.Supp.2d 189 (standing ruling)"]
+      }
+    },
+    {
+      "id": "legal_003",
+      "case_name": "Griggs v. Duke Power Co.",
+      "citation": "401 U.S. 424 (1971)",
+      "short_name": "Griggs v. Duke Power",
+      "court": "United States Supreme Court",
+      "date": "March 8, 1971",
+      "lower_courts": [
+        {
+          "citation": "292 F.Supp. 243 (M.D.N.C. 1968)",
+          "court": "United States District Court, M.D. North Carolina, Greensboro Division",
+          "date": "September 30, 1968",
+          "background": "Class action by Negro employees (Willie S. Griggs et al.) against Duke Power Company alleging employment practices violated the Civil Rights Act",
+          "district_holding": "Evidence established that the high school education requirement did not, as to Negro employees, violate the Civil Rights Act provisions"
+        }
+      ],
+      "holding": "Title VII of the Civil Rights Act of 1964 prohibits employment practices that are facially neutral but produce a discriminatory effect on a protected class, unless the employer can demonstrate that the practice is related to job performance.",
+      "key_principles": [
+        {
+          "principle": "Disparate impact without discriminatory intent",
+          "formulation": "Good intent or absence of discriminatory intent does not redeem employment procedures or testing mechanisms that operate as 'built-in headwinds' for minority groups and are unrelated to measuring job capability.",
+          "quote": "The Act proscribes not only overt discrimination but also practices that are fair in form, but discriminatory in operation.",
+          "significance": "Establishes that facially neutral practices producing racially disparate effects are actionable without proof of discriminatory intent"
+        },
+        {
+          "principle": "Business necessity defense",
+          "formulation": "If a challenged practice is demonstrably related to job performance — necessary to achieve legitimate business objectives — the employer may maintain it even if it has a disparate impact. But the burden is on the employer to demonstrate the business necessity.",
+          "significance": "Limits the reach of disparate impact doctrine; gives institutions a pathway to maintain neutral practices with legitimate justifications"
+        },
+        {
+          "principle": "Congress directing the dial toward removing discriminatory barriers",
+          "quote": "The Act requires the removal of artificial, arbitrary, and unnecessary barriers to employment when the barriers operate invidiously to discriminate on the basis of racial or other impermissible classification.",
+          "significance": "Locates disparate impact doctrine within the statutory scheme of removing structural barriers, not merely punishing bad actors"
+        }
+      ],
+      "relevance_to_exclusive_inclusion": {
+        "operational_test": "Griggs supplies the analytical structure for the disentanglement matrix's operational test. When institutional action disproportionately excludes members of a protected class — excluding 90% of nationals from a particular country, systematically disadvantaging Black students through nominally neutral policies, screening out faculty candidates from religious or ethnic minorities through 'fit' assessments — the identity-based character of the conduct predominates, and the burden shifts to the institution to demonstrate a legitimate mission-related justification.",
+        "the_pact_case": "The Griggs disparate impact analysis directly applies to the 'The Pact' case study (Gillis & van Stee, Socius 2024): a facially race-neutral COVID-19 behavioral policy that produced systematic racial disadvantage through differential enforcement, visibility, and stakes — without proof of discriminatory intent. Under Griggs, this disparate impact would be actionable if students had standing to bring the claim.",
+        "matrix_identity_axis": "The Identity axis of the disentanglement matrix incorporates Griggs: institutional action falls in the bottom-right quadrant (exclusive inclusion zone) when it produces disparate impact on a protected identity group, regardless of stated intent. The operational test ('disproportionate impact, not perfect sorting') is the Griggs standard applied to the educational governance context.",
+        "standing_gap": "Griggs analysis would reach the exclusive inclusion pattern, but students affected by identity-based exclusion currently lack standing to invoke it at the institutional governance level. Reform 1 (stakeholder standing) creates the procedural mechanism to bring Griggs-based disparate impact claims through derivative actions."
+      },
+      "related_doctrine": {
+        "case": "Guardians Association v. Civil Service Commission",
+        "citation": "463 U.S. 582 (1983)",
+        "relevance": "Further develops Title VI disparate impact doctrine; supports the operational test of disproportionate impact in the civil rights enforcement context"
+      },
+      "westlaw_history": {
+        "citation": "Westlaw Advantage - 14 full text History for Griggs v Duke Power Co.rtf",
+        "cases_in_history": 14,
+        "note": "Extensive litigation history reflecting significance of the case in employment discrimination law"
+      }
+    },
+    {
+      "id": "legal_004",
+      "case_name": "Robertson v. Princeton University",
+      "citation": "No. C-99-02 (N.J. Super. Ct., Mercer Cty.); 2007 WL 7687562 (Oct. 25, 2007, Trial Order)",
+      "short_name": "Robertson v. Princeton",
+      "court": "Superior Court of New Jersey, Chancery Division, Mercer County",
+      "judge": "Judge Neil H. Shuster, P.J.Ch.",
+      "date": "October 25, 2007 (trial order); settled 2008",
+      "background": "In 1961, Marie Robertson donated approximately 700,000 shares of A&P stock to Princeton University. The Robertson Foundation was created with a specific stated mission: 'to strengthen the Government of the United States and increase its ability and determination to defend and extend freedom throughout the world by improving the facilities for the training and education of men and women for government service.' Plaintiffs (Robertson family members who served as family-designated trustees) alleged Princeton's university-designated trustees diverted foundation assets to general university purposes inconsistent with this specific mission.",
+      "procedural_posture": "Plaintiffs moved for partial summary judgment on fiduciary duties and business judgment rule, seeking a ruling that: (1) Princeton and university-designated trustees had fiduciary obligations to the Foundation, including a special duty to advance the Foundation's specific mission; and (2) defendants' actions were not entitled to business judgment rule deference but required proof of 'entire fairness.'",
+      "holding": {
+        "result": "Motion denied",
+        "significance": "Denial of summary judgment meant the case could proceed to trial; the Court found both fiduciary duties AND business judgment rule applied — but the case remained alive to determine whether Princeton breached those duties in administering the mission-specific foundation. The mission's specificity gave the court a judicially manageable standard."
+      },
+      "settlement": {
+        "amount": "Approximately $50 million to new independent Robertson Foundation; total recovery including legal fees approximately $90 million",
+        "significance": "The size of the settlement and the fact that it occurred before final judgment demonstrates that courts can effectively evaluate institutional conduct when missions are specific enough to generate a justiciable standard; institutions will settle rather than litigate their mission compliance if the standard is clear."
+      },
+      "key_legal_principles": [
+        {
+          "principle": "Mission specificity enables judicial review",
+          "description": "The Robertson Foundation's specific mission — government service preparation — gave courts a judicially manageable standard against which to measure Princeton's conduct. Aspirational or vague missions would not generate the same judicial traction.",
+          "application": "Mission Specificity reform (Reform 2) extends this principle through legislation: all tax-exempt educational institutions must adopt missions specific enough to generate the same judicial traction"
+        },
+        {
+          "principle": "Fiduciary duties apply to university trustees in mission-specific contexts",
+          "description": "Princeton's university-designated trustees owed fiduciary duties to the Foundation; those duties included a special obligation to advance the Foundation's specific mission. Business judgment rule deference does not eliminate fiduciary accountability when specific mission standards exist.",
+          "application": "Demonstrates that educational institutions are not immune from fiduciary duty enforcement when mission standards are specific and stakeholders have standing"
+        }
+      ],
+      "relevance_to_exclusive_inclusion": {
+        "reform_2_model": "Robertson is the primary case model for Mission Specificity reform. The lesson: specificity unlocks review. Princeton's general educational mission would not have sustained six years of litigation; the Robertson Foundation's specific government-service mission did. Legislative requirements that educational institutions adopt specific equal-treatment commitments replicate this specificity dynamic across all 501(c)(3) institutions.",
+        "derivative_standing_analog": "The Robertson family members served as foundation trustees — giving them standing to challenge University conduct. The case illustrates what derivative standing accomplishes: it transforms affected parties from passive victims of governance failure into active enforcers of fiduciary obligations. Reform 1 creates a statutory analog for currently enrolled students and faculty."
+      },
+      "westlaw_history": {
+        "citation": "Westlaw Advantage - 3 full text History for Robertson v Princeton University.rtf",
+        "cases_in_history": 3
+      }
+    },
+    {
+      "id": "legal_005",
+      "case_name": "Turner v. Victoria",
+      "citation": "67 Cal.App.5th 1099 (Cal. Ct. App. 2021); cert. granted (Cal. 2023)",
+      "short_name": "Turner v. Victoria",
+      "court": "Court of Appeal, Fourth District, Division 1, California; Superior Court of California, San Diego County",
+      "trial_judge": "Judge Kenneth J. Medel (initial dismissal); Judge Julia Craig Kelety",
+      "appellate_judge": "Justice Irion (Court of Appeal)",
+      "background": "Debra Turner, Director and President of the Conrad Prebys Foundation (a California non-profit public benefit corporation), brought a derivative action against co-directors Laurie Anne Victoria, Joseph Gronotte, Gregory Rogers, and Anthony Cortes, alleging breach of fiduciary duties. The Superior Court dismissed the case for lack of standing when Turner was not reelected as a director.",
+      "trial_court": {
+        "citation": "2019 WL 13440408 (Cal.Super.) (June 24, 2019)",
+        "holding": "All causes of action dismissed with prejudice and without leave to amend; judgment in favor of Foundation and individual defendants; plaintiff lacked standing after losing board position"
+      },
+      "court_of_appeal_holdings": [
+        {
+          "holding": "Director lost standing to continue derivative action once her term as director expired and she was not reelected",
+          "significance": "Confirms that current law ties derivative standing to board membership — a problem Reform 1 addresses by creating standing for enrolled students and employed faculty rather than board members"
+        },
+        {
+          "holding": "Director lost standing to sue under statutes providing remedies for breach of charitable trust, self-dealing transactions, and removal from office for misconduct, once her term expired",
+          "significance": "Statutory enforcement mechanisms for nonprofit fiduciary duties also tied to governance position under current California law"
+        },
+        {
+          "holding": "Remand required for Superior Court to determine whether Attorney General or some other relator should step into plaintiff's role to continue litigation",
+          "quote": "The court must determine on remand whether the Attorney General or some other relator should step into plaintiff's role.",
+          "significance": "THIS IS THE REFORM OPENING: The Court of Appeal recognized that the litigation should continue despite plaintiff's loss of standing — and directed consideration of relator substitution. This reasoning directly supports legislative creation of relator-style standing for enrolled students and faculty. The court signaled that the identity of the enforcing party is less important than whether the fiduciary obligation is enforced."
+        }
+      ],
+      "relevance_to_exclusive_inclusion": {
+        "reform_1_model": "Turner v. Victoria is the primary case model for Stakeholder Standing reform. The case documents the current standing problem (derivative standing lost when board tenure ends), identifies the enforcement gap it creates (legitimate fiduciary breach claim dies with plaintiff's standing), and — critically — the Court of Appeal's remand direction suggests judicial receptivity to non-board stakeholders serving as relators.",
+        "legislative_pathway": "The Court of Appeal's relator analysis in Turner is a judicial invitation to legislative action: if courts are already directing consideration of who besides the original plaintiff can continue nonprofit derivative enforcement, legislatures can respond by designating enrolled students and employed faculty as presumptive relators with statutory standing to bring and continue such actions.",
+        "extension_to_universities": "The Conrad Prebys Foundation is a private philanthropy; Turner v. Victoria applies to nonprofit public benefit corporations generally. The reasoning extends to universities without doctrinal modification. Educational institutions are 501(c)(3) nonprofit public benefit corporations subject to the same fiduciary duty framework."
+      },
+      "westlaw_history": {
+        "citation": "Westlaw Advantage - 4 full text History for Turner v Victoria.rtf",
+        "cases_in_history": 4,
+        "includes": ["Trial court dismissal (2019)", "Court of Appeal decision (67 Cal.App.5th 1099, 2021)"]
+      }
+    }
+  ],
+  "frameworks": [
+    {
+      "id": "framework_001",
+      "name": "Duty of Obedience: Palmiter Framework",
+      "source": {
+        "author": "Alan R. Palmiter",
+        "title": "Duty of Obedience: The Forgotten Duty",
+        "citation": "55 N.Y.L. Sch. L. Rev. 457 (2011)",
+        "publication": "New York Law School Law Review, 2010/2011"
+      },
+      "core_argument": "Directors and officers of for-profit corporations are said to owe two duties to the corporation: care and loyalty. But not so long ago, they also owed the corporation a 'duty of obedience.' This third duty, now largely forgotten, compelled corporate fiduciaries to abide by legal norms — both those of the corporation and of external law.",
+      "historical_foundation": "Ballantine declared in 1946: 'Directors owe a threefold duty to the corporation. First they must be obedient.' The duty of obedience was a recognized, explicit fiduciary duty before being subsumed into the 'duty of good faith' in modern corporate law.",
+      "nonprofit_distinction": "An obedience duty has a long-standing and continuing history for fiduciaries of nonprofit corporations. Non-profit trustees must abide by the legal restrictions that apply to their organizations, such as those imposed by the non-profit's constitutive documents, any donor conditions, and restrictive tax law. The duty is more robust in the nonprofit context because serving social norms stands as an avowed purpose.",
+      "key_distinctions": [
+        {
+          "distinction": "Reasonable cost-benefit violation vs. flagrant pursuit of illegal conduct",
+          "description": "Not all disobedience rises to cognizable breach — just as not all carelessness or disloyalty is actionable. A delivery service double-parking makes a cost-benefit calculation. The well-formulated duty distinguishes this from pursuing an illegal course of conduct in the face of a clear, compelling legal command.",
+          "legal_analog": "The distinction between the business judgment rule (deference for reasonable cost-benefit decisions) and the duty of good faith / Caremark standard (accountability for systematic failure to monitor legal compliance)"
+        },
+        {
+          "distinction": "Injunctive relief vs. personal liability",
+          "description": "Ultra vires actions are typically remedied by non-damages liability (injunction, rescission). Personal liability may be necessary to ensure obedience to legal norms in egregious cases. The Caremark duty, which compels directors to create systems monitoring corporate compliance with legal norms, represents a partially empty threat of personal liability.",
+          "application": "Reform 1 (stakeholder standing) uses the injunctive relief / prospective remedy model rather than personal liability as the primary mechanism — consistent with Palmiter's identification of injunctive relief as the preferred remedy for obedience duty breaches"
+        }
+      ],
+      "reform_application": "Mission Specificity reform (Reform 2) operationalizes the Palmiter framework: once an institution's mission contains a specific equal-treatment commitment, fiduciaries owe a duty of obedience to that commitment. Departures from the specific mission commitment are not shielded by business judgment rule deference. Stakeholder Standing reform (Reform 1) creates the enforcement mechanism for the Palmiter duty — without which the duty remains theoretical."
+    },
+    {
+      "id": "framework_002",
+      "name": "Duty of Obedience: Buckles Taxonomy",
+      "source": {
+        "author": "Johnny Rex Buckles",
+        "title": "How Deep Are the Springs of Obedience Norms That Bind the Overseers of Charities?",
+        "citation": "62 Cath. U. L. Rev. 913 (2013)",
+        "publication": "Catholic University Law Review, Summer 2013",
+        "institution": "Catholic University of America (same institution as project author Seth C. Oranburg)"
+      },
+      "core_argument": "The law of trusts, including charitable trusts, generally requires trustees to obey the terms of their trust. Essentially extending this trust law requirement into charitable nonprofit corporate law, some commentators, joined by at least one court, recognize a third distinct fiduciary duty owed by fiduciaries of charitable nonprofit corporations: the duty of obedience.",
+      "six_obedience_norms": [
+        {
+          "norm": "Legality Norm",
+          "description": "Fiduciaries must ensure the organization complies with applicable law — external legal requirements including constitutional, statutory, and regulatory obligations",
+          "application": "Universities must comply with Title VI, ADA, and other applicable federal law regardless of board preference; the Legality Norm provides the foundation for enforcement"
+        },
+        {
+          "norm": "Dynamic Charter Fidelity Norm",
+          "description": "Fiduciaries must honor the organization's constitutive documents as currently in force, including any amendments",
+          "application": "Once an institution adopts a specific equal-treatment commitment in its mission statement (as required under Reform 2), fiduciaries are bound by the Dynamic Charter Fidelity Norm to honor that commitment in all governance decisions"
+        },
+        {
+          "norm": "Static Charter Fidelity Norm",
+          "description": "Fiduciaries must honor the original constitutive documents even when the organization has formally amended them, if assets were received under the original terms — donor intent at the time of the gift constrains subsequent amendment",
+          "application": "Most relevant to Robertson-type situations where specific donor-purpose gifts have been received; general universities are more governed by the dynamic norm"
+        },
+        {
+          "norm": "Dynamic Mission Fidelity Norm",
+          "description": "Fiduciaries must honor the organization's current mission as a whole, including interpretive evolution; the mission is a living standard that fiduciaries must advance, not merely avoid facially violating",
+          "application": "Even if a university amends its mission to remove a specific equal-treatment commitment, prior mission commitments may constrain the amendment if the institution has received resources (endowments, federal grants, students' tuition) in reliance on those commitments"
+        },
+        {
+          "norm": "Historic Mission Fidelity Norm",
+          "description": "Fiduciaries must honor the organization's historic mission purpose even when current documents have evolved away from it; historical mission constrains reinterpretation",
+          "application": "Institutions that have publicly committed to equal treatment for decades are bound by that historic mission even if current boards attempt to redefine institutional purpose; relevant to institutions claiming their founding educational purpose is inconsistent with equal access reforms"
+        },
+        {
+          "norm": "Charity Advancement Norm",
+          "description": "Fiduciaries must actively advance the organization's charitable purposes, not merely avoid violating them; passive failure to pursue the mission is itself a breach",
+          "application": "Most powerful norm for exclusive inclusion analysis: boards that are aware of systematic identity-based exclusion occurring within their institutions and fail to take action to remedy it breach the Charity Advancement Norm, not merely the Legality Norm; duty to act, not merely to abstain from wrongdoing"
+        }
+      ],
+      "contexts_for_application": [
+        "Daily operations: individual governance decisions must be evaluated against all applicable obedience norms",
+        "Formal charter amendments: amendments must satisfy the Dynamic Charter Fidelity Norm",
+        "Use of funds after amendment: Static Charter Fidelity Norm constrains use of pre-amendment assets",
+        "Dissolution and liquidation: Historic Mission Fidelity and Charity Advancement Norms apply to distribution of assets"
+      ],
+      "reform_application": "The Buckles taxonomy transforms the legislative requirement of mission specificity (Reform 2) into a multi-layered fiduciary obligation: once an institution has adopted a specific equal-treatment commitment as part of its chartered mission, the Dynamic Charter Fidelity Norm, Dynamic Mission Fidelity Norm, and Charity Advancement Norm all simultaneously require fiduciaries to honor, advance, and actively pursue that commitment — creating overlapping fiduciary obligations that provide multiple enforcement angles for stakeholders with derivative standing (Reform 1)."
+    },
+    {
+      "id": "framework_003",
+      "name": "Option Value Theory of Institutional Compliance",
+      "category": "Economic Theory / Behavioral Institutional Analysis",
+      "source": {
+        "basis": "Financial economics option value theory applied to institutional decision-making under regulatory uncertainty; synthesized from institutional behavior analysis in the exclusive inclusion paper"
+      },
+      "core_argument": "When universities faced federal pressure between 2024 and 2025, they consistently accepted reversible policy compliance rather than permanent governance reform. This pattern is not irrational short-termism — it reflects a rational economic calculation about option value.",
+      "option_value_mechanism": {
+        "what_is_option_value": "In financial economics, an option is the right (but not the obligation) to take a future action. Option value is the value of preserving that right. An institution that avoids permanent governance reform preserves the option to return to its prior practices if political or legal pressure changes.",
+        "policy_compliance_preserves_option": "Adopting an antisemitism definition, appointing a Title VI liaison, or conducting a climate survey are reversible actions. If the political environment shifts, the definition can be reinterpreted, the liaison can be given different responsibilities, the survey findings can be deprioritized. The option to revert is preserved.",
+        "structural_reform_destroys_option": "Adopting stakeholder standing (Reform 1), enforceable mission specificity (Reform 2), or operational governance accountability (Reform 3) is not reversible without significant legal process. Once students have standing to bring derivative claims, institutions cannot unilaterally remove that standing. Once a specific mission commitment is encoded in the charter and supported by the Buckles taxonomy of obedience norms, departure from it is a fiduciary breach. The option to revert is foreclosed.",
+        "rational_institutional_choice": "Facing uncertain future political environments, rational institutions will prefer reversible compliance to structural reform even when structural reform is the more effective long-term solution. This preference is not hypocritical — it is a rational option-value calculation. The institution is buying time."
+      },
+      "policy_implications": [
+        "Federal coercion that demands only policy compliance is systematically insufficient to produce structural reform, even if compliance is genuine, because institutions will rationally choose the reversible response",
+        "The 2025 settlement agreements' failure to require governance reform is not an oversight — it reflects negotiating rational actors on both sides: universities wanted to preserve option value; federal officials may have accepted the option-preserving settlement as a faster resolution",
+        "Only structural reform that forecloses the reversion option — through legal mechanisms that are costly to undo — can break the option-value dynamic",
+        "Reform 1 (stakeholder standing created by statute) has the highest option-foreclosure value because reversing it requires legislative action; Reform 3 (operational test) has the lowest because it can be reversed through IRS guidance without legislation"
+      ],
+      "evidence": "Harvard won a judicial victory in 2025 declaring the funding freeze unconstitutional. Yet the governance void persists at Harvard. Columbia and Brown settled for nine figures and adopted compliance measures. The governance void persists at Columbia and Brown. The pattern — large compliance costs, zero structural reform — is precisely what the option value theory predicts: rational institutions prefer paying to preserve the reversion option over accepting structural foreclosure.",
+      "reform_design_implication": "Effective reforms must be designed to maximize option-foreclosure value: legal mechanisms that are costly to reverse (statutes over regulations, judicial precedent over agency guidance, contract rights over policy commitments) are more effective at breaking the option-value dynamic than administratively convenient mechanisms that preserve institutional reversion flexibility."
+    }
+  ],
+  "doctrinal_synthesis": {
+    "exclusive_inclusion_legal_argument_chain": [
+      {
+        "step": 1,
+        "proposition": "Universities have systematic governance architecture that creates an accountability void",
+        "authority": "Sovereign charity framework (Oranburg); Palmiter (55 N.Y.L. Sch. L. Rev. 457); Buckles (62 Cath. U. L. Rev. 913)"
+      },
+      {
+        "step": 2,
+        "proposition": "The governance void enables organized factions to produce identity-based exclusion without any individual being accountable",
+        "authority": "Carmichael & Hamilton (Black Power 1967); Gerken (second-order diversity); Griggs disparate impact doctrine (401 U.S. 424)"
+      },
+      {
+        "step": 3,
+        "proposition": "Existing law does not reach institutional, identity-targeted conduct because of the Jurisdictional Retreat and standing gaps",
+        "authority": "First Amendment compelled speech limits (FAIR, 547 U.S. 47); educational autonomy limits (Burt v. Gates, 354 F.Supp.2d 156); ADA/504 enforcement gaps"
+      },
+      {
+        "step": 4,
+        "proposition": "Academic freedom does not extend to institutional deployment of official authority to produce identity-based exclusion",
+        "authority": "Burt v. Gates (no substantive due process right to educational autonomy blocking equal access); FAIR (conduct regulation not speech regulation)"
+      },
+      {
+        "step": 5,
+        "proposition": "Governance reform targeting structural accountability is constitutionally permissible",
+        "authority": "FAIR (equal access = conduct, not speech; spending conditions permissible if direct regulation would be); South Dakota v. Dole (spending power conditions)"
+      },
+      {
+        "step": 6,
+        "proposition": "Stakeholder standing reform is feasible and creates effective accountability",
+        "authority": "Turner v. Victoria (67 Cal.App.5th 1099; relator substitution reasoning); corporate derivative suit doctrine (Fed. R. Civ. P. 23.1)"
+      },
+      {
+        "step": 7,
+        "proposition": "Mission specificity converts the hollow duty of obedience into a justiciable standard",
+        "authority": "Robertson v. Princeton (2007 WL 7687562; mission specificity unlocks judicial review); Palmiter and Buckles obedience duty frameworks"
+      },
+      {
+        "step": 8,
+        "proposition": "Operational test reform conditioning exemption on governance structures is constitutional and administratively feasible",
+        "authority": "FAIR (conduct condition not speech regulation); Rev. Rul. 69-545 and I.R.C. § 501(r) (hospital community benefit standard as precedent); South Dakota v. Dole"
+      }
+    ]
+  }
+}

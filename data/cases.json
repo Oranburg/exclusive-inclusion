@@ -1,0 +1,234 @@
+{
+  "schema_version": "2.0",
+  "description": "Five identity group case studies documenting exclusive inclusion across different demographic categories. Each case documents the empirical evidence, governance problem, and jurisdictional retreat mechanism.",
+  "common_structural_pattern": {
+    "claim": "The mechanism is architectural, not attitudinal, and operates simultaneously across all five identity groups.",
+    "description": "Across Women of Color in STEM, Black students at liberal arts colleges, faculty with non-conforming or dissenting views, Jewish students, and students with disabilities, the same governance architecture yields exclusion because the accountability void does not discriminate among the groups it leaves unprotected.",
+    "implication": "Governance reform benefits every affected constituency because it targets the shared structural mechanism rather than group-specific attitudes."
+  },
+  "cases": [
+    {
+      "id": "case_001",
+      "identity_group": "Jewish Students",
+      "headline": "Campus Antisemitism Post-October 7, 2023",
+      "trigger": "The Hamas attack on Israel on October 7, 2023 precipitated a wave of campus demonstrations, encampments, exclusion zones, faculty boycott endorsements, and systematic intimidation of Jewish students at universities with explicit anti-discrimination policies.",
+      "empirical_data": {
+        "source": "Waldman-Levi et al. (2025) national survey of Jewish college students",
+        "key_statistics": [
+          {
+            "stat": "57.3% of Jewish students reported direct personal experiences of antisemitism",
+            "significance": "Majority of Jewish students experienced antisemitism firsthand — not merely ambient hostility"
+          },
+          {
+            "stat": "63.4% of Jewish students reported bystander exposure to antisemitism",
+            "significance": "Supermajority of Jewish students witnessed antisemitism directed at others"
+          },
+          {
+            "stat": "Most Jewish students lacked confidence their universities would respond to reported antisemitism",
+            "significance": "Institutional non-response documented by affected students themselves — not merely asserted by critics"
+          }
+        ],
+        "institutional_data": [
+          {
+            "institution": "UC Los Angeles",
+            "incidents": "4,130 antisemitism incidents reported; increase of 3,150 from prior year"
+          },
+          {
+            "institution": "UC Berkeley",
+            "incidents": "Increase of 531 antisemitism incidents"
+          },
+          {
+            "institution": "UC Santa Cruz",
+            "incidents": "Faculty boycott endorsers held academic leadership positions shaping curricula, pedagogy, and speaker selection through captured governance structures"
+          }
+        ],
+        "federal_response": "Federal officials launched Title VI investigations into more than sixty institutions. Nine-figure settlements extracted from Columbia, Brown, and others. Conditions imposed: definitions of antisemitism, liaisons, climate surveys. No settlement required governance reform."
+      },
+      "governance_problem": {
+        "description": "At multiple University of California campuses, departmental units used delegated authority to advance coordinated campaigns that fueled exclusion and intimidation of Jewish student groups. The Board of Regents had no governance mechanism to intervene in departmental conduct.",
+        "encampment_governance_failure": "Encampment operations at UCLA created exclusion zones from which Jewish students were physically blocked. University administration claimed inability to intervene without faculty senate approval. Faculty senate claimed the conduct was protected expression. Neither body had enforceable authority to compel the other to act.",
+        "faculty_capture": "Faculty boycott endorsers held academic leadership positions at UCLA, UC Berkeley, and UC Santa Cruz, shaping curricula, pedagogy, and speaker selection through captured governance structures. No mechanism existed to challenge departmental decisions through internal channels.",
+        "asymmetry": "Universities maintained offices, programs, and enforcement mechanisms for racial equity, gender inclusion, LGBTQ+ advocacy, and disability access. The same universities treated identity-based exclusion of Jewish students as political expression falling outside civil rights infrastructure — demonstrating inclusion asymmetry."
+      },
+      "jurisdictional_retreat": {
+        "mechanism": "Faculty and student organizations claiming individual academic freedom or political expression to shield institutional deployment of departmental authority against Jewish students",
+        "example": "Faculty for Justice in Palestine chapters used departmental authority, budgets, and speaker-selection power to exclude Israeli and Jewish scholars; individual faculty members claimed personal academic freedom when challenged. Institutional character disappeared from the analysis.",
+        "result": "Without stakeholder standing, affected Jewish students had no internal mechanism to challenge departmental decisions. Title VI complaints required external federal process lasting months to years. Governance void left them structurally unprotected."
+      },
+      "why_governance_void_explains": "The same governance architecture that makes universities unable to enforce their anti-discrimination commitments against antisemitism also makes them unable to enforce those commitments for every other identity group. The governing body answers to no one; the fiduciary duty has no enforcement mechanism; no affected student can bring a derivative claim."
+    },
+    {
+      "id": "case_002",
+      "identity_group": "Women of Color in STEM",
+      "headline": "Race-Avoidant Governance in Computer Science Gender Equity Programs",
+      "empirical_data": {
+        "source": "Documented at four public research universities with formal gender equity programs in computer science departments",
+        "key_finding": "Computer science departments with formal gender equity programs systematically excluded Women of Color through race-avoidant governance processes that prioritized gender while erasing race.",
+        "mechanism_detail": "Institutional DEI roles were narrowly defined around gender diversity; race was excluded from the operational definition of 'diversity' in program design, metrics, and eligibility. Women of Color were formally included in the category 'women' but excluded from the practices that substantively addressed barriers to inclusion.",
+        "pattern": "Four separate institutions with similar formal commitments produced the same exclusionary pattern — consistent with the hypothesis that governance architecture, not individual actors, generates the outcome"
+      },
+      "governance_problem": {
+        "description": "DEI committee structures were designed to address gender; they lacked authority or mandate to address the intersection of race and gender. Faculty and administrators with decision-making authority over program design had no accountability mechanism requiring them to address race-gender intersection.",
+        "race_avoidance": "Post-SFFA (Students for Fair Admissions v. Harvard, 600 U.S. 181 (2023)) institutional caution created incentives to design programs that could claim race-neutrality. Women of Color bore the cost of institutions optimizing for legal defensibility over substantive inclusion.",
+        "second_order_dynamic": "Each individual programmatic decision appeared defensible in isolation; the aggregate pattern was systematic exclusion of Women of Color. No single decision-maker could be held accountable for the pattern — the governance architecture disaggregated responsibility."
+      },
+      "jurisdictional_retreat": {
+        "mechanism": "Institutional reframing: when Women of Color raised the intersection issue, program administrators characterized the gender equity program as legally constrained, citing post-SFFA uncertainty; individual faculty members exercised 'academic judgment' in program design; no institutional actor claimed responsibility for the aggregate exclusionary pattern.",
+        "result": "Affected Women of Color had no standing to challenge DEI committee decisions, no enforceable standard to invoke, and no institutional pathway for accountability. External agencies faced coordination problems identifying which actor had produced the pattern."
+      },
+      "why_governance_void_explains": "Gender equity programs with formal commitments produced systematic exclusion of Women of Color because the governance void — self-perpetuating committee structure, unenforceable mission, no stakeholder standing — allowed the programs to optimize for legal defensibility rather than substantive inclusion with no accountability for the resulting harm."
+    },
+    {
+      "id": "case_003",
+      "identity_group": "Black Students at Predominantly White Liberal Arts Colleges",
+      "headline": "Race-Neutral Behavioral Policy Reproducing Racial Inequality",
+      "empirical_data": {
+        "primary_study": {
+          "citation": "Alanna Gillis & Elena G. van Stee, 'The Pact: How a Seemingly Race-Neutral Behavioral Policy Reproduced Racial Inequality at a Predominantly White Liberal Arts College,' Socius: Sociological Research for a Dynamic World, Vol. 10 (2024), DOI: 10.1177/23780231241286371",
+          "methodology": "Three waves of in-depth interviews with 30 undergraduates (N = 75 interviews) at a selective liberal arts college (SLAC); longitudinal design covering the 2020-2021 academic year",
+          "institution": "Predominantly White selective liberal arts college (SLAC); historically catered to wealthy White population; recently expanded through Higher Education Opportunity Project (HEOP) recruiting lower-income students of color from New York City, primarily Black and Latinx students on (nearly) full financial aid"
+        },
+        "the_policy": "The Pact: an ostensibly race-neutral COVID-19 behavioral policy implemented to reduce outbreaks by limiting students' close contacts. The policy succeeded in its epidemiological goal while inadvertently imposing disproportionate social costs on SLAC's small population of students of color.",
+        "four_disparity_domains": [
+          {
+            "domain": "Social isolation in residence halls",
+            "finding": "Residential assignment patterns, combined with the Pact's contact restrictions, isolated students of color from peer networks while White students retained access to established social networks rooted in shared class background"
+          },
+          {
+            "domain": "Access to 'safe' forms of rule-breaking",
+            "finding": "White students, particularly varsity athletes and affluent students, had access to informal networks and physical spaces that allowed rule-bending without exposure to institutional sanctions; students of color lacked equivalent access to these informal exemptions"
+          },
+          {
+            "domain": "Visibility and surveillance",
+            "finding": "Black male students experienced heightened surveillance both on and off campus; their rule violations were more visible and more likely to be reported; differential enforcement produced disparate outcomes from nominally identical rules"
+          },
+          {
+            "domain": "Stakes of violation",
+            "finding": "Students of color faced higher stakes for policy violations — more likely to lose financial aid, housing, or academic standing — while White students faced lower formal and informal consequences for comparable violations"
+          }
+        ],
+        "three_mechanisms": [
+          "Unequal resource allocation: SLAC's demographic composition (students of color clustered at the bottom of the socioeconomic distribution) meant equal formal policy produced unequal substantive impact",
+          "Uneven rule enforcement: differential enforcement patterns produced disparate outcomes from nominally identical rules",
+          "Color-blind decision-making: policy-makers designed the Pact without analyzing racial impacts, treating race-neutrality as sufficient for racial equity"
+        ],
+        "institutional_characteristics": "SLAC's majority-White demographics, privileged treatment of varsity athletes, and tight coupling of racial and class inequality were identified as specific organizational characteristics that facilitated the observed patterns"
+      },
+      "governance_problem": {
+        "description": "The college's DEI commitments were formal, not structural. The Pact was designed without racial impact analysis because the governance structure contained no mechanism requiring such analysis as a precondition for policy adoption.",
+        "explicit_dei_failure": "The college had explicit DEI commitments. Those commitments did not prevent the adoption of a policy that systematically disadvantaged students of color, because the governance structure contained no mechanism for enforcing the commitments against individual policy decisions.",
+        "color_blind_governance": "Color-blind decision-making — treating the absence of explicit racial distinctions as sufficient to satisfy DEI commitments — was not an individual failure but a governance design feature: no standing, no standard, no mechanism."
+      },
+      "jurisdictional_retreat": {
+        "mechanism": "When students of color raised the disparate impact of the Pact, administrators characterized the policy as race-neutral (accurate in design, inaccurate in effect) and therefore not subject to DEI review; individual faculty and administrators exercised 'neutral' academic and administrative judgment; the color-blind framing disabled the institution's civil rights infrastructure.",
+        "griggs_relevance": "Griggs v. Duke Power Co. disparate impact analysis would reach the Pact's effects: a facially neutral policy producing systematic racial disadvantage is actionable without proof of discriminatory intent. But students of color had no standing to invoke Griggs-based analysis at the institutional level; only the government could bring such a claim, and no government actor did so.",
+        "result": "Students of color affected by the Pact had no internal governance mechanism to challenge the policy, no enforceable standard to invoke, and no legal standing to bring a claim. The governance void left them structurally unprotected despite the college's formal DEI commitments."
+      },
+      "why_governance_void_explains": "The Pact case is the clearest laboratory demonstration of exclusive inclusion: an institution with explicit DEI commitments, staffed by individuals who sincerely supported those commitments, produced systematic racial inequality as a structural output of color-blind policy design. The governance void — no stakeholder standing, hollow duty of obedience, self-perpetuating governance — prevented internal course-correction."
+    },
+    {
+      "id": "case_004",
+      "identity_group": "Faculty with Non-Conforming or Dissenting Views",
+      "headline": "Ideological Conformity Through Governance Capture of Hiring and Evaluation",
+      "terminology_note": "The operative category is 'faculty with non-conforming or dissenting views' — faculty whose intellectual positions deviate from the dominant institutional consensus — not partisan conservatives. The mechanism focuses on institutional consensus enforcement, not partisan valence. The FIRE data documents the current asymmetry but the governance mechanism would operate symmetrically against any minority-view faculty at any ideologically homogeneous institution.",
+      "empirical_data": {
+        "source": "Noah Honeycutt, 'Silence in the Classroom: The 2024 FIRE Faculty Survey Report,' Foundation for Individual Rights and Expression (2024) [hereinafter FIRE 2024 Report]",
+        "survey_scope": "6,269 tenured, tenure-track, and non-tenure track faculty at 55 four-year colleges and universities; described as the largest survey of faculty ever conducted on this topic",
+        "key_statistics": [
+          {
+            "stat": "35% of faculty have recently toned down their writing for fear of controversy",
+            "comparison": "9% of social scientists reported the same during the McCarthy era — a Cold War period of substantial pressure to restrict faculty expression",
+            "significance": "Current self-censorship rate is nearly four times the McCarthyism baseline"
+          },
+          {
+            "stat": "14% of faculty suffered discipline or threats of discipline for their teaching, research, academic talks, or other off-campus speech",
+            "significance": "Approximately 1 in 7 faculty report concrete disciplinary consequences or threats — not merely ambient fear"
+          },
+          {
+            "stat": "27% of faculty feel unable to speak freely for fear of how students, administrators, or other faculty would respond",
+            "significance": "More than 1 in 4 faculty report a chilling effect sufficient to alter their speech behavior"
+          },
+          {
+            "stat": "40% of faculty worry about damaging their reputations because someone misunderstands something they have said or done",
+            "significance": "Reputational risk perceived as pervasive"
+          },
+          {
+            "stat": "23% of faculty worry about losing their jobs because someone misunderstands something they have said or done",
+            "significance": "Approximately 1 in 4 faculty — roughly paralleling the rate of department hostility"
+          },
+          {
+            "stat": "23% say their own departments are 'somewhat' or 'very' hostile toward people with their political beliefs",
+            "significance": "Departmental hostility reported by 1 in 4 faculty; locates the mechanism at the subunit governance level"
+          },
+          {
+            "stat": "55% of conservative faculty at least occasionally hide their political views to keep their jobs, compared to 17% of liberal faculty",
+            "significance": "Asymmetry is three-to-one; behavioral adaptation confirms the chilling effect is not merely attitudinal"
+          },
+          {
+            "stat": "Nearly three-quarters of faculty said a liberal individual would be a positive fit in their department; only 1 in 5 said the same about a conservative individual",
+            "significance": "'Poor fit' translates operationally to 'not admitted,' 'not hired,' or 'not promoted' — documenting governance capture of hiring and evaluation"
+          },
+          {
+            "stat": "50% of faculty say it is rarely or never justified to require faculty job candidates to submit DEI commitment statements",
+            "significance": "Majority of faculty oppose DEI loyalty tests yet the practice persists — consistent with governance capture of hiring committees over faculty majority preference"
+          },
+          {
+            "stat": "66% of faculty say colleges and universities should not take positions on political and social issues",
+            "significance": "Supermajority of faculty support institutional neutrality (Kalven principle); institutional political positioning persists despite faculty majority preference — consistent with governance capture"
+          }
+        ],
+        "illustrative_case": {
+          "subject": "Johnson Varkey, biology professor, St. Philip's College",
+          "facts": "Varkey explained chromosomal sex determination during his Human Anatomy and Physiology class in November 2022; four students walked out; college placed him under investigation for an ethics violation; terminated his contract; reinstated after FIRE intervention one year later",
+          "significance": "Documents how individual faculty members with non-conforming views face institutional discipline through captured governance structures; process resolved only through external legal intervention"
+        },
+        "kathleen_mcelroy_case": {
+          "subject": "Kathleen Oveta McElroy, Texas A&M journalism program hire",
+          "facts": "Hired to head revived journalism program in June 2023; administration and board of regents members complained about her DEI background and race research; interim dean told her certain people might force leadership to fire her; McElroy walked away; A&M investigated; interim dean and president resigned; McElroy settled for $1 million; internal report confirmed emails from administrators and regents showing political issues over DEI played a role; Bermúdez told McElroy that being 'a black woman who worked at The New York Times' with a DEI background was a problem",
+          "significance": "Documents intersection of race and viewpoint exclusion operating through captured board governance; external accountability (financial settlement) resolved the individual case but not the governance structure"
+        }
+      },
+      "governance_problem": {
+        "description": "Faculty hiring in many departments operates through informal culture and committee discretion that effectively screens out candidates whose views deviate from the dominant institutional consensus, substituting ideological conformity for open intellectual inquiry.",
+        "mechanism": "Departmental hiring committees exercise subjective 'fit' judgments without enforceable standards; search processes lack stakeholder accountability; board oversight is nominal; external candidates with dissenting views are rejected through processes that generate no reviewable record.",
+        "institutional_claim": "Universities claim to value intellectual diversity. Faculty senate majorities endorse institutional neutrality. The formal commitments are genuine. The governance structure — committee discretion, subjective fit standards, no external review, no stakeholder standing — makes those commitments structurally unenforceable at the department level."
+      },
+      "jurisdictional_retreat": {
+        "mechanism": "Academic freedom and faculty governance autonomy: departmental decisions on hiring, promotion, tenure, and course assignments are characterized as faculty governance prerogatives immune from external review; 'academic judgment' forecloses challenge to the exclusionary pattern",
+        "burt_v_gates_limit": "Burt v. Rumsfeld (Gates), 354 F.Supp.2d 156 (D. Conn. 2005): The district court held that there is no substantive due process right of educational autonomy that extends to blocking equal access obligations. Applied to the institutional axis of the disentanglement matrix: academic freedom does not provide institutional immunity for systematically deploying official governance authority to exclude on identity or viewpoint grounds.",
+        "result": "Faculty with non-conforming views who are excluded through hiring, promotion, or assignment have no standing to challenge departmental decisions, no enforceable standard to invoke, and no mechanism for institutional accountability. The academic freedom that should protect dissent is invoked by the capturing faction to shield the exclusionary pattern."
+      },
+      "analytical_question": "The governance mechanism for faculty with non-conforming views is structurally identical to the mechanism for other identity groups: committee capture, informal standards, no standing, hollow duty of obedience. The legal treatment differs: courts extend substantial deference to faculty governance decisions. Whether viewpoint exclusion is the 'same' governance mechanism as identity exclusion, and whether the legal asymmetry proves or undermines the cross-identity structural claim, is an open question the paper flags for workshop discussion."
+    },
+    {
+      "id": "case_005",
+      "identity_group": "Students with Disabilities",
+      "headline": "Principal-Agent Breakdown Converting Legal Entitlements to Contingent Privileges",
+      "empirical_data": {
+        "sources": [
+          {
+            "study": "Kelly (1996)",
+            "finding": "Accommodation processes exhibit substantial principal-agent breakdown; formal entitlements routinely not delivered"
+          },
+          {
+            "study": "Roslin (2022)",
+            "finding": "ADA and Section 504 legal entitlements for students with disabilities function as contingent privileges dependent on individual accommodation officers; systematic under-enforcement documented"
+          }
+        ],
+        "pattern": "Students with documented disabilities hold legal entitlements — accommodations required by ADA and Section 504 — that are systematically not delivered because the delivery mechanism depends on individual agent discretion without internal accountability structure."
+      },
+      "governance_problem": {
+        "description": "Accommodation offices operate as the implementing agent for statutory disability rights. The principal-agent chain from board to disability services officer is long and unmonitored; each link has discretion; no stakeholder can compel delivery of the entitlement through internal governance channels.",
+        "principal_agent_breakdown": "Board sets policy; president implements; dean oversees; disability services office administers; individual officers make delivery decisions. Each link introduces discretion; no link is subject to enforceable accountability from the student stakeholder.",
+        "structural_comparison": "Unlike any other service that universities promise, disability accommodations have the distinctive feature of being both legally mandated and discretionarily administered — a combination that the governance void converts from entitlement to contingent privilege.",
+        "result": "Students with disabilities who are denied required accommodations have no internal governance mechanism to enforce their rights; external complaint processes (OCR complaints, litigation) are expensive, slow, and impose substantial costs on students with already-impaired capacity to navigate adversarial processes."
+      },
+      "jurisdictional_retreat": {
+        "mechanism": "Administrative discretion: accommodation decisions are characterized as clinical or educational judgments by trained professionals, insulated from external review; individual officers invoke expertise to shield non-delivery from accountability",
+        "formal_legal_entitlement_gap": "Students with disabilities have the most formally robust legal entitlements of any case study group (ADA, Section 504, institutional policy) and among the least effective governance mechanisms for enforcing them. The gap between formal entitlement and structural enforcement capacity demonstrates that formal legal rights without governance accountability mechanisms produce hollow protection — the exact conclusion the three structural reforms address.",
+        "result": "The disability case is analytically important precisely because it involves clear legal entitlements. When governance void can produce systematic non-delivery even of legally mandated services, it demonstrates that formal rights alone are insufficient; governance architecture is the mechanism of enforcement."
+      },
+      "why_governance_void_explains": "The disability case isolates the governance void as the causal variable by controlling for legal entitlement: students with disabilities have strong formal rights and still face systematic exclusion because the governance structure contains no enforcement mechanism for the affected stakeholder. If formal legal rights were sufficient, the disability case would not exist. The governance void explains the gap."
+    }
+  ]
+}
