@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Visualizations — Exclusive Inclusion</title>
+  <meta name="description" content="Interactive experimental visualizations for Exclusive Inclusion: disentanglement matrix, immunodeficiency dashboard, legal network, and reform simulator.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Oswald:wght@200..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/oranburg-style.css">
+  <style>
+    .page-header {
+      background: var(--bg-secondary);
+      padding: var(--space-2xl) var(--space-xl);
+      text-align: center;
+      border-bottom: 3px solid var(--accent-red);
+    }
+    .page-header h1 { font-size: 2.2rem; margin: 0 0 var(--space-xs); }
+    .page-header p { color: var(--muted); font-family: var(--font-accent); font-size: 1.05rem; margin: 0; }
+
+    .return-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-family: var(--font-headline); font-size: 0.75rem;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--accent); margin-bottom: var(--space-xl);
+    }
+    .return-link:hover { color: var(--yellow); }
+
+    .vis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-xl);
+      margin: var(--space-xl) 0;
+    }
+    .vis-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--accent-red);
+      border-radius: 0 0 var(--radius-md) var(--radius-md);
+      padding: var(--space-xl);
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .vis-card:hover {
+      border-color: var(--accent);
+      border-top-color: var(--yellow);
+      transform: translateY(-3px);
+      color: var(--text);
+    }
+    .vis-icon { font-size: 2.5rem; margin-bottom: var(--space-sm); }
+    .vis-page-label {
+      font-family: var(--font-headline); font-size: 0.65rem;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--accent-red); margin-bottom: var(--space-xs);
+    }
+    .vis-card h3 {
+      font-family: var(--font-headline); font-size: 1.25rem;
+      color: var(--accent); margin: 0 0 var(--space-xs);
+    }
+    .vis-card p {
+      color: var(--muted); font-size: 0.9rem;
+      margin: 0; flex: 1; line-height: 1.6;
+    }
+    .vis-card-footer {
+      margin-top: var(--space-lg);
+      font-family: var(--font-mono); font-size: 0.7rem;
+      color: var(--muted); border-top: 1px solid var(--border);
+      padding-top: var(--space-sm);
+    }
+
+    .data-sources {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--yellow);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: var(--space-lg) var(--space-xl);
+      margin: var(--space-xl) 0;
+    }
+    .data-sources h3 { color: var(--yellow); margin: 0 0 var(--space-sm); font-size: 1rem; }
+    .data-source-list {
+      display: flex; gap: var(--space-md); flex-wrap: wrap;
+      margin-top: var(--space-sm);
+    }
+    .data-chip {
+      font-family: var(--font-mono); font-size: 0.75rem;
+      padding: 4px 10px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      color: var(--accent);
+    }
+  </style>
+  <script>
+    (function(){
+      try { var t=localStorage.getItem('ei-theme'); document.documentElement.setAttribute('data-theme',t==='light'||t==='dark'?t:'dark'); } catch(e){}
+    })();
+  </script>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Site navigation">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="../paper/">Full Text</a></li>
+      <li><a href="../visualize/" aria-current="page">Visualizations</a></li>
+      <li><a href="https://dx.doi.org/10.2139/ssrn.6423378" target="_blank" rel="noopener noreferrer">SSRN</a></li>
+      <li>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <h1>Interactive Visualization Ecosystem</h1>
+    <p>Four experimental interfaces for exploring <em>Exclusive Inclusion</em> theory, data, and law.</p>
+  </header>
+
+  <main class="site-content">
+    <a href="/" class="return-link">← Return to Home</a>
+
+    <h2>Choose a Visualization</h2>
+
+    <div class="vis-grid">
+      <a href="matrix.html" class="vis-card">
+        <div class="vis-icon">⊞</div>
+        <div class="vis-page-label">Page A · The Anchor</div>
+        <h3>Disentanglement Matrix</h3>
+        <p>Click the 2×2 grid to load jurisdictional retreat case studies. Animate the rhetorical shift from institutional identity-targeted conduct to individual perspective-based expression — the core mechanism of exclusive inclusion.</p>
+        <div class="vis-card-footer">Data: cases.json · legal_logic.json</div>
+      </a>
+
+      <a href="dashboard.html" class="vis-card">
+        <div class="vis-icon">🏛️</div>
+        <div class="vis-page-label">Page B · The Metaphor</div>
+        <h3>Immunodeficiency Dashboard</h3>
+        <p>Model the university as a patient. View three accountability gauges set to Low/Void. Select a capturing faction and watch it bypass hollow governance. Toggle structural reforms to restore institutional immunity.</p>
+        <div class="vis-card-footer">Data: manifest.json · cases.json</div>
+      </a>
+
+      <a href="network.html" class="vis-card">
+        <div class="vis-icon">⬡</div>
+        <div class="vis-page-label">Page C · The Skeleton</div>
+        <h3>Legal Connectivity Map</h3>
+        <p>Node-based network showing how FAIR, Griggs, Turner, and Burt v. Gates provide the legal skeleton for exclusive inclusion theory. Click any case node to open its Law Card with holding and matrix application.</p>
+        <div class="vis-card-footer">Data: legal_logic.json</div>
+      </a>
+
+      <a href="roadmap.html" class="vis-card">
+        <div class="vis-icon">📐</div>
+        <div class="vis-page-label">Page D · The Economics</div>
+        <h3>Reform Roadmap &amp; Option Value Simulator</h3>
+        <p>Use the political pressure slider to see why institutions rationally choose temporary compliance over structural reform — and how option-foreclosure reforms break that rational calculation.</p>
+        <div class="vis-card-footer">Data: reforms.json · legal_logic.json</div>
+      </a>
+    </div>
+
+    <div class="data-sources">
+      <h3>🗂 Data Sources</h3>
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:var(--space-sm)">All visualizations fetch data dynamically from the <code>/data</code> directory. No external APIs.</p>
+      <div class="data-source-list">
+        <span class="data-chip">manifest.json</span>
+        <span class="data-chip">cases.json</span>
+        <span class="data-chip">legal_logic.json</span>
+        <span class="data-chip">reforms.json</span>
+      </div>
+    </div>
+
+    <h2>About This Ecosystem</h2>
+    <p>These four pages are experimental interfaces for exploring the <em>Exclusive Inclusion</em> theory. Each takes a different creative approach to visualizing the same underlying framework:</p>
+    <ul>
+      <li><strong>The Matrix</strong> is the diagnostic anchor — the core analytical tool of the paper.</li>
+      <li><strong>The Dashboard</strong> operationalizes the immunodeficiency metaphor from §I.C of the paper.</li>
+      <li><strong>The Network</strong> maps the legal skeleton — the doctrinal foundations that the theory builds upon.</li>
+      <li><strong>The Roadmap</strong> applies the Option Value Theory from §V to explain institutional resistance to structural reform.</li>
+    </ul>
+    <p>For the full paper, see <a href="https://ssrn.com/abstract=6423378" target="_blank" rel="noopener noreferrer">SSRN Working Paper</a>.</p>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Seth C. Oranburg. Working paper. All rights reserved.</p>
+    <p>
+      <a href="/">Home</a> &middot;
+      <a href="https://dx.doi.org/10.2139/ssrn.6423378" target="_blank" rel="noopener noreferrer">DOI: 10.2139/ssrn.6423378</a> &middot;
+      <a href="https://oranburg.law" target="_blank" rel="noopener noreferrer">oranburg.law</a>
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById('themeToggle').addEventListener('click', function(){
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('ei-theme', next); } catch(e){}
+    });
+  </script>
+</body>
+</html>

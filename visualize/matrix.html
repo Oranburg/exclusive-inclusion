@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disentanglement Matrix — Exclusive Inclusion</title>
+  <meta name="description" content="Interactive Disentanglement Matrix: visualizing the actor–target axes of exclusive inclusion theory.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Oswald:wght@200..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/oranburg-style.css">
+  <style>
+    /* ── Page layout ── */
+    .page-header {
+      background: var(--bg-secondary);
+      padding: var(--space-2xl) var(--space-xl);
+      text-align: center;
+      border-bottom: 3px solid var(--accent-red);
+    }
+    .page-header h1 { font-size: 2.2rem; margin: 0 0 var(--space-xs); }
+    .page-header p { color: var(--muted); font-family: var(--font-accent); font-size: 1.05rem; margin: 0; }
+    .return-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-headline);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      margin-bottom: var(--space-xl);
+    }
+    .return-link:hover { color: var(--yellow); }
+
+    /* ── Matrix grid ── */
+    .matrix-wrapper {
+      display: grid;
+      grid-template-columns: 80px 1fr 1fr;
+      grid-template-rows: 80px 1fr 1fr;
+      gap: 6px;
+      max-width: 900px;
+      margin: var(--space-xl) auto;
+    }
+    .axis-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-headline);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+    }
+    .axis-label.vertical {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      grid-column: 1;
+      grid-row: 2 / span 2;
+    }
+    .axis-label.col-top-1 { grid-column: 2; grid-row: 1; color: var(--accent); }
+    .axis-label.col-top-2 { grid-column: 3; grid-row: 1; color: var(--accent-red); }
+    .axis-label.row-left-1 { grid-column: 1; grid-row: 2; }
+    .axis-label.row-left-2 { grid-column: 1; grid-row: 3; }
+
+    .quadrant {
+      min-height: 220px;
+      padding: var(--space-lg);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      position: relative;
+      overflow: hidden;
+    }
+    .quadrant:hover { transform: translateY(-2px); }
+    .quadrant.q-protected { background: var(--bg-secondary); border-color: var(--accent); }
+    .quadrant.q-protected:hover { border-color: var(--accent-2); background: var(--bg-soft); }
+    .quadrant.q-exclusive-inclusion { background: #1a0808; border-color: var(--accent-red); }
+    .quadrant.q-exclusive-inclusion:hover { border-color: #e82f35; background: #220a0a; }
+    .quadrant.q-individual-id { background: var(--bg-secondary); border-color: var(--border); }
+    .quadrant.q-individual-id:hover { border-color: var(--accent); background: var(--bg-soft); }
+    .quadrant.q-institutional-persp { background: var(--bg-secondary); border-color: var(--border); }
+    .quadrant.q-institutional-persp:hover { border-color: var(--accent); background: var(--bg-soft); }
+    .quadrant.active { box-shadow: 0 0 0 3px var(--yellow); }
+
+    .q-label {
+      font-family: var(--font-headline);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      margin-bottom: var(--space-xs);
+    }
+    .q-title {
+      font-family: var(--font-headline);
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-bottom: var(--space-sm);
+    }
+    .q-exclusive-inclusion .q-title { color: var(--accent-red); }
+    .q-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+    .q-badge {
+      position: absolute;
+      bottom: var(--space-sm);
+      right: var(--space-sm);
+      font-family: var(--font-headline);
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      background: var(--accent-red);
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .q-exclusive-inclusion .q-badge { opacity: 1; }
+
+    /* ── Retreat animation ── */
+    .retreat-btn {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin: 0 auto var(--space-xl);
+      background: var(--accent-red);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-md);
+      padding: var(--space-sm) var(--space-xl);
+      font-family: var(--font-headline);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .retreat-btn:hover { background: #e82f35; }
+
+    .retreat-stage {
+      max-width: 900px;
+      margin: 0 auto var(--space-xl);
+      display: none;
+    }
+    .retreat-stage.visible { display: block; }
+    .retreat-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-xl);
+    }
+    .retreat-box {
+      flex: 1;
+      text-align: center;
+      padding: var(--space-lg);
+      border-radius: var(--radius-md);
+      border: 2px solid;
+    }
+    .retreat-box.from { border-color: var(--accent-red); background: #1a0808; }
+    .retreat-box.to { border-color: var(--accent); background: var(--bg-soft); }
+    .retreat-box .rb-label {
+      font-family: var(--font-headline);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      margin-bottom: var(--space-xs);
+    }
+    .retreat-box .rb-title { font-family: var(--font-headline); font-size: 1.1rem; }
+    .retreat-box.from .rb-title { color: var(--accent-red); }
+    .retreat-box.to .rb-title { color: var(--accent); }
+    .retreat-box .rb-desc { font-size: 0.85rem; color: var(--muted); margin-top: var(--space-sm); }
+    .retreat-arrow-icon { font-size: 2rem; color: var(--yellow); flex-shrink: 0; }
+    .retreat-animated { animation: slideRight 0.6s ease-out; }
+    @keyframes slideRight {
+      from { transform: translateX(-30px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* ── Case panel ── */
+    .case-panel {
+      max-width: 900px;
+      margin: 0 auto var(--space-2xl);
+      display: none;
+    }
+    .case-panel.visible { display: block; }
+    .case-panel-title {
+      font-family: var(--font-headline);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent-red);
+      margin-bottom: var(--space-md);
+    }
+    .case-list { display: flex; flex-direction: column; gap: var(--space-md); }
+    .case-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent-red);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: var(--space-lg) var(--space-xl);
+    }
+    .case-card h4 { color: var(--accent); margin: 0 0 var(--space-xs); font-size: 1rem; }
+    .case-card p { color: var(--muted); font-size: 0.9rem; margin: 0; }
+    .case-card .retreat-mechanism {
+      margin-top: var(--space-sm);
+      font-family: var(--font-accent);
+      font-style: italic;
+      color: var(--accent-2);
+      font-size: 0.9rem;
+    }
+    .case-cite {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: var(--space-xs);
+      font-family: var(--font-mono);
+    }
+
+    /* ── Footnote ── */
+    .footnote-bar {
+      max-width: 900px;
+      margin: var(--space-xl) auto 0;
+      border-top: 1px solid var(--border);
+      padding-top: var(--space-lg);
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: var(--font-body);
+    }
+    sup { font-size: 0.65em; vertical-align: super; color: var(--accent); }
+
+    @media (max-width: 700px) {
+      .matrix-wrapper { grid-template-columns: 40px 1fr 1fr; }
+      .axis-label { font-size: 0.6rem; }
+      .retreat-arrow { flex-direction: column; }
+    }
+  </style>
+  <script>
+    (function(){
+      try { var t=localStorage.getItem('ei-theme'); document.documentElement.setAttribute('data-theme',t==='light'||t==='dark'?t:'dark'); } catch(e){}
+    })();
+  </script>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Site navigation">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="../paper/">Full Text</a></li>
+      <li><a href="../visualize/" aria-current="page">Visualizations</a></li>
+      <li><a href="https://dx.doi.org/10.2139/ssrn.6423378" target="_blank" rel="noopener noreferrer">SSRN</a></li>
+      <li>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <h1>Interactive Disentanglement Matrix</h1>
+    <p>Diagnosing exclusive inclusion by separating actor-type from target-type in civil rights claims.<sup>1</sup></p>
+  </header>
+
+  <main class="site-content">
+    <a href="../visualize/" class="return-link">← Return to Visualization Hub</a>
+
+    <h2>The Matrix</h2>
+    <p>Click any quadrant to load the corresponding jurisdictional retreat case studies. The matrix forces a threshold question at each axis before applying civil rights law or academic freedom doctrine.<sup>2</sup></p>
+
+    <div class="matrix-wrapper" id="matrix" role="grid" aria-label="Disentanglement Matrix">
+      <!-- Corner spacer -->
+      <div></div>
+      <div class="axis-label col-top-1">Individual Actor</div>
+      <div class="axis-label col-top-2">Institutional Actor</div>
+
+      <div class="axis-label row-left-1" style="writing-mode:vertical-rl;transform:rotate(180deg)">Perspective Target</div>
+      <div class="quadrant q-individual-id" data-quadrant="individual-perspective"
+           role="gridcell" tabindex="0" aria-label="Quadrant: Individual Actor / Perspective Target"
+           onclick="selectQuadrant(this,'individual-perspective')"
+           onkeydown="if(event.key==='Enter'||event.key===' ')selectQuadrant(this,'individual-perspective')">
+        <div class="q-label">Q1: Protected Expression</div>
+        <div class="q-title">Individual / Perspective</div>
+        <div class="q-desc">Individual expressing a viewpoint or belief. Core First Amendment protection; academic freedom doctrine applies at maximum strength. No viable civil rights claim against the speaker.</div>
+      </div>
+      <div class="quadrant q-exclusive-inclusion" data-quadrant="institutional-identity"
+           role="gridcell" tabindex="0" aria-label="Quadrant: Institutional Actor / Identity Target — Exclusive Inclusion Zone"
+           onclick="selectQuadrant(this,'institutional-identity')"
+           onkeydown="if(event.key==='Enter'||event.key===' ')selectQuadrant(this,'institutional-identity')">
+        <div class="q-label">Q2: Exclusive Inclusion Zone</div>
+        <div class="q-title">Institutional / Identity</div>
+        <div class="q-desc">Institutional deployment of official authority targeting members of a protected identity group. Civil rights law applies; FAIR conduct–speech distinction forecloses First Amendment shield.</div>
+        <div class="q-badge">Primary Zone</div>
+      </div>
+
+      <div class="axis-label row-left-2" style="writing-mode:vertical-rl;transform:rotate(180deg)">Identity Target</div>
+      <div class="quadrant q-institutional-persp" data-quadrant="individual-identity"
+           role="gridcell" tabindex="0" aria-label="Quadrant: Individual Actor / Identity Target"
+           onclick="selectQuadrant(this,'individual-identity')"
+           onkeydown="if(event.key==='Enter'||event.key===' ')selectQuadrant(this,'individual-identity')">
+        <div class="q-label">Q3: Contested Ground</div>
+        <div class="q-title">Individual / Identity</div>
+        <div class="q-desc">Individual action targeting a protected identity group. May trigger Title VII, Title IX, or campus conduct codes depending on severity and pattern. Governance void is less directly implicated.</div>
+      </div>
+      <div class="quadrant q-protected" data-quadrant="institutional-perspective"
+           role="gridcell" tabindex="0" aria-label="Quadrant: Institutional Actor / Perspective Target"
+           onclick="selectQuadrant(this,'institutional-perspective')"
+           onkeydown="if(event.key==='Enter'||event.key===' ')selectQuadrant(this,'institutional-perspective')">
+        <div class="q-label">Q4: Academic Autonomy</div>
+        <div class="q-title">Institutional / Perspective</div>
+        <div class="q-desc">Institutional action based on viewpoint or perspective. Academic freedom doctrine and Sweezy / Keyishian protections apply. Not the primary site of exclusive inclusion harm.</div>
+      </div>
+    </div>
+
+    <!-- Retreat Animation Button -->
+    <div style="text-align:center;">
+      <button class="retreat-btn" onclick="showRetreat()" id="retreatBtn">
+        ▶ Animate the Jurisdictional Retreat
+      </button>
+    </div>
+
+    <!-- Retreat Visualization -->
+    <div class="retreat-stage" id="retreatStage">
+      <h3>The Jurisdictional Retreat<sup>3</sup></h3>
+      <p>The Retreat occurs when an actor reframes institutional, identity-targeted conduct (Q2) as individual, perspective-based expression (Q1) to escape civil rights accountability.</p>
+      <div class="retreat-arrow" id="retreatArrow">
+        <div class="retreat-box from">
+          <div class="rb-label">Actual Conduct</div>
+          <div class="rb-title">Q2: Institutional / Identity</div>
+          <div class="rb-desc">Departmental authority deployed via official budget, hiring, speaker-selection, or curriculum to systematically exclude members of a protected group.</div>
+        </div>
+        <div class="retreat-arrow-icon">→</div>
+        <div class="retreat-box to">
+          <div class="rb-label">Actor's Reframing</div>
+          <div class="rb-title">Q1: Individual / Perspective</div>
+          <div class="rb-desc">Actor claims personal academic freedom, individual expression, or viewpoint-based discretion — retreating from institutional accountability to individual immunity.</div>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:var(--space-md);font-family:var(--font-accent);font-style:italic;color:var(--accent-2);">
+        "The FAIR doctrine forecloses this retreat: institutional deployment of official authority is conduct regulation, not speech, regardless of its expressive dimensions."<sup>4</sup>
+      </p>
+    </div>
+
+    <!-- Case Panel -->
+    <div class="case-panel" id="casePanel">
+      <div class="case-panel-title" id="casePanelTitle">Jurisdictional Retreat Case Studies</div>
+      <div class="case-list" id="caseList">
+        <p style="color:var(--muted);">Loading cases…</p>
+      </div>
+    </div>
+
+    <div class="footnote-bar">
+      <p><sup>1</sup> Oranburg, Seth C., <em>Exclusive Inclusion</em> (2025), §II.B (Disentanglement Matrix). Available at SSRN: <a href="https://ssrn.com/abstract=6423378" target="_blank" rel="noopener noreferrer">https://ssrn.com/abstract=6423378</a>.</p>
+      <p><sup>2</sup> <em>Id.</em> at §II.B.1 (Two-Axis Framework).</p>
+      <p><sup>3</sup> <em>Id.</em> at §II.C (Jurisdictional Retreat).</p>
+      <p><sup>4</sup> Rumsfeld v. Forum for Academic and Institutional Rights, Inc., 547 U.S. 47, 60 (2006) ("The Solomon Amendment neither limits what law schools may say nor requires them to say anything."). Data loaded from <code>../data/cases.json</code> and <code>../data/legal_logic.json</code>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Seth C. Oranburg. Working paper. All rights reserved.</p>
+    <p><a href="/" >Home</a> &middot; <a href="../visualize/">Visualization Hub</a> &middot; <a href="https://dx.doi.org/10.2139/ssrn.6423378" target="_blank" rel="noopener noreferrer">DOI: 10.2139/ssrn.6423378</a></p>
+  </footer>
+
+  <script>
+    // Theme toggle
+    document.getElementById('themeToggle').addEventListener('click', function(){
+      var html = document.documentElement;
+      var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      try { localStorage.setItem('ei-theme', next); } catch(e){}
+    });
+
+    var casesData = null;
+
+    // Fetch cases.json dynamically
+    fetch('../data/cases.json')
+      .then(r => r.json())
+      .then(d => { casesData = d; })
+      .catch(() => { casesData = null; });
+
+    var activeQuadrant = null;
+
+    var quadrantMeta = {
+      'institutional-identity': {
+        label: 'Q2: Exclusive Inclusion Zone — Jurisdictional Retreat Cases',
+        description: 'These cases illustrate how institutional actors deploy official authority targeting identity groups, and the retreat mechanisms used to evade accountability.',
+        filterFn: function(c) { return true; } // all cases involve this quadrant
+      },
+      'individual-perspective': {
+        label: 'Q1: Protected Expression — Retreat Destination Cases',
+        description: 'Cases where the actor successfully reframed institutional conduct as individual expression — the retreat\'s destination quadrant.',
+        filterFn: function(c) {
+          var jr = c.jurisdictional_retreat;
+          return jr && jr.mechanism && jr.mechanism.toLowerCase().includes('individual');
+        }
+      },
+      'individual-identity': {
+        label: 'Q3: Contested Ground — Individual/Identity Cases',
+        description: 'Cases involving individual conduct targeting protected identity groups; governance void is less directly implicated but can still insulate perpetrators.',
+        filterFn: function(c) {
+          var jr = c.jurisdictional_retreat;
+          return jr && jr.result;
+        }
+      },
+      'institutional-perspective': {
+        label: 'Q4: Academic Autonomy — Institutional/Perspective Cases',
+        description: 'Cases where institutional viewpoint-based action was claimed; Sweezy/Keyishian protections are more salient than civil rights accountability.',
+        filterFn: function(c) {
+          return c.identity_group && c.identity_group.includes('Faculty');
+        }
+      }
+    };
+
+    function selectQuadrant(el, quadrant) {
+      // Deactivate previous
+      document.querySelectorAll('.quadrant').forEach(q => q.classList.remove('active'));
+      el.classList.add('active');
+      activeQuadrant = quadrant;
+
+      var panel = document.getElementById('casePanel');
+      var list = document.getElementById('caseList');
+      var title = document.getElementById('casePanelTitle');
+      var meta = quadrantMeta[quadrant];
+
+      title.textContent = meta.label;
+      panel.classList.add('visible');
+      list.innerHTML = '';
+
+      if (!casesData) {
+        list.innerHTML = '<p style="color:var(--muted)">Case data not available in this context. Please serve from a web server.</p>';
+        return;
+      }
+
+      var cases = casesData.cases || [];
+      var filtered = quadrant === 'institutional-identity' ? cases : cases.filter(meta.filterFn);
+      if (filtered.length === 0) filtered = cases;
+
+      filtered.forEach(function(c) {
+        var card = document.createElement('div');
+        card.className = 'case-card';
+
+        var jr = c.jurisdictional_retreat || {};
+        var ed = c.empirical_data || {};
+
+        card.innerHTML =
+          '<h4>' + escHtml(c.identity_group || '') + ': ' + escHtml(c.headline || '') + '</h4>' +
+          '<p>' + escHtml(c.governance_problem && c.governance_problem.description ? c.governance_problem.description : '') + '</p>' +
+          (jr.mechanism ? '<p class="retreat-mechanism">Retreat mechanism: ' + escHtml(jr.mechanism) + '</p>' : '') +
+          (jr.result ? '<p style="font-size:0.85rem;color:var(--muted);margin-top:var(--space-sm)">' + escHtml(jr.result) + '</p>' : '') +
+          '<p class="case-cite">Source: ' + escHtml(typeof ed.source === 'string' ? ed.source : (ed.primary_source && ed.primary_source.citation) || 'cases.json') + '</p>';
+        list.appendChild(card);
+      });
+    }
+
+    function showRetreat() {
+      var stage = document.getElementById('retreatStage');
+      var btn = document.getElementById('retreatBtn');
+      stage.classList.toggle('visible');
+      if (stage.classList.contains('visible')) {
+        btn.textContent = '▼ Hide Jurisdictional Retreat';
+        var arrow = document.getElementById('retreatArrow');
+        arrow.classList.remove('retreat-animated');
+        void arrow.offsetWidth;
+        arrow.classList.add('retreat-animated');
+      } else {
+        btn.textContent = '▶ Animate the Jurisdictional Retreat';
+      }
+    }
+
+    function escHtml(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+  </script>
+</body>
+</html>
