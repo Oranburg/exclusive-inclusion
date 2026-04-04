@@ -1,0 +1,26 @@
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Build artifacts
+node_modules/
+dist/
+.next/
+out/
+
+# Large binary inbox files (track via Git LFS if needed)
+inbox/*.pdf
+inbox/*.docx
+inbox/*.pptx
+inbox/*.png
+inbox/*.jpg
+inbox/*.jpeg
+inbox/*.gif
+inbox/*.mp4
+inbox/*.mov
+
+# Editor
+.vscode/
+.idea/
