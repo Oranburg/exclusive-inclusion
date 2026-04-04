@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal Connectivity Map — Exclusive Inclusion</title>
+  <meta name="description" content="Node-based legal connectivity map showing how core cases provide the legal skeleton for exclusive inclusion theory.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Oswald:wght@200..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/oranburg-style.css">
+  <style>
+    .page-header {
+      background: var(--bg-secondary);
+      padding: var(--space-2xl) var(--space-xl);
+      text-align: center;
+      border-bottom: 3px solid var(--accent-red);
+    }
+    .page-header h1 { font-size: 2.2rem; margin: 0 0 var(--space-xs); }
+    .page-header p { color: var(--muted); font-family: var(--font-accent); font-size: 1.05rem; margin: 0; }
+    .return-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-headline);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      margin-bottom: var(--space-xl);
+    }
+    .return-link:hover { color: var(--yellow); }
+
+    /* ── Network canvas ── */
+    .network-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto var(--space-xl);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    #networkCanvas {
+      width: 100%;
+      display: block;
+      cursor: pointer;
+    }
+
+    /* ── Legend ── */
+    .legend {
+      display: flex;
+      gap: var(--space-xl);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-xl);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .legend-item { display: flex; align-items: center; gap: var(--space-sm); }
+    .legend-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ── Law Card ── */
+    .law-card {
+      display: none;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--accent);
+      border-radius: 0 0 var(--radius-md) var(--radius-md);
+      padding: var(--space-xl);
+      max-width: 900px;
+      margin: 0 auto var(--space-2xl);
+      animation: fadeIn 0.3s ease;
+    }
+    .law-card.visible { display: block; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+
+    .card-close {
+      float: right;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--muted);
+      font-family: var(--font-headline);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 2px 8px;
+      cursor: pointer;
+    }
+    .card-close:hover { color: var(--yellow); border-color: var(--yellow); }
+    .card-label {
+      font-family: var(--font-headline);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent-red);
+      margin-bottom: var(--space-xs);
+      clear: both;
+    }
+    .card-name {
+      font-family: var(--font-headline);
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-bottom: var(--space-xs);
+    }
+    .card-citation {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: var(--space-lg);
+    }
+    .holding-list { list-style: none; padding: 0; margin: 0 0 var(--space-lg); }
+    .holding-list li {
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: flex;
+      gap: var(--space-sm);
+    }
+    .holding-list li:last-child { border-bottom: none; }
+    .holding-list li::before { content: '§'; color: var(--accent); flex-shrink: 0; font-family: var(--font-headline); }
+    .matrix-application {
+      background: var(--bg-soft);
+      border-left: 3px solid var(--yellow);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: var(--space-md) var(--space-lg);
+      font-family: var(--font-accent);
+      font-size: 0.95rem;
+      color: var(--accent-2);
+    }
+    .matrix-application .app-label {
+      font-family: var(--font-headline);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--yellow);
+      margin-bottom: var(--space-xs);
+    }
+
+    /* ── Footnote ── */
+    .footnote-bar {
+      border-top: 1px solid var(--border);
+      padding-top: var(--space-lg);
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: var(--font-body);
+      margin-top: var(--space-xl);
+    }
+    sup { font-size: 0.65em; vertical-align: super; color: var(--accent); }
+  </style>
+  <script>
+    (function(){
+      try { var t=localStorage.getItem('ei-theme'); document.documentElement.setAttribute('data-theme',t==='light'||t==='dark'?t:'dark'); } catch(e){}
+    })();
+  </script>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Site navigation">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="../paper/">Full Text</a></li>
+      <li><a href="../visualize/" aria-current="page">Visualizations</a></li>
+      <li><a href="https://dx.doi.org/10.2139/ssrn.6423378" target="_blank" rel="noopener noreferrer">SSRN</a></li>
+      <li>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <h1>Legal Connectivity Map</h1>
+    <p>Core cases providing the legal skeleton for exclusive inclusion theory. Click any node to open its Law Card.<sup>1</sup></p>
+  </header>
+
+  <main class="site-content">
+    <a href="../visualize/" class="return-link">← Return to Visualization Hub</a>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#6DACDE"></div> Constitutional / Access Doctrine</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#FFD65C"></div> Civil Rights / Disparate Impact</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#B5E1E1"></div> Standing / Fiduciary</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#E96955"></div> Academic Freedom Limit</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#aaa"></div> Secondary Authority</div>
+    </div>
+
+    <div class="network-container">
+      <canvas id="networkCanvas" aria-label="Legal connectivity network diagram"></canvas>
+    </div>
+
+    <!-- Law Card (populated dynamically) -->
+    <div class="law-card" id="lawCard">
+      <button class="card-close" onclick="closeLawCard()">✕ Close</button>
+      <div class="card-label">Law Card</div>
+      <div class="card-name" id="cardName"></div>
+      <div class="card-citation" id="cardCitation"></div>
+      <ul class="holding-list" id="cardHoldings"></ul>
+      <div class="matrix-application">
+        <div class="app-label">Application to Exclusive Inclusion Theory</div>
+        <div id="cardApplication"></div>
+      </div>
+    </div>
+
+    <div class="footnote-bar">
+      <p><sup>1</sup> Case data loaded from <code>../data/legal_logic.json</code>. Network layout is schematic; edge weights represent analytical dependency, not citation frequency.</p>
+      <p><sup>2</sup> Rumsfeld v. FAIR, 547 U.S. 47 (2006); Burt v. Gates, 354 F.Supp.2d 156 (D.D.C. 2005); Griggs v. Duke Power Co., 401 U.S. 424 (1971); Turner v. Victoria, 67 Cal.App.5th 1099 (Cal. Ct. App. 2021).</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Seth C. Oranburg. Working paper. All rights reserved.</p>
+    <p><a href="/">Home</a> &middot; <a href="../visualize/">Visualization Hub</a> &middot; <a href="https://dx.doi.org/10.2139/ssrn.6423378" target="_blank" rel="noopener noreferrer">DOI: 10.2139/ssrn.6423378</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('themeToggle').addEventListener('click', function(){
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('ei-theme', next); } catch(e){}
+      drawNetwork(); // redraw with new colors
+    });
+
+    // Node definitions with full law card data
+    var nodes = [
+      {
+        id: 'FAIR',
+        label: 'Rumsfeld v. FAIR',
+        sub: '547 U.S. 47 (2006)',
+        color: '#6DACDE',
+        size: 38,
+        category: 'constitutional',
+        citation: '547 U.S. 47 (2006) · 8-0 · Roberts, C.J.',
+        holdings: [
+          'Equal access conditions regulate conduct, not speech — the Solomon Amendment "neither limits what law schools may say nor requires them to say anything."',
+          'Any speech burden incidental to conduct regulation is constitutionally permissible as "plainly incidental."',
+          'Congress may condition federal spending on equal access without violating the First Amendment if it could directly impose the same requirement.',
+          'Expressive association doctrine does not prevent government from requiring equal access to students through institutional channels.'
+        ],
+        application: 'FAIR is the primary constitutional basis for Reform 3 (Operational Test). Just as conditioning funding on equal military recruiter access was upheld as conduct regulation, conditioning 501(c)(3) status on governance structures preventing systematic identity-based exclusion targets institutional conduct — not speech. FAIR also limits the Jurisdictional Retreat: institutions cannot claim First Amendment protection for institutional deployment of official authority against a protected group simply because that conduct has expressive dimensions.'
+      },
+      {
+        id: 'Griggs',
+        label: 'Griggs v. Duke Power',
+        sub: '401 U.S. 424 (1971)',
+        color: '#FFD65C',
+        size: 34,
+        category: 'civilrights',
+        citation: '401 U.S. 424 (1971) · 8-0 · Burger, C.J.',
+        holdings: [
+          'Title VII prohibits not only overt discrimination but also practices that are fair in form but discriminatory in operation — disparate impact liability.',
+          'The employer bears the burden of demonstrating business necessity when facially neutral practices produce disproportionate exclusion of a protected class.',
+          'Congress directed the thrust of Title VII to the consequences of employment practices, not simply to the motivation.',
+          '90% disproportionate impact threshold: Duke Power\'s tests excluded approximately 90% of Black applicants while passing 58% of white applicants — the operational trigger for the Griggs burden-shift.'
+        ],
+        application: 'Griggs supplies the analytical structure for the disentanglement matrix\'s operational test. When institutional action disproportionately excludes members of a protected class — the 90% disproportionate impact threshold — the identity-based character predominates, and the burden shifts to the institution to demonstrate legitimate mission-related justification. The Identity axis of the matrix incorporates Griggs: institutional action falls in the Exclusive Inclusion zone when it produces disparate impact on a protected group regardless of stated intent.'
+      },
+      {
+        id: 'Turner',
+        label: 'Turner v. Victoria',
+        sub: '67 Cal.App.5th 1099 (2021)',
+        color: '#B5E1E1',
+        size: 30,
+        category: 'standing',
+        citation: '67 Cal.App.5th 1099 (Cal. Ct. App. 2021) · cert. granted (Cal. 2023)',
+        holdings: [
+          'Director of nonprofit public benefit corporation may bring derivative action alleging breach of fiduciary duties by co-directors.',
+          'Director loses standing to continue derivative action once her term expires and she is not reelected — standing is tied to governance position, not affected-party status.',
+          'On remand, Superior Court must determine whether Attorney General or some other relator should step into plaintiff\'s role to continue litigation — suggesting legislative receptivity to alternative standing holders.',
+          'Derivative-style litigation against nonprofit boards is available in principle; current law makes standing precarious but not unavailable.'
+        ],
+        application: 'Turner v. Victoria is the primary case authority for Reform 1 (Stakeholder Standing). It establishes three things directly relevant: (a) derivative litigation against nonprofit boards is available in principle; (b) current law makes standing precarious because it is tied to governance position rather than affected-party status; (c) the relator-substitution direction suggests judicial receptivity to standing held by parties other than board members. Reform 1 addresses the standing-precarity problem Turner identified by creating enrolled-student and current-faculty standing as a matter of statutory right.'
+      },
+      {
+        id: 'BurtGates',
+        label: 'Burt v. Gates',
+        sub: '354 F.Supp.2d 156 (D.D.C. 2005)',
+        color: '#E96955',
+        size: 28,
+        category: 'acfreedom',
+        citation: '354 F.Supp.2d 156 (D.D.C. 2005) · Sullivan, J.',
+        holdings: [
+          'No substantive due process right to "educational autonomy" that would block equal access requirements imposed by federal law.',
+          'Academic freedom is not a constitutional trump card against facially neutral conduct requirements that impose incidental burdens on institutional expression.',
+          'Institutions claiming academic freedom to exclude do not have a categorical immunity from civil rights accountability for conduct — as opposed to pure speech.',
+          'The constitutional protection for academic decisions extends to the content of scholarship and pedagogy, not to institutional governance decisions about who may access institutional resources.'
+        ],
+        application: 'Burt v. Gates limits the academic freedom version of the Jurisdictional Retreat. When departments or faculty claim "academic judgment" to shield institutional deployment of official authority against identity-group members, Burt establishes that academic freedom does not extend to conduct decisions about institutional access and resource allocation. The case anchors the Actor axis of the disentanglement matrix: institutional conduct is not immunized from civil rights accountability by labeling it "academic."'
+      },
+      {
+        id: 'Palmiter',
+        label: 'Palmiter Framework',
+        sub: '55 N.Y.L. Sch. L. Rev. 457 (2011)',
+        color: '#aaa',
+        size: 22,
+        category: 'secondary',
+        citation: 'Alan R. Palmiter, "Duty of Obedience: The Forgotten Duty," 55 N.Y.L. Sch. L. Rev. 457 (2011)',
+        holdings: [
+          'The duty of obedience is the third fiduciary duty — alongside care and loyalty — historically recognized for both for-profit and nonprofit directors, now largely forgotten in corporate law but alive in the nonprofit context.',
+          'Nonprofit obedience norms are more robust than for-profit equivalents because nonprofit organizations exist to serve stated public purposes.',
+          'Injunctive relief is the preferred remedy for obedience duty breaches — consistent with a prospective, structural remedy model.',
+          'The duty is toothless when: (a) courts defer under the business judgment rule; and (b) enforcement standing is limited to under-resourced state attorneys general.'
+        ],
+        application: 'The Palmiter Framework operationalizes Reform 2 (Mission Specificity). When mission statements meet the specificity standard required by Reform 2, the Palmiter obedience duty — historically substantive but practically hollow — regains enforcement teeth through stakeholder standing (Reform 1). Palmiter diagnoses the pathology; Reform 1 provides the cure.'
+      },
+      {
+        id: 'Buckles',
+        label: 'Buckles Taxonomy',
+        sub: '62 Cath. U. L. Rev. 913 (2013)',
+        color: '#aaa',
+        size: 22,
+        category: 'secondary',
+        citation: 'Johnny Rex Buckles, "How Deep Are the Springs of Obedience Norms That Bind the Overseers of Charities?" 62 Cath. U. L. Rev. 913 (2013)',
+        holdings: [
+          'Six obedience norms: Legality Norm, Dynamic Charter Fidelity Norm, Static Charter Fidelity Norm, Donor Restriction Norm, Law Observance Norm, and Public Purpose Norm.',
+          'When mission statements have operational content (as Reform 2 requires), the Dynamic Charter Fidelity Norm binds fiduciaries to honor those commitments in all governance decisions.',
+          'Systematic identity-based exclusion violating Title VI/ADA is not merely a policy failing but a fiduciary breach under the Legality and Law Observance Norms.',
+          'The "depth of the springs" depends on enforcement mechanisms — the springs are shallow without standing, deep when stakeholders can enforce.'
+        ],
+        application: 'The Buckles Taxonomy transforms vague institutional commitments into cognizable legal obligations once Reform 2 gives mission statements operational benchmarks. Each of the six norms gains enforcement teeth through stakeholder standing (Reform 1) and the Operational Test (Reform 3). Together, the three reforms restore the depth of the springs that Buckles documents have been drained by the governance void.'
+      },
+      {
+        id: 'Griggs2',
+        label: 'Title VI Extension',
+        sub: 'Alexander v. Sandoval (2001)',
+        color: '#FFD65C',
+        size: 18,
+        category: 'civilrights',
+        citation: 'Alexander v. Sandoval, 532 U.S. 275 (2001); Guardians Ass\'n v. Civil Serv. Comm\'n, 463 U.S. 582 (1983)',
+        holdings: [
+          'No private right of action to enforce disparate-impact regulations under Title VI — enforcement rests with federal agencies.',
+          'Title VI agency regulations prohibiting disparate impact are valid and enforceable by federal agencies, providing the Griggs standard in the education context.',
+          'The standing gap created by Sandoval reinforces the need for Reform 1: if private parties cannot enforce Title VI disparate impact standards, stakeholder standing in derivative suits targeting governance structures provides a parallel enforcement pathway.'
+        ],
+        application: 'Alexander v. Sandoval creates the enforcement gap that makes Reform 1 necessary in the civil rights context: because private parties cannot enforce Title VI disparate-impact regulations directly, governance reform creating derivative standing is essential to fill the gap. The case also illustrates why the Operational Test (Reform 3) targeting the tax-exempt status mechanism provides a supplementary enforcement pathway that does not depend on private Title VI litigation.'
+      }
+    ];
+
+    // Edge definitions
+    var edges = [
+      { from: 'FAIR', to: 'BurtGates', label: 'Conduct–Speech Distinction', strength: 0.9 },
+      { from: 'FAIR', to: 'Palmiter', label: 'Reform 2 Basis', strength: 0.6 },
+      { from: 'Griggs', to: 'Griggs2', label: 'Disparate Impact Doctrine', strength: 0.85 },
+      { from: 'Griggs', to: 'FAIR', label: 'Operational Test', strength: 0.7 },
+      { from: 'Turner', to: 'Palmiter', label: 'Standing Mechanism', strength: 0.8 },
+      { from: 'Turner', to: 'Buckles', label: 'Obedience Enforcement', strength: 0.75 },
+      { from: 'Palmiter', to: 'Buckles', label: 'Taxonomy Anchor', strength: 0.95 },
+      { from: 'BurtGates', to: 'Griggs', label: 'Conduct Limit', strength: 0.65 },
+      { from: 'Buckles', to: 'Griggs2', label: 'Legality Norm', strength: 0.5 }
+    ];
+
+    // Node positions (proportional: 0..1 in each dimension)
+    var positions = {
+      'FAIR':     { x: 0.5,  y: 0.15 },
+      'Griggs':   { x: 0.15, y: 0.45 },
+      'Turner':   { x: 0.82, y: 0.45 },
+      'BurtGates':{ x: 0.5,  y: 0.45 },
+      'Palmiter': { x: 0.75, y: 0.78 },
+      'Buckles':  { x: 0.55, y: 0.88 },
+      'Griggs2':  { x: 0.2,  y: 0.80 }
+    };
+
+    var W, H, hoveredNode = null, selectedNode = null;
+    var canvas, ctx;
+
+    function initCanvas() {
+      canvas = document.getElementById('networkCanvas');
+      W = canvas.parentElement.clientWidth;
+      H = Math.round(W * 0.62);
+      canvas.width = W;
+      canvas.height = H;
+      canvas.style.height = H + 'px';
+      ctx = canvas.getContext('2d');
+    }
+
+    function getColor(id) {
+      return nodes.find(n => n.id === id)?.color || '#aaa';
+    }
+
+    function px(node) {
+      var p = positions[node.id];
+      return { x: p.x * W, y: p.y * H };
+    }
+
+    function drawNetwork() {
+      if (!ctx) initCanvas();
+      var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+      var bg = isDark ? '#000000' : '#FFFFFF';
+      var borderColor = isDark ? '#1E5080' : '#D0D8E4';
+      var labelColor = isDark ? '#FFFFFF' : '#000000';
+      var mutedColor = isDark ? '#9CA3AF' : '#555555';
+
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, W, H);
+
+      // Draw edges
+      edges.forEach(function(e) {
+        var fromNode = nodes.find(n => n.id === e.from);
+        var toNode = nodes.find(n => n.id === e.to);
+        if (!fromNode || !toNode) return;
+        var fp = px(fromNode), tp = px(toNode);
+        var isHighlighted = selectedNode && (selectedNode.id === e.from || selectedNode.id === e.to);
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(fp.x, fp.y);
+        ctx.lineTo(tp.x, tp.y);
+        ctx.strokeStyle = isHighlighted ? '#FFD65C' : (isDark ? '#1E5080' : '#D0D8E4');
+        ctx.lineWidth = isHighlighted ? 2.5 : 1.5;
+        ctx.globalAlpha = isHighlighted ? 0.9 : 0.5;
+        ctx.stroke();
+        ctx.restore();
+
+        // Edge label
+        if (isHighlighted) {
+          var mx = (fp.x + tp.x) / 2, my = (fp.y + tp.y) / 2;
+          ctx.save();
+          ctx.font = '10px "Roboto Mono", monospace';
+          ctx.fillStyle = '#FFD65C';
+          ctx.textAlign = 'center';
+          ctx.globalAlpha = 0.85;
+          ctx.fillText(e.label, mx, my - 6);
+          ctx.restore();
+        }
+      });
+
+      // Draw nodes
+      nodes.forEach(function(n) {
+        var p = px(n);
+        var isHovered = hoveredNode && hoveredNode.id === n.id;
+        var isSelected = selectedNode && selectedNode.id === n.id;
+        var r = n.size + (isHovered || isSelected ? 5 : 0);
+
+        ctx.save();
+        // Shadow for selected
+        if (isSelected) {
+          ctx.shadowColor = n.color;
+          ctx.shadowBlur = 18;
+        }
+        // Circle fill
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+        ctx.fillStyle = isDark ? '#0A3255' : '#E9ECEF';
+        ctx.fill();
+        ctx.strokeStyle = n.color;
+        ctx.lineWidth = isSelected ? 3.5 : 2;
+        ctx.stroke();
+        ctx.restore();
+
+        // Label
+        ctx.save();
+        ctx.font = 'bold 11px "Oswald", sans-serif';
+        ctx.fillStyle = labelColor;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        // Abbreviate long labels
+        var lines = n.label.split(' ');
+        var line1 = lines.slice(0, 2).join(' ');
+        var line2 = lines.slice(2).join(' ');
+        ctx.fillText(line1, p.x, p.y - (line2 ? 7 : 0));
+        if (line2) ctx.fillText(line2, p.x, p.y + 7);
+        ctx.restore();
+
+        // Sub-citation below node
+        ctx.save();
+        ctx.font = '9px "Roboto Mono", monospace';
+        ctx.fillStyle = mutedColor;
+        ctx.textAlign = 'center';
+        ctx.globalAlpha = 0.7;
+        ctx.fillText(n.sub, p.x, p.y + r + 14);
+        ctx.restore();
+      });
+    }
+
+    function getNodeAt(mx, my) {
+      for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        var p = px(n);
+        var dx = mx - p.x, dy = my - p.y;
+        if (Math.sqrt(dx*dx + dy*dy) <= n.size + 8) return n;
+      }
+      return null;
+    }
+
+    function getCanvasXY(e) {
+      var rect = canvas.getBoundingClientRect();
+      var scaleX = W / rect.width;
+      var scaleY = H / rect.height;
+      var cx = e.touches ? e.touches[0].clientX : e.clientX;
+      var cy = e.touches ? e.touches[0].clientY : e.clientY;
+      return { x: (cx - rect.left) * scaleX, y: (cy - rect.top) * scaleY };
+    }
+
+    function openLawCard(n) {
+      selectedNode = n;
+      document.getElementById('cardName').textContent = n.label;
+      document.getElementById('cardCitation').textContent = n.citation;
+      var hl = document.getElementById('cardHoldings');
+      hl.innerHTML = n.holdings.map(h => '<li>' + escHtml(h) + '</li>').join('');
+      document.getElementById('cardApplication').textContent = n.application;
+      var card = document.getElementById('lawCard');
+      card.style.borderTopColor = n.color;
+      card.classList.add('visible');
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      drawNetwork();
+    }
+
+    function closeLawCard() {
+      selectedNode = null;
+      document.getElementById('lawCard').classList.remove('visible');
+      drawNetwork();
+    }
+
+    function escHtml(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      initCanvas();
+      drawNetwork();
+
+      canvas.addEventListener('mousemove', function(e) {
+        var pos = getCanvasXY(e);
+        var n = getNodeAt(pos.x, pos.y);
+        if (n !== hoveredNode) {
+          hoveredNode = n;
+          canvas.style.cursor = n ? 'pointer' : 'default';
+          drawNetwork();
+        }
+      });
+
+      canvas.addEventListener('click', function(e) {
+        var pos = getCanvasXY(e);
+        var n = getNodeAt(pos.x, pos.y);
+        if (n) openLawCard(n);
+      });
+
+      canvas.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        var pos = getCanvasXY(e.changedTouches[0]);
+        var n = getNodeAt(pos.x, pos.y);
+        if (n) openLawCard(n);
+      }, { passive: false });
+
+      window.addEventListener('resize', function() {
+        initCanvas();
+        drawNetwork();
+      });
+    });
+  </script>
+</body>
+</html>

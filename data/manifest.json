@@ -76,7 +76,64 @@
         "scholarly_anchor": [
           "Alan R. Palmiter, 'Duty of Obedience: The Forgotten Duty,' 55 N.Y.L. Sch. L. Rev. 457 (2011)",
           "Johnny Rex Buckles, 'How Deep Are the Springs of Obedience Norms That Bind the Overseers of Charities?' 62 Cath. U. L. Rev. 913 (2013)"
-        ]
+        ],
+        "buckles_taxonomy": {
+          "citation": "Johnny Rex Buckles, \"How Deep Are the Springs of Obedience Norms That Bind the Overseers of Charities?\" 62 Cath. U. L. Rev. 913 (2013)",
+          "institution": "Catholic University of America School of Law",
+          "six_norms": [
+            {
+              "norm": "Legality Norm",
+              "description": "Fiduciaries must ensure the organization complies with applicable external law.",
+              "application_to_exclusive_inclusion": "Universities must comply with Title VI, ADA, and other federal anti-discrimination law regardless of board preference; the Legality Norm provides the baseline for enforcement."
+            },
+            {
+              "norm": "Dynamic Charter Fidelity Norm",
+              "description": "Fiduciaries must honor the organization's constitutive documents as currently in force.",
+              "application_to_exclusive_inclusion": "Once a mission statement is updated with specificity (Reform 2), this norm binds fiduciaries to honor that commitment in all governance decisions."
+            },
+            {
+              "norm": "Static Charter Fidelity Norm",
+              "description": "Fiduciaries must honor the original constitutive documents even where later amended, if assets were received under original terms.",
+              "application_to_exclusive_inclusion": "Donor gifts conditioned on pluralist educational mission invoke this norm; unilateral mission drift is a fiduciary breach."
+            },
+            {
+              "norm": "Donor Restriction Norm",
+              "description": "Fiduciaries must adhere to conditions attached to donated assets.",
+              "application_to_exclusive_inclusion": "Restricted gifts for scholarship funds, faculty positions, or programs with inclusion conditions trigger enforceable obedience obligations."
+            },
+            {
+              "norm": "Law Observance Norm",
+              "description": "Fiduciaries must conduct the organization's activities lawfully, including refraining from courses of conduct that violate applicable law.",
+              "application_to_exclusive_inclusion": "Systematic identity-based exclusion that violates Title VI or ADA is not merely a policy failing but a fiduciary breach actionable under this norm."
+            },
+            {
+              "norm": "Public Purpose Norm",
+              "description": "Fiduciaries must pursue exclusively the stated public purpose for which the charitable corporation was organized.",
+              "application_to_exclusive_inclusion": "Deviation from stated pluralist educational mission to serve capturing factions violates this norm; it anchors the claim that mission-drift is a cognizable fiduciary breach, not merely academic policy disagreement."
+            }
+          ],
+          "reform_connection": "The Buckles Taxonomy transforms vague institutional commitments into cognizable legal obligations. When Mission Specificity reform (Reform 2) gives the mission statement operational benchmarks, each of the six norms gains enforcement teeth through stakeholder standing (Reform 1) and the Operational Test (Reform 3).",
+          "depth_of_springs": "Buckles asks how deep the \"springs\" of obedience norms run — whether the duty is merely formal or substantively binding. The Exclusive Inclusion thesis answers that the springs are shallow under current law (because courts defer and stakeholders lack standing) but can be deepened through the three structural reforms."
+        },
+        "palmiter_framework": {
+          "citation": "Alan R. Palmiter, \"Duty of Obedience: The Forgotten Duty,\" 55 N.Y.L. Sch. L. Rev. 457 (2010/2011)",
+          "core_claim": "The duty of obedience is the third fiduciary duty — alongside care and loyalty — that was historically recognized for both for-profit and nonprofit directors but has largely been forgotten in modern corporate law while remaining alive in the nonprofit context.",
+          "key_distinctions": [
+            {
+              "distinction": "Reasonable cost-benefit disobedience vs. flagrant pursuit of illegal conduct",
+              "description": "Not all disobedience is a cognizable breach. A delivery service double-parking makes a cost-benefit calculation; this is qualitatively different from a board that, in the face of clear legal command (e.g., Title VI), pursues an illegal course of conduct through governance capture.",
+              "significance": "Sets the threshold for actionable breach — not every policy disagreement, only governance decisions that cross from reasonable judgment into systematic legal non-compliance."
+            },
+            {
+              "distinction": "Injunctive relief vs. personal liability",
+              "description": "Ultra vires actions are typically remedied by non-damages liability (injunction, rescission). The Palmiter Framework identifies injunctive relief as the preferred remedy for obedience duty breaches — consistent with Reform 1's model of derivative standing for injunctive, not compensatory, relief.",
+              "significance": "Reinforces the design of stakeholder standing reform: prospective structural remedy, not retroactive monetary damages, is the appropriate remedy for governance void violations."
+            }
+          ],
+          "nonprofit_obedience_context": "The Palmiter Framework documents that nonprofit obedience norms are more robust than for-profit equivalents because nonprofit organizations exist to serve stated public purposes. When mission fidelity is the raison d'être, departures from stated mission are not merely bad policy — they are cognizable fiduciary violations.",
+          "hollow_duty_diagnosis": "Palmiter diagnoses the pathology: the duty of obedience has become the \"forgotten duty\" because courts defer under the business judgment rule and enforcement standing is limited to state attorneys general who are chronically under-resourced. The cure requires restoring the enforcement mechanism — which is precisely what stakeholder standing reform accomplishes.",
+          "mission_specificity_link": "The Palmiter Framework demonstrates why mission specificity is essential: a vague mission statement (\"educate future leaders\") cannot be a binding obedience norm because it has no operational content. Only specific, measurable mission commitments can function as the legal standard against which fiduciary conduct is measured."
+        }
       },
       {
         "feature": "No Stakeholder Standing",
