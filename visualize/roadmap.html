@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reform Roadmap & Option Value Simulator — Exclusive Inclusion</title>
+  <meta name="description" content="Reform Roadmap and Option Value Simulator: showing why institutions choose temporary compliance over structural reform.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Oswald:wght@200..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/oranburg-style.css">
+  <style>
+    .page-header {
+      background: var(--bg-secondary);
+      padding: var(--space-2xl) var(--space-xl);
+      text-align: center;
+      border-bottom: 3px solid var(--accent-red);
+    }
+    .page-header h1 { font-size: 2.2rem; margin: 0 0 var(--space-xs); }
+    .page-header p { color: var(--muted); font-family: var(--font-accent); font-size: 1.05rem; margin: 0; }
+    .return-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-family: var(--font-headline); font-size: 0.75rem;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--accent); margin-bottom: var(--space-xl);
+    }
+    .return-link:hover { color: var(--yellow); }
+
+    /* ── Simulator panel ── */
+    .simulator-panel {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-2xl);
+      margin-bottom: var(--space-2xl);
+    }
+    .simulator-panel h3 { margin-top: 0; }
+
+    /* ── Slider ── */
+    .slider-wrapper { margin: var(--space-xl) 0; }
+    .slider-label {
+      display: flex; justify-content: space-between;
+      font-family: var(--font-headline); font-size: 0.7rem;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--muted); margin-bottom: var(--space-sm);
+    }
+    .slider-label span { color: var(--accent); }
+    input[type=range] {
+      -webkit-appearance: none; appearance: none;
+      width: 100%; height: 6px;
+      background: var(--bg-soft);
+      border-radius: 3px; outline: none;
+      cursor: pointer;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--accent); cursor: pointer;
+      border: 2px solid var(--bg);
+      transition: background 0.2s;
+    }
+    input[type=range]:hover::-webkit-slider-thumb { background: var(--yellow); }
+
+    /* ── Decision display ── */
+    .decision-display {
+      margin-top: var(--space-xl);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: var(--space-md);
+      align-items: center;
+    }
+    .decision-box {
+      background: var(--bg-soft);
+      border: 2px solid;
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      text-align: center;
+      transition: border-color 0.4s, background 0.4s, opacity 0.4s, transform 0.3s;
+    }
+    .decision-box.compliance { border-color: var(--accent); }
+    .decision-box.reform { border-color: var(--accent-red); }
+    .decision-box.selected { transform: scale(1.04); }
+    .decision-box.dimmed { opacity: 0.35; }
+    .db-icon { font-size: 1.8rem; margin-bottom: var(--space-xs); }
+    .db-title { font-family: var(--font-headline); font-size: 1rem; color: var(--accent); margin-bottom: var(--space-sm); }
+    .decision-box.reform .db-title { color: var(--accent-red); }
+    .db-desc { font-size: 0.85rem; color: var(--muted); }
+    .db-value {
+      margin-top: var(--space-sm);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      display: inline-block;
+    }
+    .decision-box.compliance .db-value { background: #0a2040; color: var(--accent); }
+    .decision-box.reform .db-value { background: #1a0808; color: var(--accent-red); }
+    .decision-arrow { text-align: center; font-size: 1.8rem; color: var(--muted); }
+
+    /* ── Rational choice narrative ── */
+    .rational-narrative {
+      margin-top: var(--space-xl);
+      background: var(--bg-soft);
+      border-left: 4px solid var(--yellow);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: var(--space-lg) var(--space-xl);
+      font-family: var(--font-accent);
+      font-size: 1.05rem;
+      color: var(--accent-2);
+      line-height: 1.8;
+    }
+    .rational-narrative .rn-label {
+      font-family: var(--font-headline);
+      font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--yellow); margin-bottom: var(--space-sm);
+    }
+
+    /* ── Side-by-side comparison ── */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      margin-bottom: var(--space-2xl);
+    }
+    @media(max-width:650px) { .comparison-grid { grid-template-columns: 1fr; } }
+    .comparison-col {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-xl);
+    }
+    .comparison-col.symptom { border-top: 4px solid var(--accent-red); }
+    .comparison-col.structural { border-top: 4px solid #16a34a; }
+    .comp-label {
+      font-family: var(--font-headline); font-size: 0.65rem;
+      text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: var(--space-xs);
+    }
+    .comp-label.symptom { color: var(--accent-red); }
+    .comp-label.structural { color: #16a34a; }
+    .comp-title { font-family: var(--font-headline); font-size: 1.2rem; margin-bottom: var(--space-lg); }
+    .comp-item {
+      display: flex; gap: var(--space-sm);
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem; color: var(--muted);
+    }
+    .comp-item:last-child { border-bottom: none; }
+    .comp-item-icon { flex-shrink: 0; font-size: 1rem; }
+    .comp-item-label { font-weight: 500; color: var(--text); }
+    .comp-item-desc { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+    .reversibility-badge {
+      font-family: var(--font-mono); font-size: 0.65rem;
+      padding: 2px 6px; border-radius: var(--radius-pill);
+      margin-top: 4px; display: inline-block;
+    }
+    .reversibility-badge.rev { background: #1a0808; color: var(--accent-red); }
+    .reversibility-badge.perm { background: #0a1a0a; color: #16a34a; }
+
+    /* ── Reform detail cards ── */
+    .reform-cards { display: flex; flex-direction: column; gap: var(--space-lg); margin-bottom: var(--space-2xl); }
+    .reform-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-xl);
+    }
+    .rc-number {
+      font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--accent-red); margin-bottom: var(--space-xs);
+    }
+    .rc-title { font-family: var(--font-headline); font-size: 1.3rem; color: var(--accent); margin-bottom: var(--space-sm); }
+    .rc-void { font-size: 0.85rem; color: var(--muted); margin-bottom: var(--space-sm); }
+    .rc-one-sentence { font-family: var(--font-accent); font-size: 1.05rem; color: var(--accent-2); line-height: 1.7; margin-bottom: var(--space-md); }
+    .rc-effect { font-size: 0.85rem; color: var(--muted); }
+    .rc-cite { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); margin-top: var(--space-sm); }
+
+    /* ── Footnote ── */
+    .footnote-bar {
+      border-top: 1px solid var(--border);
+      padding-top: var(--space-lg);
+      font-size: 0.8rem; color: var(--muted);
+      font-family: var(--font-body); margin-top: var(--space-xl);
+    }
+    sup { font-size: 0.65em; vertical-align: super; color: var(--accent); }
+  </style>
+  <script>
+    (function(){
+      try { var t=localStorage.getItem('ei-theme'); document.documentElement.setAttribute('data-theme',t==='light'||t==='dark'?t:'dark'); } catch(e){}
+    })();
+  </script>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Site navigation">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="../paper/">Full Text</a></li>
+      <li><a href="../visualize/" aria-current="page">Visualizations</a></li>
+      <li><a href="https://dx.doi.org/10.2139/ssrn.6423378" target="_blank" rel="noopener noreferrer">SSRN</a></li>
+      <li>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <h1>Reform Roadmap &amp; Option Value Simulator</h1>
+    <p>Why institutions choose temporary compliance over structural reform — and what breaks that choice.<sup>1</sup></p>
+  </header>
+
+  <main class="site-content">
+    <a href="../visualize/" class="return-link">← Return to Visualization Hub</a>
+
+    <h2>Option Value Simulator<sup>2</sup></h2>
+    <p>Use the slider to simulate political pressure on a university. Observe how institutions rationally choose <em>Temporary Compliance</em> (Title VI settlements, antisemitism definitions, climate surveys) to preserve Option Value — unless Option-Foreclosure reforms are enacted.</p>
+
+    <div class="simulator-panel">
+      <h3>Political Pressure Level</h3>
+      <div class="slider-wrapper">
+        <div class="slider-label">
+          <span>Low Political Pressure</span>
+          <span id="pressureLabel">50%</span>
+          <span>High Political Pressure</span>
+        </div>
+        <input type="range" id="pressureSlider" min="0" max="100" value="50" oninput="updateSimulator(this.value)">
+      </div>
+
+      <div class="decision-display" id="decisionDisplay">
+        <div class="decision-box compliance" id="complianceBox">
+          <div class="db-icon">📋</div>
+          <div class="db-title">Temporary Compliance</div>
+          <div class="db-desc">Antisemitism definitions · Title VI liaisons · Climate surveys · Nine-figure settlements with policy conditions</div>
+          <div class="db-value" id="complianceValue">Option Value: Preserved</div>
+        </div>
+        <div class="decision-arrow">⟺</div>
+        <div class="decision-box reform" id="reformBox">
+          <div class="db-icon">⚖️</div>
+          <div class="db-title">Structural Reform</div>
+          <div class="db-desc">Stakeholder Standing · Mission Specificity · Operational Test (IRS 501(c)(3) condition)</div>
+          <div class="db-value" id="reformValue">Option Value: Foreclosed</div>
+        </div>
+      </div>
+
+      <div class="rational-narrative" id="rationalNarrative">
+        <div class="rn-label">Rational Institutional Choice at This Pressure Level</div>
+        <div id="narrativeText"></div>
+      </div>
+    </div>
+
+    <!-- Impact Comparison -->
+    <h2>Impact Comparison: Symptom Treatment vs. Structural Reconstruction<sup>3</sup></h2>
+    <div class="comparison-grid">
+      <div class="comparison-col symptom">
+        <div class="comp-label symptom">Symptom Treatment</div>
+        <div class="comp-title">Current Settlement Conditions</div>
+        <div class="comp-item">
+          <div class="comp-item-icon">📖</div>
+          <div>
+            <div class="comp-item-label">Antisemitism Definition</div>
+            <div class="comp-item-desc">Adopt IHRA or Nexus definition; apply to conduct determinations.</div>
+            <div class="reversibility-badge rev">Reversible: reinterpretable</div>
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-item-icon">👤</div>
+          <div>
+            <div class="comp-item-label">Title VI Liaison</div>
+            <div class="comp-item-desc">Designate an office for Jewish student concerns; reporting structure.</div>
+            <div class="reversibility-badge rev">Reversible: reassignable</div>
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-item-icon">📊</div>
+          <div>
+            <div class="comp-item-label">Climate Surveys</div>
+            <div class="comp-item-desc">Annual surveys of campus climate for Jewish students; publish results.</div>
+            <div class="reversibility-badge rev">Reversible: findings deprioritizable</div>
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-item-icon">💰</div>
+          <div>
+            <div class="comp-item-label">Settlement Funding</div>
+            <div class="comp-item-desc">Nine-figure settlements (Columbia, Brown, others) for programmatic support.</div>
+            <div class="reversibility-badge rev">Reversible: one-time payment</div>
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-item-icon">⚠️</div>
+          <div>
+            <div class="comp-item-label">Governance Void?</div>
+            <div class="comp-item-desc">None of these conditions address the self-perpetuating board, hollow duty, or absent standing.</div>
+            <div class="reversibility-badge rev">Void: unaddressed</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comparison-col structural">
+        <div class="comp-label structural">Structural Reconstruction</div>
+        <div class="comp-title">The Three Reforms</div>
+        <div class="comp-item">
+          <div class="comp-item-icon">⚖️</div>
+          <div>
+            <div class="comp-item-label">Reform 1: Stakeholder Standing</div>
+            <div class="comp-item-desc">Enrolled students and current faculty may bring derivative suits enforcing existing fiduciary duties against nonprofit educational boards.</div>
+            <div class="reversibility-badge perm">Option-Foreclosing: legislatively durable</div>
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-item-icon">📜</div>
+          <div>
+            <div class="comp-item-label">Reform 2: Mission Specificity</div>
+            <div class="comp-item-desc">Mission statements must meet an operational specificity standard — encoding measurable equal-treatment commitments, triggering all six Buckles obedience norms.</div>
+            <div class="reversibility-badge perm">Option-Foreclosing: fiduciary breach to depart</div>
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-item-icon">🏛️</div>
+          <div>
+            <div class="comp-item-label">Reform 3: Operational Test</div>
+            <div class="comp-item-desc">IRS conditions 501(c)(3) status on demonstrated governance structures preventing systematic identity-based exclusion; modeled on hospital community benefit standard (I.R.C. § 501(r)).</div>
+            <div class="reversibility-badge perm">Option-Foreclosing: tax-exemption condition</div>
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-item-icon">🔗</div>
+          <div>
+            <div class="comp-item-label">Mutual Reinforcement</div>
+            <div class="comp-item-desc">Standing without standards is empty. Standards without standing are unenforceable. External accountability without internal mechanisms can be satisfied on paper. Together: overlapping accountability redundancy.</div>
+            <div class="reversibility-badge perm">Systemic: all three required</div>
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-item-icon">✓</div>
+          <div>
+            <div class="comp-item-label">Governance Void?</div>
+            <div class="comp-item-desc">All three reforms directly target the three architectural features of the governance void: absent standing, hollow duty, self-perpetuating board.</div>
+            <div class="reversibility-badge perm">Void: addressed structurally</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reform Detail Cards -->
+    <h2>The Three Reforms<sup>4</sup></h2>
+    <div class="reform-cards" id="reformCards">
+      <!-- Populated by JS from data -->
+    </div>
+
+    <div class="footnote-bar">
+      <p><sup>1</sup> Oranburg, Seth C., <em>Exclusive Inclusion</em> (2025), §IV (Three Structural Reforms) and §V (Option Value Theory). Data loaded from <code>../data/reforms.json</code> and <code>../data/legal_logic.json</code>.</p>
+      <p><sup>2</sup> Option Value Theory: When universities face federal pressure, they consistently accept reversible policy compliance rather than permanent governance reform. This reflects a rational economic calculation about option value — the value of preserving the right to revert. <em>Id.</em> at §V.A (Option Value Mechanism).</p>
+      <p><sup>3</sup> Settlement conditions: Columbia University settlement (2025); Brown University settlement (2025); Title VI investigation conditions imposed by federal officials. See also Rozier, "Nonprofit Hospital Community Benefit in the U.S.," Frontiers in Public Health 8:72 (2020) (hospital community benefit standard as model for Reform 3).</p>
+      <p><sup>4</sup> Reform authorities: Reform 1 — Turner v. Victoria, 67 Cal.App.5th 1099 (Cal. Ct. App. 2021); Fed. R. Civ. P. 23.1 (derivative suit model). Reform 2 — Palmiter, 55 N.Y.L. Sch. L. Rev. 457 (2011); Buckles, 62 Cath. U. L. Rev. 913 (2013). Reform 3 — Rev. Rul. 69-545 (1969); I.R.C. § 501(r); Rumsfeld v. FAIR, 547 U.S. 47 (2006) (constitutional basis for spending conditions).</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Seth C. Oranburg. Working paper. All rights reserved.</p>
+    <p><a href="/">Home</a> &middot; <a href="../visualize/">Visualization Hub</a> &middot; <a href="https://dx.doi.org/10.2139/ssrn.6423378" target="_blank" rel="noopener noreferrer">DOI: 10.2139/ssrn.6423378</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('themeToggle').addEventListener('click', function(){
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('ei-theme', next); } catch(e){}
+    });
+
+    // Option Value narratives at different pressure levels
+    var pressureNarratives = [
+      { min: 0, max: 20, text: 'At low political pressure, the institution has no incentive to accept even reversible compliance. The governance void is stable. No federal investigation is pending; the board faces no external accountability threat. Exclusive inclusion continues without disruption.', choice: 'compliance', ratio: [80, 5] },
+      { min: 21, max: 45, text: 'At moderate-low political pressure, the institution acknowledges the issue with symbolic gestures — climate surveys, task forces, acknowledgment statements. These cost little and preserve maximum option value. No governance change is contemplated because the compliance cost is lower than the option-preservation benefit.', choice: 'compliance', ratio: [70, 15] },
+      { min: 46, max: 65, text: 'At moderate pressure — a Title VI investigation, congressional hearing, or media scrutiny — the institution accepts reversible compliance: antisemitism definitions, liaisons, nine-figure settlement funding. This satisfies the political moment while preserving the option to revert if the political environment shifts. The governance void remains. This is the 2025 settlement pattern.', choice: 'compliance', ratio: [60, 25] },
+      { min: 66, max: 80, text: 'At high pressure — credible threat of tax-exempt status loss, sustained legislative attention, or multiple pending derivative claims — the institution begins to consider structural reform. Even here, the institution prefers the least option-foreclosing reform available. The rational calculation shifts only when the cost of option-preservation exceeds the option\'s value.', choice: 'reform', ratio: [40, 65] },
+      { min: 81, max: 100, text: 'At maximum pressure — IRS Operational Test enacted, stakeholder standing legislation passed, sustained enforcement action — the option-foreclosure reforms make reversion legally costly. Structural governance reform becomes the rational choice because the option to revert has been foreclosed by law. The three reforms are specifically designed to create this condition.', choice: 'reform', ratio: [15, 90] }
+    ];
+
+    function updateSimulator(val) {
+      val = parseInt(val);
+      document.getElementById('pressureLabel').textContent = val + '%';
+
+      var narrative = pressureNarratives.find(n => val >= n.min && val <= n.max);
+      if (!narrative) return;
+
+      var cb = document.getElementById('complianceBox');
+      var rb = document.getElementById('reformBox');
+      var nt = document.getElementById('narrativeText');
+
+      var compScore = narrative.ratio[0];
+      var refScore = narrative.ratio[1];
+
+      cb.classList.toggle('selected', narrative.choice === 'compliance');
+      cb.classList.toggle('dimmed', narrative.choice === 'reform');
+      rb.classList.toggle('selected', narrative.choice === 'reform');
+      rb.classList.toggle('dimmed', narrative.choice === 'compliance');
+
+      document.getElementById('complianceValue').textContent = 'Institutional Preference: ' + compScore + '%';
+      document.getElementById('reformValue').textContent = 'Institutional Preference: ' + refScore + '%';
+
+      nt.textContent = narrative.text;
+    }
+
+    // Reform cards from data
+    var reformData = [
+      {
+        number: 'Reform 1',
+        title: 'Stakeholder Standing',
+        void_targeted: 'Absence of Stakeholder Standing',
+        one_sentence: 'Legislatures permit currently enrolled students and currently employed faculty to bring derivative actions enforcing existing fiduciary duties against nonprofit educational boards.',
+        primary_effect: 'Deterrent: boards exercise greater care knowing stakeholders can enforce duties. Even if few suits are ever filed, the credible threat of litigation changes ex ante decision-making at the board level.',
+        secondary_effect: 'Information: the demand process generates information about board conduct useful to state AGs, accreditation bodies, and the public even when no suit is filed.',
+        cite: 'Turner v. Victoria, 67 Cal.App.5th 1099 (Cal. Ct. App. 2021); Fed. R. Civ. P. 23.1 (derivative suit model)'
+      },
+      {
+        number: 'Reform 2',
+        title: 'Mission Specificity',
+        void_targeted: 'Hollow Duty of Obedience',
+        one_sentence: 'State nonprofit corporation acts require educational institutions to adopt mission statements meeting an operational specificity standard, naming the identity groups protected, the institutional mechanisms for protection, and measurable benchmarks.',
+        primary_effect: 'Activation: gives the duty of obedience operational content against which fiduciary conduct can be measured. Activates all six norms of the Buckles Taxonomy — specifically the Dynamic Charter Fidelity Norm, which binds fiduciaries to honor specific mission commitments in all governance decisions.',
+        secondary_effect: 'Signal: institutional clarity about mission commitments creates information for donors, students, faculty, and accreditors — enabling stakeholders to make informed affiliation decisions.',
+        cite: 'Palmiter, 55 N.Y.L. Sch. L. Rev. 457 (2011); Buckles, 62 Cath. U. L. Rev. 913 (2013)'
+      },
+      {
+        number: 'Reform 3',
+        title: 'Operational Test',
+        void_targeted: 'Self-Perpetuating Board / External Accountability Absence',
+        one_sentence: 'IRS conditions 501(c)(3) tax exemption on demonstrated governance structures preventing systematic identity-based exclusion, modeled on the hospital community benefit standard (I.R.C. § 501(r)).',
+        primary_effect: 'External accountability: provides an enforcement mechanism that does not depend on state attorney general resources or private standing. Modeled on I.R.C. § 501(r) (hospital community health needs assessments), which demonstrates the legal and administrative feasibility of operational governance requirements for 501(c)(3) institutions.',
+        secondary_effect: 'Constitutional basis: Rumsfeld v. FAIR, 547 U.S. 47 (2006) establishes that conditioning funding on governance conduct is not speech regulation. The Operational Test "neither limits what institutions may say nor requires them to say anything" about their views on identity or diversity.',
+        cite: 'Rev. Rul. 69-545 (1969); I.R.C. § 501(r); Rumsfeld v. FAIR, 547 U.S. 47 (2006); Rozier, Frontiers in Public Health 8:72 (2020)'
+      }
+    ];
+
+    function renderReformCards() {
+      var container = document.getElementById('reformCards');
+      container.innerHTML = '';
+      reformData.forEach(function(r) {
+        var card = document.createElement('div');
+        card.className = 'reform-card';
+        card.innerHTML =
+          '<div class="rc-number">' + escHtml(r.number) + ' — Targets: ' + escHtml(r.void_targeted) + '</div>' +
+          '<div class="rc-title">' + escHtml(r.title) + '</div>' +
+          '<div class="rc-one-sentence">' + escHtml(r.one_sentence) + '</div>' +
+          '<div class="rc-effect"><strong>Primary Effect:</strong> ' + escHtml(r.primary_effect) + '</div>' +
+          '<div class="rc-effect" style="margin-top:var(--space-sm)"><strong>Secondary Effect:</strong> ' + escHtml(r.secondary_effect) + '</div>' +
+          '<div class="rc-cite">' + escHtml(r.cite) + '</div>';
+        container.appendChild(card);
+      });
+    }
+
+    function escHtml(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // Also try to load from reforms.json for live enrichment
+    fetch('../data/reforms.json')
+      .then(r => r.json())
+      .then(d => {
+        // Enrich reform cards if data loaded
+        if (d && d.reforms) {
+          d.reforms.forEach(function(r, i) {
+            if (reformData[i]) {
+              reformData[i].one_sentence = r.one_sentence || reformData[i].one_sentence;
+              reformData[i].primary_effect = r.primary_effect || reformData[i].primary_effect;
+              reformData[i].secondary_effect = r.secondary_effect || reformData[i].secondary_effect;
+            }
+          });
+          renderReformCards();
+        }
+      })
+      .catch(function() { /* use static data */ });
+
+    // Initialize
+    updateSimulator(50);
+    renderReformCards();
+  </script>
+</body>
+</html>
