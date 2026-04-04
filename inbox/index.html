@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inbox — Exclusive Inclusion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/oranburg-style.css">
+  <style>
+    .inbox-info {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--yellow);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: var(--space-lg) var(--space-xl);
+      margin: var(--space-xl) 0;
+    }
+    .inbox-info h3 { color: var(--yellow); margin: 0 0 var(--space-sm); }
+    .type-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-md);
+      margin: var(--space-xl) 0;
+    }
+    .type-chip {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      text-align: center;
+      font-family: var(--font-headline);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .type-chip .ext {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      color: var(--accent);
+      margin-bottom: var(--space-xs);
+    }
+  </style>
+  <script>
+    (function(){
+      try { var t=localStorage.getItem('ei-theme'); document.documentElement.setAttribute('data-theme',t==='light'||t==='dark'?t:'dark'); } catch(e){}
+    })();
+  </script>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Site navigation">
+    <ul>
+      <li><a href="../">Home</a></li>
+      <li><a href="../paper/">Full Text</a></li>
+      <li><a href="../blog/">Blog</a></li>
+      <li><a href="../activities/">Activities</a></li>
+      <li><a href="../learning/">Learning</a></li>
+      <li><a href="https://dx.doi.org/10.2139/ssrn.6423378" target="_blank" rel="noopener noreferrer">SSRN</a></li>
+      <li>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <header class="site-header">
+    <a href="../" class="site-title">Exclusive Inclusion</a>
+    <p class="site-tagline">Content Inbox</p>
+  </header>
+
+  <main class="site-content">
+    <h2>Raw Content Inbox</h2>
+
+    <div class="inbox-info">
+      <h3>⚠ Working Directory</h3>
+      <p>This inbox is for raw, unprocessed source materials. Files dropped here are staged for incorporation into the public site sections: <a href="../paper/">Full Text</a>, <a href="../blog/">Blog</a>, <a href="../activities/">Activities</a>, and <a href="../learning/">Learning</a>.</p>
+    </div>
+
+    <h3>Accepted File Types</h3>
+    <div class="type-grid">
+      <div class="type-chip"><span class="ext">.html</span>HTML Snippets</div>
+      <div class="type-chip"><span class="ext">.md</span>Markdown Drafts</div>
+      <div class="type-chip"><span class="ext">.txt</span>Plain Text</div>
+      <div class="type-chip"><span class="ext">.png .jpg</span>Images</div>
+      <div class="type-chip"><span class="ext">.svg</span>Vector Graphics</div>
+      <div class="type-chip"><span class="ext">.pdf</span>PDF Exports</div>
+      <div class="type-chip"><span class="ext">.docx</span>Word Documents</div>
+      <div class="type-chip"><span class="ext">.json .csv</span>Data Files</div>
+    </div>
+
+    <h3>Workflow</h3>
+    <ol>
+      <li><strong>Drop</strong> raw files into the <code>inbox/</code> directory in the repository.</li>
+      <li><strong>Process</strong> them: convert formats, optimize images, edit for publication.</li>
+      <li><strong>Move</strong> finished files to the appropriate section (<code>paper/</code>, <code>blog/</code>, <code>activities/</code>, or <code>learning/</code>).</li>
+    </ol>
+
+    <h3>Current Inbox Contents</h3>
+    <p>No files have been added yet. Add raw source content to the <code>inbox/</code> directory to get started.</p>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Seth C. Oranburg &middot; <a href="../">Exclusive Inclusion</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      var html = document.documentElement;
+      var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      try { localStorage.setItem('ei-theme', next); } catch(e) {}
+    });
+  </script>
+</body>
+</html>
