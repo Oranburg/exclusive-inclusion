@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Exclusive Inclusion</title>
+  <meta name="description" content="Commentary and short essays on the ideas in Exclusive Inclusion by Seth C. Oranburg.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/oranburg-style.css">
+  <style>
+    .post-list { list-style: none; padding: 0; margin: var(--space-xl) 0; }
+    .post-item {
+      border-bottom: 1px solid var(--border);
+      padding: var(--space-xl) 0;
+    }
+    .post-item:first-child { padding-top: 0; }
+    .post-item:last-child { border-bottom: none; }
+    .post-date {
+      font-family: var(--font-headline);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent-red);
+      margin-bottom: var(--space-xs);
+    }
+    .post-item h3 {
+      font-family: var(--font-headline);
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin: 0 0 var(--space-xs);
+    }
+    .post-item h3 a { color: inherit; }
+    .post-item h3 a:hover { color: var(--accent-2); }
+    .post-excerpt {
+      font-family: var(--font-accent);
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin: 0;
+    }
+    .post-tags {
+      display: flex;
+      gap: var(--space-xs);
+      flex-wrap: wrap;
+      margin-top: var(--space-sm);
+    }
+    .tag {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 0.15rem 0.6rem;
+      font-family: var(--font-headline);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+    }
+    .empty-state {
+      text-align: center;
+      padding: var(--space-3xl) var(--space-xl);
+      color: var(--muted);
+    }
+    .empty-state p { font-family: var(--font-accent); font-size: 1.1rem; }
+  </style>
+  <script>
+    (function(){
+      try { var t=localStorage.getItem('ei-theme'); document.documentElement.setAttribute('data-theme',t==='light'||t==='dark'?t:'dark'); } catch(e){}
+    })();
+  </script>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Site navigation">
+    <ul>
+      <li><a href="../">Home</a></li>
+      <li><a href="../paper/">Full Text</a></li>
+      <li><a href="../blog/" aria-current="page">Blog</a></li>
+      <li><a href="../activities/">Activities</a></li>
+      <li><a href="../learning/">Learning</a></li>
+      <li><a href="https://dx.doi.org/10.2139/ssrn.6423378" target="_blank" rel="noopener noreferrer">SSRN</a></li>
+      <li>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <header class="site-header">
+    <a href="../" class="site-title">Exclusive Inclusion</a>
+    <p class="site-tagline">Blog &amp; Commentary</p>
+  </header>
+
+  <main class="site-content">
+    <h2>Blog</h2>
+    <p>Short essays, responses to critiques, and reflections on the ideas developed in the paper as they evolve. New posts will appear here as the project develops.</p>
+
+    <div class="empty-state">
+      <p>No posts yet. Check back soon&mdash;or <a href="https://dx.doi.org/10.2139/ssrn.6423378" target="_blank" rel="noopener noreferrer">read the paper on SSRN</a> while you wait.</p>
+    </div>
+
+    <!-- Future posts will be added as <li> items inside a <ul class="post-list"> here.
+         Example structure:
+
+    <ul class="post-list">
+      <li class="post-item">
+        <div class="post-date">April 2025</div>
+        <h3><a href="posts/post-slug.html">Post Title Here</a></h3>
+        <p class="post-excerpt">A short excerpt or description of the post goes here.</p>
+        <div class="post-tags">
+          <span class="tag">DEI</span>
+          <span class="tag">Administrative Law</span>
+        </div>
+      </li>
+    </ul>
+    -->
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Seth C. Oranburg &middot; <a href="../">Exclusive Inclusion</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      var html = document.documentElement;
+      var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      try { localStorage.setItem('ei-theme', next); } catch(e) {}
+    });
+  </script>
+</body>
+</html>
