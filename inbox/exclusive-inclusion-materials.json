@@ -9,14 +9,14 @@
   },
   "core_concept": {
     "name": "Exclusive Inclusion",
-    "definition": "The governance state in which an institution claims to protect all members while structurally ensuring that some are unprotected because self-perpetuating boards, hollow fiduciary duties, and the absence of stakeholder standing create an accountability void that organized factions can exploit.",
-    "mechanism": "structural-not-attitudinal",
+    "definition": "The governance state in which an institution claims to protect all members while structurally ensuring that some are unprotected because self-perpetuating boards, unenforceable fiduciary duties, and the absence of stakeholder standing create an accountability void that organized factions can exploit.",
+    "mechanism": "architectural-not-attitudinal",
     "three_elements": [
       "self-perpetuating-boards",
       "hollow-fiduciary-duties",
       "absence-of-stakeholder-standing"
     ],
-    "key_distinction": "The disease is the governance void. The exclusion is the symptom.",
+    "key_distinction": "The accountability void is the disease; identity-based exclusion is the symptom.",
     "distinguishing_from": {
       "individual_prejudice": "Not about bad actors following institutional policy",
       "disparate_impact": "Not about facially neutral policies with discriminatory effects",
@@ -59,14 +59,15 @@
       "governance_problem": "Governance structures at departmental level lacked accountability; board reasoning from reputational frames foreclosed equitable remedies"
     },
     {
-      "group": "Conservative and Libertarian Faculty",
+      "group": "Faculty with non-conforming or dissenting views",
       "evidence": {
         "fire_survey": "2024 survey of 6,269 faculty at 55 four-year institutions",
         "self_censorship": "47% of conservatives self-censor vs. 19% of liberals",
-        "written_work": "35% tone down written work from fear of controversy (higher than McCarthyism era)"
+        "written_work": "35% tone down written work from fear of controversy (higher than McCarthyism era)",
+        "framing": "Exposure to institutional sanction tracks the relationship between a faculty member's expressed views and dominant institutional consensus, not the partisan content of the viewpoint."
       },
-      "mechanism": "Hiring committees use vague 'fit' criteria as ideological gatekeeping device",
-      "governance_problem": "Disaggregated departmental hiring with no accountability for ideological screening"
+      "mechanism": "Captured hiring committees, vague evaluative criteria such as “fit,” and networked recommendation channels systematically screen out scholars whose views deviate from dominant institutional consensus, substituting ideological conformity for open intellectual inquiry.",
+      "governance_problem": "Disaggregated departmental hiring and committee discretion operate without stakeholder recourse, allowing viewpoint-based exclusion tied to divergence from institutional consensus rather than partisan labels."
     },
     {
       "group": "Students with Disabilities",
@@ -120,7 +121,7 @@
   },
   "governance_void": {
     "framework": "sovereign-charity",
-    "definition": "Institutions that wield public influence, receive public subsidy, perform public functions, while governing themselves as private corporations answerable to no external constituency",
+    "definition": "Within the sovereign-charity framework, the governance void is the structural condition created by self-perpetuating boards, hollow fiduciary obedience, and absent stakeholder standing that leaves institutions without effective internal capacity to respond to factional capture.",
     "three_architectural_features": [
       {
         "feature": "Self-Perpetuating Board",
@@ -143,15 +144,19 @@
         "scholarly_anchor": "Johnny Rex Buckles; Turner v. Victoria, Cal. 2023 (expanding standing to internal stakeholders)"
       }
     ],
-    "consequence": "Disaggregated governance produces aggregate pattern—multiple departments, committees, units lack accountability; central administration claims commitment to pluralism while individual units claim legitimate academic judgment; excluded group has no recourse"
+    "consequence": "Disaggregated governance produces aggregate pattern—multiple departments, committees, units lack accountability; central administration claims commitment to pluralism while individual units claim legitimate academic judgment; excluded group has no recourse",
+    "immunodeficiency_analogy": {
+      "core_point": "The governance void functions like institutional immunodeficiency: it does not cause capture directly, but removes the institution's capacity to identify, neutralize, and remediate factional capture before systemic harm."
+    },
+    "condition_not_cause": "The governance void is a precondition that eliminates response capacity; organized factions then exploit that condition to produce identity-based exclusion."
   },
   "why_existing_law_misses_it": [
     {
       "doctrine": "Title VI (Federal Enforcement)",
-      "what_it_reached": "Columbia $200M settlement, Brown $50M over 10 years",
+      "what_it_reached": "2025 federal interventions froze billions, imposed Title VI compliance conditions, and extracted major settlements (including Columbia and Brown).",
       "remedies_imposed": "Definitions of antisemitism, liaisons, climate surveys",
-      "what_it_missed": "Zero governance reform; no stakeholder standing created; governance void persists when enforcement ends",
-      "case": "President and Fellows of Harvard College v. U.S. Dept. of Health & Human Services (D. Mass. 2025)"
+      "what_it_missed": "No settlement mandated board-structure reform, enforceable mission specificity, or stakeholder standing; the governance void remained intact.",
+      "case": "President and Fellows of Harvard College v. U.S. Department of Health and Human Services (D. Mass. 2025, Judge Allison Burroughs)"
     },
     {
       "doctrine": "First Amendment / Academic Freedom",
@@ -167,6 +172,12 @@
     },
     {
       "summary": "Federal coercion addresses symptoms. Compliance addresses optics. Neither reaches the governance void."
+    },
+    {
+      "doctrine": "Option Value Theory (Institutional Response)",
+      "what_it_reached": "Universities accepted reversible policy compliance under federal pressure.",
+      "what_it_missed": "Institutions rationally avoided permanent governance reform to preserve future flexibility and autonomy.",
+      "problem": "Policy compliance preserves the option to reverse course; structural reform forecloses that option, so capitulation often leaves core governance architecture unchanged."
     }
   ],
   "second_order_diversity": {
@@ -178,14 +189,14 @@
   "three_structural_reforms": [
     {
       "reform_name": "Stakeholder Standing",
-      "model": "Corporate derivative suit (Federal Rule 23.1)",
+      "model": "Corporate derivative suit analog (Fed. R. Civ. P. 23.1-style pleading)",
       "mechanism": "Legislatures permit currently enrolled students and currently employed faculty to bring derivative actions enforcing existing fiduciary duties against nonprofit educational boards",
       "safeguards": [
-        "90-day demand requirement before filing",
-        "Heightened pleading standards (Fed. R. Civ. P. 23.1 analogs)",
-        "Court-set bond requirement",
-        "Fee-shifting favoring plaintiffs",
-        "Judicial review for abuse of discretion preserving board deference"
+        "90-day demand requirement before filing suit",
+        "Heightened pleading standards modeled on Fed. R. Civ. P. 23.1 requiring specific fiduciary-breach facts",
+        "Court-set bond requirement with hardship waiver discretion",
+        "Fee-shifting that rewards prevailing plaintiffs and sanctions frivolous or bad-faith claims",
+        "Abuse-of-discretion judicial review preserving board deference while enabling accountability"
       ],
       "primary_effect": "Deterrent—boards exercise greater care knowing stakeholders can enforce duties",
       "legal_precedent": "Turner v. Victoria, Cal. 2023",
@@ -326,8 +337,8 @@
     {
       "case_name": "President and Fellows of Harvard College v. U.S. Department of Health and Human Services",
       "citation": "No. 125-cv-11048 (D. Mass. 2025)",
-      "holding": "District court found administration used antisemitism as smokescreen for ideologically-motivated assault on premier universities",
-      "relevance": "Even when administration wins, governance void persists; nine-figure settlements produce zero governance reform"
+      "holding": "Judge Allison Burroughs held the funding freeze unconstitutional under First Amendment and APA principles, finding the administration used antisemitism as a smokescreen for an ideologically motivated assault.",
+      "relevance": "Demonstrates limits of coercive federal intervention: Harvard prevailed judicially, yet the underlying governance void persisted."
     },
     {
       "case_name": "Robertson v. Princeton",
@@ -389,7 +400,8 @@
         "Part III: Why Existing Law Misses It",
         "Part IV: Three Structural Reforms",
         "Part V: Implementing Fiduciary Obedience Norms"
-      ]
+      ],
+      "extension_scope": "Framework extends beyond universities to museums, foundations, and other major nonprofit institutions combining public function with private impunity."
     }
   },
   "contact": {
@@ -398,5 +410,14 @@
     "institution": "Catholic University of America, Columbus School of Law",
     "workshop_date": "April 13, 2026",
     "companion_article": "Sovereign Charities (forthcoming)"
+  },
+  "common_structural_pattern": {
+    "claim": "The mechanism is architectural, not attitudinal, and operates simultaneously across all five identity groups.",
+    "description": "Across Women of Color in STEM, Black students, faculty with non-conforming or dissenting views, Jewish students, and students with disabilities, the same governance architecture yields exclusion because the accountability void does not discriminate among groups it leaves unprotected.",
+    "implication": "Governance reform benefits every affected constituency because it targets the shared structural mechanism rather than group-specific attitudes."
+  },
+  "conclusion": {
+    "structural_claim": "Exclusive inclusion is produced by governance architecture; only structural reform can make exclusion structurally unlikely.",
+    "expanded_scope": "The framework extends to museums and foundations that share self-perpetuating governance, vague mission constraints, and limited stakeholder recourse."
   }
 }
