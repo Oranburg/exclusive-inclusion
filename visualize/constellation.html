@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intellectual Constellation — Exclusive Inclusion</title>
+  <meta name="description" content="Interactive visualization of the intellectual universe surrounding Exclusive Inclusion theory, spanning 2,400 years of governance philosophy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/oranburg-style.css">
+  <style>
+    body { margin: 0; overflow: hidden; background: #000; }
+
+    .page-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,50,85,0.92); backdrop-filter: blur(8px);
+      padding: 0.75rem 1.25rem;
+      display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 2px solid var(--accent-red);
+    }
+    .page-header h1 { font-size: 1.1rem; margin: 0; font-family: var(--font-headline); color: #fff; }
+    .return-link { font-family: var(--font-headline); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); text-decoration: none; }
+    .return-link:hover { color: var(--yellow); }
+
+    /* Controls */
+    .controls {
+      position: fixed; top: 60px; left: 1rem; z-index: 90;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .ctrl-btn {
+      background: rgba(10,50,85,0.85); border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.5rem 0.75rem;
+      font-family: var(--font-ui, Roboto, sans-serif); font-size: 0.8rem;
+      color: var(--muted); cursor: pointer; text-align: left;
+      backdrop-filter: blur(4px); transition: all 0.2s;
+    }
+    .ctrl-btn:hover, .ctrl-btn.active { border-color: var(--accent); color: #fff; }
+    .ctrl-btn .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+
+    /* Search */
+    .search-box {
+      position: fixed; top: 60px; right: 1rem; z-index: 90;
+      background: rgba(10,50,85,0.85); border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.5rem 0.75rem;
+      backdrop-filter: blur(4px);
+    }
+    .search-box input {
+      background: transparent; border: none; color: #fff;
+      font-family: var(--font-body); font-size: 0.95rem;
+      outline: none; width: 200px;
+    }
+    .search-box input::placeholder { color: var(--muted); }
+
+    /* Canvas */
+    #constellation {
+      width: 100vw; height: 100vh;
+      cursor: grab;
+    }
+    #constellation:active { cursor: grabbing; }
+
+    /* Detail panel */
+    .detail-panel {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 90;
+      background: rgba(10,50,85,0.95); backdrop-filter: blur(12px);
+      border-top: 2px solid var(--accent-red);
+      padding: 1.25rem 1.5rem;
+      transform: translateY(100%); transition: transform 0.3s ease;
+      max-height: 40vh; overflow-y: auto;
+    }
+    .detail-panel.open { transform: translateY(0); }
+    .detail-panel h2 { font-family: var(--font-headline); color: var(--accent); margin: 0 0 0.25rem; font-size: 1.3rem; }
+    .detail-author { font-family: var(--font-accent); color: var(--muted); font-style: italic; margin: 0 0 0.5rem; font-size: 1rem; }
+    .detail-year { font-family: var(--font-mono, monospace); color: var(--accent-red); font-size: 0.85rem; }
+    .detail-desc { color: var(--text); line-height: 1.7; margin: 0.75rem 0 0; font-size: 1rem; }
+    .detail-connections { margin-top: 0.75rem; }
+    .detail-connections span {
+      display: inline-block; background: var(--bg-soft); border: 1px solid var(--border);
+      border-radius: 4px; padding: 0.2rem 0.5rem; font-size: 0.85rem; color: var(--accent);
+      margin: 0.15rem; cursor: pointer;
+    }
+    .detail-connections span:hover { border-color: var(--accent); }
+    .detail-close {
+      position: absolute; top: 0.75rem; right: 1rem;
+      background: none; border: none; color: var(--muted); cursor: pointer; font-size: 1.2rem;
+    }
+    .detail-link { display: inline-block; margin-top: 0.5rem; color: var(--accent); font-size: 0.9rem; }
+
+    /* Legend */
+    .legend {
+      position: fixed; bottom: 1rem; right: 1rem; z-index: 80;
+      background: rgba(10,50,85,0.8); border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.75rem; backdrop-filter: blur(4px);
+      font-size: 0.75rem; color: var(--muted);
+    }
+    .legend-item { display: flex; align-items: center; gap: 6px; margin: 3px 0; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .controls { top: 55px; left: 0.5rem; }
+      .search-box { top: 55px; right: 0.5rem; }
+      .search-box input { width: 120px; }
+      .legend { display: none; }
+      .detail-panel { max-height: 50vh; }
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <a href="../" class="return-link">&larr; Exclusive Inclusion</a>
+    <h1>Intellectual Constellation</h1>
+  </header>
+
+  <div class="controls" id="filters"></div>
+
+  <div class="search-box">
+    <input type="text" id="search" placeholder="Search works..." autocomplete="off">
+  </div>
+
+  <canvas id="constellation"></canvas>
+
+  <div class="detail-panel" id="detail">
+    <button class="detail-close" onclick="closeDetail()">&times;</button>
+    <h2 id="detail-title"></h2>
+    <p class="detail-author" id="detail-author"></p>
+    <span class="detail-year" id="detail-year"></span>
+    <p class="detail-desc" id="detail-desc"></p>
+    <div class="detail-connections" id="detail-connections"></div>
+    <a class="detail-link" id="detail-link" href="#" target="_blank" rel="noopener" style="display:none">View source &rarr;</a>
+  </div>
+
+  <div class="legend" id="legend"></div>
+
+  <script>
+  (function () {
+    'use strict';
+
+    // ── State ──
+    let data = null;
+    let nodes = [];
+    let edges = [];
+    let selected = null;
+    let hovered = null;
+    let filterGroup = null;
+    let searchTerm = '';
+    let offsetX = 0, offsetY = 0, scale = 1;
+    let dragStart = null, dragOffset = null;
+    let animFrame = null;
+
+    const canvas = document.getElementById('constellation');
+    const ctx = canvas.getContext('2d');
+
+    // ── Load data ──
+    fetch('../data/constellation.json')
+      .then(r => r.json())
+      .then(d => {
+        data = d;
+        nodes = d.nodes.map((n, i) => ({
+          ...n,
+          x: 0, y: 0,
+          vx: 0, vy: 0,
+          color: d.groups[n.group]?.color || '#666',
+        }));
+        edges = d.edges;
+        layoutNodes();
+        buildFilters();
+        buildLegend();
+        resize();
+        animate();
+      });
+
+    // ── Layout: force-directed ──
+    function layoutNodes() {
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+
+      // Initial positions: focal center, others in orbits by group
+      const groupAngles = {};
+      let gi = 0;
+      const groups = [...new Set(nodes.map(n => n.group))];
+      groups.forEach(g => { groupAngles[g] = (gi++ / groups.length) * Math.PI * 2; });
+
+      nodes.forEach(n => {
+        if (n.group === 'focal') {
+          n.x = cx; n.y = cy;
+        } else {
+          const angle = groupAngles[n.group] + (Math.random() - 0.5) * 0.8;
+          const dist = 150 + Math.random() * 200;
+          n.x = cx + Math.cos(angle) * dist;
+          n.y = cy + Math.sin(angle) * dist;
+        }
+      });
+
+      // Run force simulation
+      for (let iter = 0; iter < 300; iter++) {
+        // Repulsion between all nodes
+        for (let i = 0; i < nodes.length; i++) {
+          for (let j = i + 1; j < nodes.length; j++) {
+            const dx = nodes[j].x - nodes[i].x;
+            const dy = nodes[j].y - nodes[i].y;
+            const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+            const force = 8000 / (dist * dist);
+            const fx = (dx / dist) * force;
+            const fy = (dy / dist) * force;
+            nodes[i].vx -= fx; nodes[i].vy -= fy;
+            nodes[j].vx += fx; nodes[j].vy += fy;
+          }
+        }
+
+        // Attraction along edges
+        edges.forEach(e => {
+          const a = nodes.find(n => n.id === e.source);
+          const b = nodes.find(n => n.id === e.target);
+          if (!a || !b) return;
+          const dx = b.x - a.x;
+          const dy = b.y - a.y;
+          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+          const force = (dist - 180) * 0.01;
+          const fx = (dx / dist) * force;
+          const fy = (dy / dist) * force;
+          a.vx += fx; a.vy += fy;
+          b.vx -= fx; b.vy -= fy;
+        });
+
+        // Center gravity
+        nodes.forEach(n => {
+          n.vx += (cx - n.x) * 0.001;
+          n.vy += (cy - n.y) * 0.001;
+        });
+
+        // Apply velocity with damping
+        const damping = 0.85;
+        nodes.forEach(n => {
+          if (n.group === 'focal') { n.x = cx; n.y = cy; return; }
+          n.vx *= damping; n.vy *= damping;
+          n.x += n.vx; n.y += n.vy;
+        });
+      }
+    }
+
+    // ── Render ──
+    function render() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.save();
+      ctx.translate(offsetX, offsetY);
+      ctx.scale(scale, scale);
+
+      const visibleNodes = nodes.filter(n => {
+        if (filterGroup && n.group !== filterGroup && n.group !== 'focal') return false;
+        if (searchTerm && !n.label.toLowerCase().includes(searchTerm) && !n.author?.toLowerCase().includes(searchTerm)) return false;
+        return true;
+      });
+      const visibleIds = new Set(visibleNodes.map(n => n.id));
+
+      // Edges
+      edges.forEach(e => {
+        if (!visibleIds.has(e.source) || !visibleIds.has(e.target)) return;
+        const a = nodes.find(n => n.id === e.source);
+        const b = nodes.find(n => n.id === e.target);
+        if (!a || !b) return;
+
+        const isHighlighted = selected && (e.source === selected.id || e.target === selected.id);
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = isHighlighted ? 'rgba(255,214,92,0.6)' : 'rgba(109,172,222,0.12)';
+        ctx.lineWidth = isHighlighted ? 2 : 0.5;
+        ctx.stroke();
+      });
+
+      // Nodes
+      visibleNodes.forEach(n => {
+        const isSelected = selected && n.id === selected.id;
+        const isConnected = selected && edges.some(e =>
+          (e.source === selected.id && e.target === n.id) ||
+          (e.target === selected.id && e.source === n.id)
+        );
+        const isHovered = hovered && n.id === hovered.id;
+        const dimmed = selected && !isSelected && !isConnected;
+
+        const r = (n.size || 12) * (isSelected ? 1.3 : isHovered ? 1.15 : 1) * 0.5;
+
+        // Glow
+        if (isSelected || isHovered) {
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, r + 8, 0, Math.PI * 2);
+          ctx.fillStyle = n.color + '22';
+          ctx.fill();
+        }
+
+        // Circle
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+        ctx.fillStyle = dimmed ? n.color + '33' : n.color;
+        ctx.fill();
+        if (isSelected) {
+          ctx.strokeStyle = '#FFD65C';
+          ctx.lineWidth = 2;
+          ctx.stroke();
+        }
+
+        // Label
+        const fontSize = Math.max(10, r * 0.8);
+        ctx.font = `600 ${fontSize}px Roboto, sans-serif`;
+        ctx.fillStyle = dimmed ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.9)';
+        ctx.textAlign = 'center';
+        ctx.fillText(n.label, n.x, n.y + r + fontSize + 4);
+      });
+
+      ctx.restore();
+    }
+
+    function animate() {
+      render();
+      animFrame = requestAnimationFrame(animate);
+    }
+
+    // ── Interaction ──
+    function getNodeAt(px, py) {
+      const x = (px - offsetX) / scale;
+      const y = (py - offsetY) / scale;
+      let closest = null, closestDist = Infinity;
+      nodes.forEach(n => {
+        const dx = n.x - x, dy = n.y - y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const r = (n.size || 12) * 0.5 + 10;
+        if (dist < r && dist < closestDist) {
+          closest = n; closestDist = dist;
+        }
+      });
+      return closest;
+    }
+
+    canvas.addEventListener('click', e => {
+      const node = getNodeAt(e.clientX, e.clientY);
+      if (node) { selectNode(node); }
+      else { closeDetail(); selected = null; }
+    });
+
+    canvas.addEventListener('mousemove', e => {
+      hovered = getNodeAt(e.clientX, e.clientY);
+      canvas.style.cursor = hovered ? 'pointer' : 'grab';
+    });
+
+    // Pan
+    canvas.addEventListener('mousedown', e => {
+      if (!getNodeAt(e.clientX, e.clientY)) {
+        dragStart = { x: e.clientX, y: e.clientY };
+        dragOffset = { x: offsetX, y: offsetY };
+      }
+    });
+    canvas.addEventListener('mousemove', e => {
+      if (dragStart) {
+        offsetX = dragOffset.x + (e.clientX - dragStart.x);
+        offsetY = dragOffset.y + (e.clientY - dragStart.y);
+      }
+    });
+    canvas.addEventListener('mouseup', () => { dragStart = null; });
+
+    // Zoom
+    canvas.addEventListener('wheel', e => {
+      e.preventDefault();
+      const zoom = e.deltaY > 0 ? 0.9 : 1.1;
+      scale *= zoom;
+      scale = Math.max(0.3, Math.min(3, scale));
+    }, { passive: false });
+
+    // Touch support
+    let lastTouch = null;
+    canvas.addEventListener('touchstart', e => {
+      if (e.touches.length === 1) {
+        const t = e.touches[0];
+        const node = getNodeAt(t.clientX, t.clientY);
+        if (node) { selectNode(node); e.preventDefault(); return; }
+        dragStart = { x: t.clientX, y: t.clientY };
+        dragOffset = { x: offsetX, y: offsetY };
+      }
+    }, { passive: false });
+    canvas.addEventListener('touchmove', e => {
+      if (dragStart && e.touches.length === 1) {
+        const t = e.touches[0];
+        offsetX = dragOffset.x + (t.clientX - dragStart.x);
+        offsetY = dragOffset.y + (t.clientY - dragStart.y);
+        e.preventDefault();
+      }
+    }, { passive: false });
+    canvas.addEventListener('touchend', () => { dragStart = null; });
+
+    // ── Detail panel ──
+    function selectNode(node) {
+      selected = node;
+      document.getElementById('detail-title').textContent = node.label;
+      document.getElementById('detail-author').textContent = node.author || '';
+      document.getElementById('detail-year').textContent = node.year > 0 ? node.year : Math.abs(node.year) + ' BC';
+      document.getElementById('detail-desc').textContent = node.desc || '';
+
+      // Connections
+      const conns = edges.filter(e => e.source === node.id || e.target === node.id);
+      const connHtml = conns.map(e => {
+        const otherId = e.source === node.id ? e.target : e.source;
+        const other = nodes.find(n => n.id === otherId);
+        return other ? `<span onclick="window._selectById('${otherId}')">${other.label}</span>` : '';
+      }).join('');
+      document.getElementById('detail-connections').innerHTML = connHtml;
+
+      const link = document.getElementById('detail-link');
+      if (node.url) { link.href = node.url; link.style.display = 'inline-block'; }
+      else { link.style.display = 'none'; }
+
+      document.getElementById('detail').classList.add('open');
+    }
+    window._selectById = function(id) {
+      const n = nodes.find(n => n.id === id);
+      if (n) selectNode(n);
+    };
+    window.closeDetail = function() {
+      document.getElementById('detail').classList.remove('open');
+      selected = null;
+    };
+
+    // ── Filters ──
+    function buildFilters() {
+      const el = document.getElementById('filters');
+      el.innerHTML = '<button class="ctrl-btn active" onclick="setFilter(null, this)">All</button>';
+      Object.entries(data.groups).forEach(([key, g]) => {
+        const count = nodes.filter(n => n.group === key).length;
+        if (count === 0) return;
+        el.innerHTML += `<button class="ctrl-btn" onclick="setFilter('${key}', this)"><span class="dot" style="background:${g.color}"></span>${g.label} (${count})</button>`;
+      });
+    }
+    window.setFilter = function(group, btn) {
+      filterGroup = group;
+      document.querySelectorAll('.ctrl-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    };
+
+    // ── Search ──
+    document.getElementById('search').addEventListener('input', e => {
+      searchTerm = e.target.value.toLowerCase();
+    });
+
+    // ── Legend ──
+    function buildLegend() {
+      const el = document.getElementById('legend');
+      el.innerHTML = Object.entries(data.groups).map(([k, g]) =>
+        `<div class="legend-item"><div class="legend-dot" style="background:${g.color}"></div>${g.label}</div>`
+      ).join('');
+    }
+
+    // ── Resize ──
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+  })();
+  </script>
+</body>
+</html>
