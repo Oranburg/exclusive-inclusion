@@ -59,30 +59,57 @@
     }
     #constellation:active { cursor: grabbing; }
 
-    /* Detail panel */
+    /* Detail panel — deep layers */
     .detail-panel {
       position: fixed; bottom: 0; left: 0; right: 0; z-index: 90;
-      background: rgba(10,50,85,0.95); backdrop-filter: blur(12px);
+      background: rgba(10,50,85,0.97); backdrop-filter: blur(12px);
       border-top: 2px solid var(--accent-red);
-      padding: 1.25rem 1.5rem;
+      padding: 0;
       transform: translateY(100%); transition: transform 0.3s ease;
-      max-height: 40vh; overflow-y: auto;
+      max-height: 60vh; display: flex; flex-direction: column;
     }
     .detail-panel.open { transform: translateY(0); }
-    .detail-panel h2 { font-family: var(--font-headline); color: var(--accent); margin: 0 0 0.25rem; font-size: 1.3rem; }
-    .detail-author { font-family: var(--font-accent); color: var(--muted); font-style: italic; margin: 0 0 0.5rem; font-size: 1rem; }
-    .detail-year { font-family: var(--font-mono, monospace); color: var(--accent-red); font-size: 0.85rem; }
-    .detail-desc { color: var(--text); line-height: 1.7; margin: 0.75rem 0 0; font-size: 1rem; }
-    .detail-connections { margin-top: 0.75rem; }
+    .detail-header {
+      padding: 1rem 1.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .detail-header h2 { font-family: var(--font-headline); color: var(--accent); margin: 0 0 0.25rem; font-size: 1.4rem; }
+    .detail-author { font-family: var(--font-accent); color: var(--muted); font-style: italic; margin: 0; font-size: 1rem; }
+    .detail-year { font-family: var(--font-mono, monospace); color: var(--accent-red); font-size: 0.85rem; margin-left: 0.75rem; }
+    .detail-summary { color: var(--text); font-size: 1rem; margin: 0.5rem 0 0; line-height: 1.6; }
+
+    /* Layer tabs */
+    .layer-tabs {
+      display: flex; gap: 0; border-bottom: 1px solid var(--border);
+      flex-shrink: 0; overflow-x: auto; padding: 0 1.5rem;
+    }
+    .layer-tab {
+      padding: 0.6rem 1rem; font-family: var(--font-headline); font-size: 0.8rem;
+      text-transform: uppercase; letter-spacing: 1px; color: var(--muted);
+      background: none; border: none; border-bottom: 2px solid transparent;
+      cursor: pointer; white-space: nowrap; transition: all 0.2s;
+    }
+    .layer-tab:hover { color: var(--text); }
+    .layer-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* Layer content */
+    .layer-content {
+      flex: 1; overflow-y: auto; padding: 1rem 1.5rem 1.5rem;
+    }
+    .layer-text { color: var(--text); line-height: 1.8; font-size: 1rem; }
+    .layer-text strong { color: var(--accent); }
+
+    .detail-connections { margin-top: 1rem; }
     .detail-connections span {
       display: inline-block; background: var(--bg-soft); border: 1px solid var(--border);
-      border-radius: 4px; padding: 0.2rem 0.5rem; font-size: 0.85rem; color: var(--accent);
-      margin: 0.15rem; cursor: pointer;
+      border-radius: 4px; padding: 0.25rem 0.6rem; font-size: 0.9rem; color: var(--accent);
+      margin: 0.2rem; cursor: pointer; transition: border-color 0.2s;
     }
     .detail-connections span:hover { border-color: var(--accent); }
     .detail-close {
       position: absolute; top: 0.75rem; right: 1rem;
-      background: none; border: none; color: var(--muted); cursor: pointer; font-size: 1.2rem;
+      background: none; border: none; color: var(--muted); cursor: pointer; font-size: 1.4rem;
     }
     .detail-link { display: inline-block; margin-top: 0.5rem; color: var(--accent); font-size: 0.9rem; }
 
@@ -122,12 +149,20 @@
 
   <div class="detail-panel" id="detail">
     <button class="detail-close" onclick="closeDetail()">&times;</button>
-    <h2 id="detail-title"></h2>
-    <p class="detail-author" id="detail-author"></p>
-    <span class="detail-year" id="detail-year"></span>
-    <p class="detail-desc" id="detail-desc"></p>
-    <div class="detail-connections" id="detail-connections"></div>
-    <a class="detail-link" id="detail-link" href="#" target="_blank" rel="noopener" style="display:none">View source &rarr;</a>
+    <div class="detail-header">
+      <h2 id="detail-title"></h2>
+      <div style="display:flex;align-items:center;gap:0.5rem;">
+        <span class="detail-author" id="detail-author"></span>
+        <span class="detail-year" id="detail-year"></span>
+      </div>
+      <p class="detail-summary" id="detail-summary"></p>
+    </div>
+    <div class="layer-tabs" id="layer-tabs"></div>
+    <div class="layer-content" id="layer-content">
+      <div class="layer-text" id="layer-text"></div>
+      <div class="detail-connections" id="detail-connections"></div>
+      <a class="detail-link" id="detail-link" href="#" target="_blank" rel="noopener" style="display:none">View source &rarr;</a>
+    </div>
   </div>
 
   <div class="legend" id="legend"></div>
@@ -396,23 +431,66 @@
       document.getElementById('detail-title').textContent = node.label;
       document.getElementById('detail-author').textContent = node.author || '';
       document.getElementById('detail-year').textContent = node.year > 0 ? node.year : Math.abs(node.year) + ' BC';
-      document.getElementById('detail-desc').textContent = node.desc || '';
+      document.getElementById('detail-summary').textContent = node.summary || node.desc || '';
 
-      // Connections
-      const conns = edges.filter(e => e.source === node.id || e.target === node.id);
-      const connHtml = conns.map(e => {
-        const otherId = e.source === node.id ? e.target : e.source;
-        const other = nodes.find(n => n.id === otherId);
-        return other ? `<span onclick="window._selectById('${otherId}')">${other.label}</span>` : '';
-      }).join('');
-      document.getElementById('detail-connections').innerHTML = connHtml;
+      // Build layer tabs
+      const tabsEl = document.getElementById('layer-tabs');
+      const layers = node.layers || {};
+      const layerKeys = Object.keys(layers);
+
+      if (layerKeys.length > 0) {
+        tabsEl.innerHTML = '<button class="layer-tab active" onclick="showLayer(this, \'connections\')">Connections</button>' +
+          layerKeys.map(key => {
+            const label = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+            return `<button class="layer-tab" onclick="showLayer(this, '${key}')">${label}</button>`;
+          }).join('');
+        tabsEl.style.display = 'flex';
+      } else {
+        tabsEl.innerHTML = '';
+        tabsEl.style.display = 'none';
+      }
+
+      // Show connections by default
+      showConnectionsLayer(node);
 
       const link = document.getElementById('detail-link');
       if (node.url) { link.href = node.url; link.style.display = 'inline-block'; }
       else { link.style.display = 'none'; }
 
       document.getElementById('detail').classList.add('open');
+
+      // Store current node for layer switching
+      window._currentNode = node;
     }
+
+    function showConnectionsLayer(node) {
+      const conns = edges.filter(e => e.source === node.id || e.target === node.id);
+      const connHtml = conns.map(e => {
+        const otherId = e.source === node.id ? e.target : e.source;
+        const other = nodes.find(n => n.id === otherId);
+        return other ? `<span onclick="window._selectById('${otherId}')">${other.label}</span>` : '';
+      }).join('');
+      document.getElementById('layer-text').innerHTML = '';
+      document.getElementById('detail-connections').innerHTML = connHtml;
+      document.getElementById('detail-connections').style.display = 'block';
+    }
+
+    window.showLayer = function(btn, key) {
+      // Update active tab
+      document.querySelectorAll('.layer-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+
+      if (key === 'connections') {
+        showConnectionsLayer(window._currentNode);
+        return;
+      }
+
+      // Show layer content
+      const node = window._currentNode;
+      const text = node.layers && node.layers[key] || '';
+      document.getElementById('layer-text').innerHTML = `<p>${text.replace(/\n/g, '</p><p>')}</p>`;
+      document.getElementById('detail-connections').style.display = 'none';
+    };
     window._selectById = function(id) {
       const n = nodes.find(n => n.id === id);
       if (n) selectNode(n);
