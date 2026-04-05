@@ -1,0 +1,92 @@
+{
+  "_meta": {
+    "title": "Intellectual Constellation — Exclusive Inclusion",
+    "description": "The intellectual universe surrounding Exclusive Inclusion theory. Shows how the argument draws on 2,400 years of governance philosophy, modern organizational theory, and empirical legal scholarship.",
+    "generated": "2026-04-05",
+    "source": "LawJ scholarship library (curated public subset)"
+  },
+  "nodes": [
+    {"id": "exi", "label": "Exclusive Inclusion", "group": "focal", "size": 40, "year": 2026, "author": "Oranburg", "desc": "Governance architecture produces systematic identity-based exclusion through self-perpetuating boards, unenforceable fiduciary duties, and absent stakeholder standing.", "url": "https://ssrn.com/abstract=6423378"},
+
+    {"id": "sovereign", "label": "Sovereign Charities", "group": "oranburg", "size": 18, "year": 2026, "author": "Oranburg", "desc": "How elite private universities wield public power without public accountability. Companion article to ExI."},
+    {"id": "gcg", "label": "Governance as a Club Good", "group": "oranburg", "size": 18, "year": 2026, "author": "Oranburg", "desc": "Private governance is a club good — excludable and rivalrous."},
+    {"id": "sfcg", "label": "Club Good Category Error", "group": "oranburg", "size": 16, "year": 2026, "author": "Oranburg", "desc": "The shareholder rights movement treats governance as public when it is actually a club good."},
+    {"id": "beyond", "label": "Beyond the Ivory Tower", "group": "oranburg", "size": 20, "year": 2025, "author": "Oranburg", "desc": "Virtue ethics and the classical liberal mandate for institutional integrity."},
+    {"id": "mktpower", "label": "Market Power & Governance Power", "group": "oranburg", "size": 14, "year": 2025, "author": "Oranburg", "desc": "Governance power is analytically distinct from market power."},
+    {"id": "esg", "label": "ESG Unintended Consequences", "group": "oranburg", "size": 14, "year": 2022, "author": "Oranburg", "desc": "Mandatory ESG disclosures produce compliance without substantive reform."},
+
+    {"id": "hansmann", "label": "Hansmann", "group": "theorist", "size": 22, "year": 1980, "author": "Hansmann, Henry", "desc": "Voice and exit as accountability mechanisms. When both are absent, managerial autonomy becomes impunity."},
+    {"id": "ostrom", "label": "Ostrom", "group": "theorist", "size": 24, "year": 1990, "author": "Ostrom, Elinor", "desc": "Commons governance: institutions excluding affected parties produce outcomes serving insiders at outsiders' expense."},
+    {"id": "suchman", "label": "Suchman", "group": "theorist", "size": 16, "year": 1995, "author": "Suchman, Mark", "desc": "Institutional legitimacy: distinguishing perceived propriety from structural conditions."},
+    {"id": "carmichael", "label": "Carmichael & Hamilton", "group": "theorist", "size": 20, "year": 1967, "author": "Carmichael & Hamilton", "desc": "Structural discrimination: 'established and respected forces' generating inequality without hostility."},
+    {"id": "olson", "label": "Olson", "group": "theorist", "size": 22, "year": 1965, "author": "Olson, Mancur", "desc": "Logic of Collective Action: free-rider problem explains why excluded groups cannot organize."},
+    {"id": "buchanan", "label": "Buchanan", "group": "theorist", "size": 22, "year": 1962, "author": "Buchanan, James", "desc": "Public choice theory: rent-seeking and institutional capture. The accountability void IS rent-seeking."},
+    {"id": "tullock", "label": "Tullock", "group": "theorist", "size": 18, "year": 2002, "author": "Tullock, Gordon", "desc": "Government Failure: bureaucratic expansion increases rigidity without improving outcomes."},
+
+    {"id": "aristotle", "label": "Aristotle", "group": "classical", "size": 30, "year": -350, "author": "Aristotle", "desc": "Nicomachean Ethics: phronesis. Politics: constitutional forms and their corruptions. Self-perpetuating oligarchy is a corrupted governance form."},
+    {"id": "aquinas", "label": "Aquinas", "group": "classical", "size": 28, "year": 1274, "author": "Thomas Aquinas", "desc": "Summa Theologica: natural law as participation in divine reason. Law must serve the common good — an institution serving only insiders violates natural law."},
+    {"id": "locke", "label": "Locke", "group": "classical", "size": 22, "year": 1689, "author": "John Locke", "desc": "Second Treatise: government derives authority from consent. Institutions that exclude stakeholders from governance lose their legitimacy."},
+    {"id": "tocqueville", "label": "Tocqueville", "group": "classical", "size": 24, "year": 1835, "author": "Alexis de Tocqueville", "desc": "Democracy in America: voluntary associations as the engine of democratic life. Universities are Tocquevillean associations that have lost accountability."},
+    {"id": "mill", "label": "Mill", "group": "classical", "size": 20, "year": 1859, "author": "John Stuart Mill", "desc": "On Liberty: tyranny of the majority. The mechanism by which democratic institutions suppress minority viewpoints."},
+    {"id": "smith", "label": "Adam Smith", "group": "classical", "size": 18, "year": 1759, "author": "Adam Smith", "desc": "Theory of Moral Sentiments: the impartial spectator. Institutions need mechanisms for impartial judgment."},
+
+    {"id": "kalven", "label": "Kalven Report", "group": "institutional", "size": 14, "year": 1967, "author": "Kalven Committee", "desc": "The foundational report on institutional neutrality — universities should not take collective political positions."},
+    {"id": "phillips", "label": "Phillips", "group": "empirical", "size": 12, "year": 2016, "author": "Phillips, James C.", "desc": "Empirical analysis of ideological composition of law faculties."},
+    {"id": "fulton", "label": "Fulton v. Philadelphia", "group": "case", "size": 14, "year": 2021, "author": "U.S. Supreme Court", "desc": "Religious liberty and government contracting."},
+    {"id": "smithers", "label": "Smithers v. St. Luke's", "group": "case", "size": 14, "year": 2003, "author": "NY Court of Appeals", "desc": "Donor standing to enforce charitable restrictions — a model for stakeholder standing."},
+    {"id": "robertson", "label": "Robertson v. Princeton", "group": "case", "size": 14, "year": 2008, "author": "NJ Superior Court", "desc": "Donor family sued Princeton for diverting restricted funds. The accountability void in action."}
+  ],
+  "edges": [
+    {"source": "exi", "target": "sovereign", "type": "companion"},
+    {"source": "exi", "target": "gcg", "type": "theoretical"},
+    {"source": "exi", "target": "sfcg", "type": "theoretical"},
+    {"source": "exi", "target": "beyond", "type": "self_cite"},
+    {"source": "exi", "target": "mktpower", "type": "self_cite"},
+    {"source": "exi", "target": "esg", "type": "self_cite"},
+    {"source": "exi", "target": "hansmann", "type": "cites"},
+    {"source": "exi", "target": "ostrom", "type": "cites"},
+    {"source": "exi", "target": "suchman", "type": "cites"},
+    {"source": "exi", "target": "carmichael", "type": "cites"},
+    {"source": "exi", "target": "olson", "type": "supports"},
+    {"source": "exi", "target": "buchanan", "type": "supports"},
+    {"source": "exi", "target": "tullock", "type": "supports"},
+    {"source": "exi", "target": "kalven", "type": "cites"},
+    {"source": "exi", "target": "phillips", "type": "cites"},
+    {"source": "exi", "target": "fulton", "type": "cites"},
+    {"source": "exi", "target": "smithers", "type": "cites"},
+    {"source": "exi", "target": "robertson", "type": "cites"},
+    {"source": "exi", "target": "mill", "type": "draws_on"},
+    {"source": "exi", "target": "tocqueville", "type": "draws_on"},
+    {"source": "exi", "target": "aristotle", "type": "draws_on"},
+
+    {"source": "hansmann", "target": "ostrom", "type": "converges"},
+    {"source": "ostrom", "target": "olson", "type": "responds_to"},
+    {"source": "buchanan", "target": "tullock", "type": "coauthor"},
+    {"source": "buchanan", "target": "olson", "type": "school"},
+
+    {"source": "aristotle", "target": "aquinas", "type": "influenced"},
+    {"source": "aquinas", "target": "locke", "type": "influenced"},
+    {"source": "locke", "target": "tocqueville", "type": "influenced"},
+    {"source": "locke", "target": "mill", "type": "influenced"},
+    {"source": "smith", "target": "mill", "type": "influenced"},
+    {"source": "tocqueville", "target": "ostrom", "type": "influenced"},
+    {"source": "aristotle", "target": "smith", "type": "influenced"},
+    {"source": "carmichael", "target": "suchman", "type": "influenced"}
+  ],
+  "groups": {
+    "focal": {"color": "#E82F35", "label": "This Paper"},
+    "oranburg": {"color": "#FFD65C", "label": "Oranburg Scholarship"},
+    "theorist": {"color": "#6DACDE", "label": "Organizational Theory"},
+    "classical": {"color": "#B5E1E1", "label": "Classical Philosophy"},
+    "case": {"color": "#E96955", "label": "Case Law"},
+    "institutional": {"color": "#9CA3AF", "label": "Institutional Documents"},
+    "empirical": {"color": "#2459A9", "label": "Empirical Studies"}
+  },
+  "timeline_eras": [
+    {"label": "Classical", "start": -400, "end": 0},
+    {"label": "Medieval", "start": 1100, "end": 1500},
+    {"label": "Enlightenment", "start": 1600, "end": 1800},
+    {"label": "Modern", "start": 1800, "end": 1970},
+    {"label": "Contemporary", "start": 1970, "end": 2026}
+  ]
+}
