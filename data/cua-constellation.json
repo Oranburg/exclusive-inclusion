@@ -1,0 +1,59 @@
+{
+  "_meta": {
+    "title": "CUA Faculty Constellation — ExI Workshop Preparation",
+    "description": "Faculty at CUA Columbus School of Law whose scholarship intersects with Exclusive Inclusion theory. For workshop preparation April 13, 2026.",
+    "generated": "2026-04-05",
+    "talk_date": "2026-04-13"
+  },
+  "nodes": [
+    {"id": "exi", "label": "Exclusive Inclusion", "group": "focal", "size": 45, "year": 2026, "author": "Oranburg", "desc": "Your paper. Governance architecture produces systematic identity-based exclusion."},
+
+    {"id": "breger", "label": "Breger", "group": "p1_faculty", "size": 28, "year": 2024, "author": "Marshall J. Breger", "desc": "MOST URGENT. Active on campus antisemitism. 25+ law review articles. May challenge structural diagnosis with cultural explanation. Read his Moment pieces.", "url": "https://www.law.edu/about-us/faculty-and-staff/faculty-directory/marshall-breger.html"},
+    {"id": "colinvaux", "label": "Colinvaux", "group": "p1_faculty", "size": 28, "year": 2023, "author": "Roger Colinvaux", "desc": "Nonprofit tax expert. Already cited FN 108 (incomplete!). Will engage Part IV operational test from tax-law angle. ABA Outstanding Academic Award 2024.", "url": "https://www.law.edu/about-us/faculty-and-staff/faculty-directory/roger-colinvaux.html"},
+    {"id": "miles", "label": "Miles", "group": "p1_faculty", "size": 24, "year": 2017, "author": "Veryl V. Miles", "desc": "Already cited FN 107. Second article in CUA Law Review on mission specificity in faith-based law schools — YOUR argument applied to THEIR institution.", "url": ""},
+
+    {"id": "destro", "label": "Destro", "group": "p2_faculty", "size": 22, "year": 2002, "author": "Robert A. Destro", "desc": "Faculty since 1982. Church autonomy, civil rights. Will press on Title VI enforcement vs governance architecture distinction.", "url": "https://www.law.edu/about-us/faculty-and-staff/faculty-directory/robert-destro.html"},
+    {"id": "degirolami", "label": "DeGirolami", "group": "p2_faculty", "size": 24, "year": 2013, "author": "Marc O. DeGirolami", "desc": "Newman Chair. 'Disentangling Conscience and Religion' — vocabulary overlap with YOUR disentanglement matrix. Prepare for productive tension.", "url": "https://www.law.edu/about-us/faculty-and-staff/faculty-directory/marc-degirolami.html"},
+    {"id": "alicea", "label": "Alicea", "group": "p2_faculty", "size": 22, "year": 2023, "author": "J. Joel Alicea", "desc": "Assoc Dean for Faculty Research. First CUA in Yale Law Journal. Originalist — will scrutinize constitutional argument in Part IV.", "url": "https://www.law.edu/about-us/faculty-and-staff/faculty-directory/j-joel-alicea.html"},
+    {"id": "silecchia", "label": "Silecchia", "group": "p2_faculty", "size": 18, "year": 2010, "author": "Lucia A. Silecchia", "desc": "Assoc Dean. Guardianship theory from Catholic social thought — parallels hollow duty of obedience. Shapes institutional research culture.", "url": ""},
+    {"id": "walsh", "label": "Walsh", "group": "p2_faculty", "size": 18, "year": 2020, "author": "Kevin C. Walsh", "desc": "Knights of Columbus Chair. Federal judicial power, Thomistic juridical realism. Relevant to standing reform.", "url": "https://cit.catholic.edu/"},
+    {"id": "rienzi", "label": "Rienzi", "group": "cited_faculty", "size": 20, "year": 2022, "author": "Mark L. Rienzi", "desc": "Center for Religious Liberty. Already cited FN 109. Represented students in 2024 UCLA antisemitism case — live litigation in ExI's territory.", "url": "https://www.law.edu/academics/centers/center-for-religious-liberty/index.html"},
+    {"id": "buckles", "label": "Buckles", "group": "cited_faculty", "size": 16, "year": 2013, "author": "Johnny Rex Buckles", "desc": "Already cited FN 68. Duty of loyalty for charity fiduciaries. Published in CUA Law Review.", "url": ""},
+
+    {"id": "part1", "label": "Part I: Structural Condition", "group": "paper_section", "size": 14, "year": 2026, "author": "", "desc": "Defines exclusive inclusion, documents across 5 identity groups, introduces disentanglement matrix."},
+    {"id": "part2", "label": "Part II: Governance Void", "group": "paper_section", "size": 14, "year": 2026, "author": "", "desc": "Sovereign charity framework: self-perpetuating board, hollow duty of obedience, absent stakeholder standing."},
+    {"id": "part3", "label": "Part III: Federal Intervention", "group": "paper_section", "size": 14, "year": 2026, "author": "", "desc": "2025 settlements as case study — compliance without governance reform."},
+    {"id": "part4", "label": "Part IV: Three Reforms", "group": "paper_section", "size": 14, "year": 2026, "author": "", "desc": "Stakeholder standing, mission specificity, operational test reform."}
+  ],
+  "edges": [
+    {"source": "breger", "target": "exi", "type": "engages", "label": "antisemitism empirics"},
+    {"source": "breger", "target": "part1", "type": "challenges", "label": "cultural vs structural"},
+    {"source": "colinvaux", "target": "exi", "type": "engages", "label": "operational test"},
+    {"source": "colinvaux", "target": "part4", "type": "expertise", "label": "501(c)(3) reform"},
+    {"source": "miles", "target": "exi", "type": "cited_in", "label": "FN 107"},
+    {"source": "miles", "target": "part4", "type": "supports", "label": "mission specificity"},
+    {"source": "destro", "target": "part4", "type": "challenges", "label": "church autonomy"},
+    {"source": "destro", "target": "part3", "type": "challenges", "label": "Title VI sufficiency"},
+    {"source": "degirolami", "target": "part1", "type": "parallel", "label": "disentanglement vocabulary"},
+    {"source": "degirolami", "target": "part4", "type": "challenges", "label": "religious institution objection"},
+    {"source": "alicea", "target": "part4", "type": "scrutinizes", "label": "constitutional originalism"},
+    {"source": "silecchia", "target": "part2", "type": "parallel", "label": "guardianship/fiduciary"},
+    {"source": "walsh", "target": "part4", "type": "engages", "label": "judicial power/standing"},
+    {"source": "rienzi", "target": "exi", "type": "cited_in", "label": "FN 109"},
+    {"source": "rienzi", "target": "part4", "type": "supports", "label": "religious liberty"},
+    {"source": "buckles", "target": "exi", "type": "cited_in", "label": "FN 68"},
+    {"source": "buckles", "target": "part2", "type": "supports", "label": "duty of loyalty"},
+
+    {"source": "exi", "target": "part1", "type": "contains"},
+    {"source": "exi", "target": "part2", "type": "contains"},
+    {"source": "exi", "target": "part3", "type": "contains"},
+    {"source": "exi", "target": "part4", "type": "contains"}
+  ],
+  "groups": {
+    "focal": {"color": "#E82F35", "label": "Your Paper"},
+    "p1_faculty": {"color": "#FFD65C", "label": "Priority 1 — Read Before April 13"},
+    "p2_faculty": {"color": "#6DACDE", "label": "Priority 2 — Know for Submission"},
+    "cited_faculty": {"color": "#B5E1E1", "label": "Already Cited"},
+    "paper_section": {"color": "#9CA3AF", "label": "Paper Sections"}
+  }
+}
