@@ -1,92 +1,473 @@
 {
   "_meta": {
-    "title": "Intellectual Constellation — Exclusive Inclusion",
-    "description": "The intellectual universe surrounding Exclusive Inclusion theory. Shows how the argument draws on 2,400 years of governance philosophy, modern organizational theory, and empirical legal scholarship.",
+    "title": "Exclusive Inclusion — Deep Intellectual Constellation",
+    "description": "Multi-layered visualization of the intellectual universe surrounding ExI theory. Click any node to explore layers of depth: summary → key arguments → connections → preparation notes.",
     "generated": "2026-04-05",
-    "source": "LawJ scholarship library (curated public subset)"
+    "node_count": 21,
+    "edge_count": 33
   },
   "nodes": [
-    {"id": "exi", "label": "Exclusive Inclusion", "group": "focal", "size": 40, "year": 2026, "author": "Oranburg", "desc": "Governance architecture produces systematic identity-based exclusion through self-perpetuating boards, unenforceable fiduciary duties, and absent stakeholder standing.", "url": "https://ssrn.com/abstract=6423378"},
-
-    {"id": "sovereign", "label": "Sovereign Charities", "group": "oranburg", "size": 18, "year": 2026, "author": "Oranburg", "desc": "How elite private universities wield public power without public accountability. Companion article to ExI."},
-    {"id": "gcg", "label": "Governance as a Club Good", "group": "oranburg", "size": 18, "year": 2026, "author": "Oranburg", "desc": "Private governance is a club good — excludable and rivalrous."},
-    {"id": "sfcg", "label": "Club Good Category Error", "group": "oranburg", "size": 16, "year": 2026, "author": "Oranburg", "desc": "The shareholder rights movement treats governance as public when it is actually a club good."},
-    {"id": "beyond", "label": "Beyond the Ivory Tower", "group": "oranburg", "size": 20, "year": 2025, "author": "Oranburg", "desc": "Virtue ethics and the classical liberal mandate for institutional integrity."},
-    {"id": "mktpower", "label": "Market Power & Governance Power", "group": "oranburg", "size": 14, "year": 2025, "author": "Oranburg", "desc": "Governance power is analytically distinct from market power."},
-    {"id": "esg", "label": "ESG Unintended Consequences", "group": "oranburg", "size": 14, "year": 2022, "author": "Oranburg", "desc": "Mandatory ESG disclosures produce compliance without substantive reform."},
-
-    {"id": "hansmann", "label": "Hansmann", "group": "theorist", "size": 22, "year": 1980, "author": "Hansmann, Henry", "desc": "Voice and exit as accountability mechanisms. When both are absent, managerial autonomy becomes impunity."},
-    {"id": "ostrom", "label": "Ostrom", "group": "theorist", "size": 24, "year": 1990, "author": "Ostrom, Elinor", "desc": "Commons governance: institutions excluding affected parties produce outcomes serving insiders at outsiders' expense."},
-    {"id": "suchman", "label": "Suchman", "group": "theorist", "size": 16, "year": 1995, "author": "Suchman, Mark", "desc": "Institutional legitimacy: distinguishing perceived propriety from structural conditions."},
-    {"id": "carmichael", "label": "Carmichael & Hamilton", "group": "theorist", "size": 20, "year": 1967, "author": "Carmichael & Hamilton", "desc": "Structural discrimination: 'established and respected forces' generating inequality without hostility."},
-    {"id": "olson", "label": "Olson", "group": "theorist", "size": 22, "year": 1965, "author": "Olson, Mancur", "desc": "Logic of Collective Action: free-rider problem explains why excluded groups cannot organize."},
-    {"id": "buchanan", "label": "Buchanan", "group": "theorist", "size": 22, "year": 1962, "author": "Buchanan, James", "desc": "Public choice theory: rent-seeking and institutional capture. The accountability void IS rent-seeking."},
-    {"id": "tullock", "label": "Tullock", "group": "theorist", "size": 18, "year": 2002, "author": "Tullock, Gordon", "desc": "Government Failure: bureaucratic expansion increases rigidity without improving outcomes."},
-
-    {"id": "aristotle", "label": "Aristotle", "group": "classical", "size": 30, "year": -350, "author": "Aristotle", "desc": "Nicomachean Ethics: phronesis. Politics: constitutional forms and their corruptions. Self-perpetuating oligarchy is a corrupted governance form."},
-    {"id": "aquinas", "label": "Aquinas", "group": "classical", "size": 28, "year": 1274, "author": "Thomas Aquinas", "desc": "Summa Theologica: natural law as participation in divine reason. Law must serve the common good — an institution serving only insiders violates natural law."},
-    {"id": "locke", "label": "Locke", "group": "classical", "size": 22, "year": 1689, "author": "John Locke", "desc": "Second Treatise: government derives authority from consent. Institutions that exclude stakeholders from governance lose their legitimacy."},
-    {"id": "tocqueville", "label": "Tocqueville", "group": "classical", "size": 24, "year": 1835, "author": "Alexis de Tocqueville", "desc": "Democracy in America: voluntary associations as the engine of democratic life. Universities are Tocquevillean associations that have lost accountability."},
-    {"id": "mill", "label": "Mill", "group": "classical", "size": 20, "year": 1859, "author": "John Stuart Mill", "desc": "On Liberty: tyranny of the majority. The mechanism by which democratic institutions suppress minority viewpoints."},
-    {"id": "smith", "label": "Adam Smith", "group": "classical", "size": 18, "year": 1759, "author": "Adam Smith", "desc": "Theory of Moral Sentiments: the impartial spectator. Institutions need mechanisms for impartial judgment."},
-
-    {"id": "kalven", "label": "Kalven Report", "group": "institutional", "size": 14, "year": 1967, "author": "Kalven Committee", "desc": "The foundational report on institutional neutrality — universities should not take collective political positions."},
-    {"id": "phillips", "label": "Phillips", "group": "empirical", "size": 12, "year": 2016, "author": "Phillips, James C.", "desc": "Empirical analysis of ideological composition of law faculties."},
-    {"id": "fulton", "label": "Fulton v. Philadelphia", "group": "case", "size": 14, "year": 2021, "author": "U.S. Supreme Court", "desc": "Religious liberty and government contracting."},
-    {"id": "smithers", "label": "Smithers v. St. Luke's", "group": "case", "size": 14, "year": 2003, "author": "NY Court of Appeals", "desc": "Donor standing to enforce charitable restrictions — a model for stakeholder standing."},
-    {"id": "robertson", "label": "Robertson v. Princeton", "group": "case", "size": 14, "year": 2008, "author": "NJ Superior Court", "desc": "Donor family sued Princeton for diverting restricted funds. The accountability void in action."}
+    {
+      "id": "exi",
+      "label": "Exclusive Inclusion",
+      "group": "focal",
+      "size": 50,
+      "year": 2026,
+      "summary": "Governance architecture produces systematic identity-based exclusion",
+      "layers": {
+        "thesis": "American universities produce systematic identity-based exclusion through governance architecture, not despite their commitments to pluralism but because governance structures make those commitments unenforceable.",
+        "mechanism": "Three architectural features create an accountability void: (1) self-perpetuating boards eliminate electoral accountability, (2) unenforceable fiduciary duties eliminate legal accountability, (3) absent stakeholder standing eliminates affected-party accountability. The void makes capture by organized factions structurally likely.",
+        "innovation": "Existing theories focus on individual prejudice (discrimination law), policy gaps (organizational hypocrisy), or structural similarity (institutional isomorphism). None explains how genuine pluralist commitments produce systematic exclusion. Exclusive inclusion theory identifies governance architecture as the causal mechanism.",
+        "reforms": "Three structural reforms: (1) stakeholder standing modeled on corporate derivative suits, (2) enforceable mission specificity, (3) operational test for tax exemption adapted from hospital community benefit standards.",
+        "status": "Working paper on SSRN. Workshop at CUA Columbus School of Law, April 13, 2026."
+      },
+      "url": "https://ssrn.com/abstract=6423378"
+    },
+    {
+      "id": "sovereign",
+      "label": "Sovereign Charities",
+      "year": 2026,
+      "size": 22,
+      "summary": "How elite private universities wield public power without public accountability",
+      "layers": {
+        "thesis": "Elite private universities function as 'sovereign charities' — entities with the financial power and cultural authority of governments but none of the accountability mechanisms. They tax (through tuition), regulate (through codes of conduct), and adjudicate (through disciplinary systems) without elections, transparency requirements, or judicial review.",
+        "connection_to_exi": "COMPANION ARTICLE. Establishes the theoretical framework (sovereign charity) that ExI applies to the specific governance output of identity-based exclusion. ExI Part II summarizes this framework."
+      },
+      "group": "oranburg"
+    },
+    {
+      "id": "gcg",
+      "label": "Governance as Club Good",
+      "year": 2026,
+      "size": 20,
+      "summary": "Private governance is a club good — excludable and rivalrous",
+      "layers": {
+        "thesis": "Corporate governance is neither a public good (as shareholder activists assume) nor a purely private good. It is a club good: excludable (some stakeholders can be kept out) and rivalrous (governance benefits to insiders reduce benefits to outsiders). Courts that treat governance as public undermine the excludability that makes it function.",
+        "connection_to_exi": "THEORETICAL FOUNDATION. The 'club' that governs a university can exclude particular identity groups precisely because governance is excludable. Exclusive inclusion IS club good governance operating without accountability constraints."
+      },
+      "group": "oranburg"
+    },
+    {
+      "id": "beyond",
+      "label": "Beyond the Ivory Tower",
+      "year": 2025,
+      "size": 22,
+      "summary": "Virtue ethics, institutional integrity, and the classical liberal mandate",
+      "layers": {
+        "thesis": "Institutional integrity requires more than compliance with rules — it requires the cultivation of virtues within institutional culture. The classical liberal tradition demands that institutions respect the autonomy of their members while maintaining the structural conditions for genuine pluralism.",
+        "connection_to_exi": "Provides the normative framework: exclusive inclusion is not just a governance failure but a failure of institutional virtue. The reforms in Part IV aim to restore structural conditions for genuine pluralism, not just impose rules."
+      },
+      "group": "oranburg"
+    },
+    {
+      "id": "mktpower",
+      "label": "Market Power & Governance Power",
+      "year": 2025,
+      "size": 16,
+      "summary": "Governance power is analytically distinct from market power",
+      "layers": {
+        "thesis": "Antitrust law addresses market power but ignores governance power — the ability to control institutional decision-making in ways that affect stakeholders. A university with modest market power can have enormous governance power over the lives of its students and faculty.",
+        "connection_to_exi": "The governance void in ExI is a concentration of governance power without accountability. The capturing faction exercises governance power — not market power — and existing regulatory frameworks can't reach it."
+      },
+      "group": "oranburg"
+    },
+    {
+      "id": "esg",
+      "label": "ESG Unintended Consequences",
+      "year": 2022,
+      "size": 14,
+      "summary": "Mandatory disclosures produce compliance without substantive reform",
+      "layers": {
+        "thesis": "ESG disclosure mandates produce institutional isomorphism — organizations adopt similar formal structures to signal compliance without changing actual behavior. The disclosure becomes the end, not the means.",
+        "connection_to_exi": "DIRECT PARALLEL to Part III. The 2025 federal settlements required universities to adopt definitions, appoint liaisons, and conduct climate surveys — compliance artifacts that leave governance architecture unchanged. ESG and Title VI enforcement share the same structural flaw: treating disclosure as reform."
+      },
+      "group": "oranburg"
+    },
+    {
+      "id": "breger",
+      "label": "Breger",
+      "year": 2024,
+      "size": 28,
+      "summary": "CUA's antisemitism expert — most likely to engage your empirical premises",
+      "layers": {
+        "scholarship": "25+ law review articles (Stanford, BU, Duke, NC). Active on campus antisemitism and free speech. Winner of Simon Rockower Award (AJPA) in 2023 and 2025 for journalism on Jewish affairs.",
+        "likely_objection": "May argue the problem is primarily CULTURAL (antisemitic attitudes imported from broader political polarization) rather than STRUCTURAL (governance voids). If he takes this position, your response is: the same governance architecture produces exclusion across ALL five identity groups documented in Part I, including groups that face no cultural hostility. The structural diagnosis explains the cross-group pattern; the cultural diagnosis cannot.",
+        "pieces_to_read": "Is Antisemitism Eternal? (Moment, Summer 2024) — now ingested, 2,463 words. Also seek the Winter 2024 Moment piece on myths and facts (URL was broken).",
+        "word_count": 2463
+      },
+      "group": "cua_p1"
+    },
+    {
+      "id": "colinvaux",
+      "label": "Colinvaux",
+      "year": 2023,
+      "size": 28,
+      "summary": "Nonprofit tax expert — will scrutinize your operational test reform from deep expertise",
+      "layers": {
+        "scholarship": "ABA Nonprofit Organizations Outstanding Academic Award (2024). Core work: how charitable subsidies function as governance instruments. Strings Are Attached (Loyola 2023, 26,826w ingested) shows how donor conditions create accountability mechanisms. Speeding Up Benefits (B.C. 2022, 24,041w ingested) addresses the specific question of whether 501(c)(3) conditions can drive institutional behavior change.",
+        "likely_objection": "Will push on ADMINISTRABILITY: Does the IRS have institutional capacity and political will to condition exemption on governance structures (as opposed to program outputs)? His scholarship suggests he knows the answer is 'probably not under current IRS infrastructure' — which means your reform needs a more realistic enforcement mechanism. Be ready to discuss who enforces the operational test if not the IRS.",
+        "action_item": "URGENT: Complete FN 108. The full citation is: Roger Colinvaux, Speeding Up Benefits to Charity, 63 B.C. L. Rev. 1 (2022). He will notice if it is incomplete.",
+        "word_count": 50867
+      },
+      "group": "cua_p1"
+    },
+    {
+      "id": "miles",
+      "label": "Miles",
+      "year": 2017,
+      "size": 24,
+      "summary": "Already cited — has a second article in CUA's OWN law review directly on your argument",
+      "layers": {
+        "scholarship": "Faith-Based Law Schools: Making Mission Matter, 66 Cath. U. L. Rev. 795 (2017) — 14,125 words, now ingested. Addresses how mission commitments in faith-based educational institutions can be stated with sufficient specificity to be operationally enforceable.",
+        "connection_to_exi": "This IS your mission specificity argument applied to law schools with Catholic missions. Published in the journal of the institution where you're presenting. Reading it and citing it signals genuine engagement with the host institution's own scholarship.",
+        "collegial_move": "If asked whether mission specificity reform is feasible in faith-based institutions, point to Miles's own analysis of how it has been done at Catholic law schools. That is a collegially elegant response — you're citing their colleague's work in their own journal.",
+        "word_count": 14125
+      },
+      "group": "cua_p1"
+    },
+    {
+      "id": "degirolami",
+      "label": "DeGirolami",
+      "year": 2017,
+      "size": 24,
+      "summary": "Newman Chair — 'disentangling' vocabulary directly parallels your matrix",
+      "layers": {
+        "scholarship": "The Tragedy of Religious Freedom (Harvard UP, 2013). Adjudicating Religious Sincerity, 92 Wash. L. Rev. 1185 (2017) — 31,865w ingested. Disentangling Conscience and Religion — 26,723w ingested. Publishes in Yale, Notre Dame, Boston College, Washington law reviews.",
+        "the_vocabulary_problem": "His 'disentangling' work separates conscience claims from religious liberty claims. YOUR disentanglement matrix separates individual expression from institutional action. Both projects do analytical sorting at a conceptual boundary. A faculty member could use the parallel to probe whether your matrix does the sorting correctly, or whether what looks like institutional action is actually aggregated individual conscience.",
+        "preparation": "Have a clean answer: Your matrix operates at the INSTITUTIONAL level (what did the institution do?) while his operates at the INDIVIDUAL level (what did the person claim?). They are complementary, not competing. If anything, his framework shows why the individual-level sorting he does needs an institutional-level companion — which is what your matrix provides.",
+        "word_count": 58588
+      },
+      "group": "cua_p2"
+    },
+    {
+      "id": "alicea",
+      "label": "Alicea",
+      "year": 2023,
+      "size": 22,
+      "summary": "Associate Dean for Research — originalist, first CUA faculty in Yale Law Journal",
+      "layers": {
+        "scholarship": "The Moral Authority of Original Meaning, 98 Notre Dame L. Rev. 1 (2023) — 32,204w ingested. Practice-Based Constitutional Theories (Yale Law Journal). Catholic intellectual tradition applied to constitutional interpretation.",
+        "likely_angle": "Will evaluate your Part IV constitutional argument from originalist premises. Your unconstitutional conditions doctrine argument needs to hold up under his scrutiny. Your response: content-neutral governance requirements are structurally analogous to nondiscrimination conditions already attached to federal funding under Title VI. This is not a novel constitutional claim — it extends existing doctrine to a new institutional context.",
+        "institutional_weight": "As Associate Dean for Faculty Research, his opinion carries weight in how CUA evaluates scholarship. His presence in the room signals institutional seriousness.",
+        "word_count": 32204
+      },
+      "group": "cua_p2"
+    },
+    {
+      "id": "destro",
+      "label": "Destro",
+      "year": 2002,
+      "size": 20,
+      "summary": "Faculty since 1982 — church autonomy expertise, will test institutional autonomy objection",
+      "layers": {
+        "scholarship": "Religious Liberty in a Pluralistic Society (CAP, 2d ed. 2002) — standard casebook. Civil rights, church autonomy, employment law. Equal Treatment article (cover page only — need full PDF).",
+        "likely_objection": "Will press on whether Title VI is actually insufficient or whether the problem is enforcement rather than governance architecture. Church autonomy doctrine may conflict with your governance reform proposals if applied to religious universities. His objection will be technically sophisticated.",
+        "preparation": "Your paper already distinguishes content-neutral governance requirements from substantive doctrinal mandates. The question is whether Destro accepts that distinction. Know his casebook's treatment of the boundary between church autonomy and civil rights enforcement."
+      },
+      "group": "cua_p2"
+    },
+    {
+      "id": "silecchia",
+      "label": "Silecchia",
+      "year": 2010,
+      "size": 18,
+      "summary": "Associate Dean — guardianship theory from Catholic social thought parallels your fiduciary argument",
+      "layers": {
+        "scholarship": "Critique of Guardianship Theory from Catholic Social Thought (Notre Dame J.L. Ethics & Pub. Pol'y) — 23,247w ingested. Analyzes the tension between institutional duty to protect and preservation of legal autonomy.",
+        "connection_to_exi": "The guardianship/fiduciary tension she analyzes maps DIRECTLY onto the hollow duty of obedience: a trustee's duty to protect beneficiaries exists in theory but lacks enforcement because courts defer to trustee autonomy. Her Catholic social teaching frame could strengthen your argument at CUA — the natural law tradition supports enforceable duties, not hollow ones.",
+        "word_count": 23247
+      },
+      "group": "cua_p2"
+    },
+    {
+      "id": "buckles",
+      "label": "Buckles",
+      "year": 2013,
+      "size": 16,
+      "summary": "Already cited FN 68 — charity fiduciary norms in CUA Law Review",
+      "layers": {
+        "scholarship": "How Deep Are the Springs of Obedience Norms, 62 Cath. U. L. Rev. 913 (2013) — 27,580w ingested. Federalization of Duty of Loyalty (99 Ky. L.J., 2010). UPMIFA analysis.",
+        "connection_to_exi": "His springs-of-obedience analysis goes to the depth of fiduciary commitment in nonprofit governance — exactly your Part II argument that the duty of obedience is hollow. His article asks how deep the norms go; your paper argues they don't go deep enough to matter.",
+        "word_count": 27580
+      },
+      "group": "cua_p2"
+    },
+    {
+      "id": "rienzi",
+      "label": "Rienzi",
+      "year": 2022,
+      "size": 18,
+      "summary": "Religious Liberty Center — already cited, represented students in UCLA antisemitism case",
+      "layers": {
+        "scholarship": "Peril and Promise of Administrative Law for Religious Freedom (Mosaic 2022). Co-directs Center for Religious Liberty at CUA.",
+        "live_experience": "Represented students in a 2024 UCLA antisemitism case. This means he has LIVE LITIGATION EXPERIENCE in the exact factual territory your paper describes, on the plaintiff side. His courtroom perspective on whether governance reform would actually help affected students is uniquely valuable.",
+        "connection_to_exi": "Cited FN 109. In same 98 Notre Dame L. Rev. volume as Alicea — there is a scholarly community here."
+      },
+      "group": "cua_p2"
+    },
+    {
+      "id": "walsh",
+      "label": "Walsh",
+      "year": 2020,
+      "size": 16,
+      "summary": "Knights of Columbus Chair — Thomistic juridical realism, federal judicial power",
+      "layers": {
+        "scholarship": "Publications in Georgetown, Stanford, NYU, Notre Dame on federal judicial power. Co-directs Project on Constitutional Originalism and Catholic Intellectual Tradition.",
+        "connection_to_exi": "Standing reform requires courts to review derivative fiduciary claims in a nonprofit context. Walsh's federal judicial power expertise means he can evaluate whether your standing proposal is doctrinally sound. His Thomistic juridical realism may actually support your natural-law-adjacent argument that governance duties should be real, not decorative."
+      },
+      "group": "cua_p2"
+    },
+    {
+      "id": "aristotle",
+      "label": "Aristotle",
+      "year": -350,
+      "size": 30,
+      "group": "classical",
+      "summary": "Phronesis, corrupted governance forms, and institutional justice",
+      "layers": {
+        "ethics": "Nicomachean Ethics Book VI: phronesis (practical wisdom) — the capacity for judgment that exclusive inclusion's governance void destroys. When institutions engineer out judgment through compliance regimes, they lose the Aristotelian capacity for prudent decision-making.",
+        "politics": "Politics: constitutional forms and their corruptions. Self-perpetuating oligarchy is a corrupted governance form. Aristotle's analysis of how democracies degenerate into oligarchies through concentrated control maps directly onto the board capture mechanism in ExI.",
+        "connection_to_exi": "The governance void is an Aristotelian corruption — a form of institutional oligarchy where the few govern without accountability to the many. The reforms in Part IV aim to restore what Aristotle would recognize as a 'polity' — governance balanced between competing interests."
+      }
+    },
+    {
+      "id": "aquinas",
+      "label": "Aquinas",
+      "year": 1274,
+      "size": 28,
+      "group": "classical",
+      "summary": "Natural law: law must serve the common good, not the rulers' interest",
+      "layers": {
+        "summa": "Summa Theologica I-II QQ 90-97: The treatise on law. Law is 'an ordinance of reason for the common good.' A governance structure that systematically excludes particular groups from protection fails Aquinas's basic criterion — it serves the governors, not the governed.",
+        "at_cua": "This is CUA. Thomistic reasoning carries special weight here. Your argument that fiduciary duties should be ENFORCEABLE (not merely aspirational) is a Thomistic claim: law that cannot be enforced is not truly law. Aquinas would say hollow fiduciary duties are not duties at all.",
+        "connection_to_exi": "Exclusive inclusion violates natural law because it produces governance that serves insiders at the expense of the common good. The operational test reform — conditioning tax exemption on actually serving all stakeholders — is a Thomistic reform: making the law real, not decorative."
+      }
+    },
+    {
+      "id": "tocqueville",
+      "label": "Tocqueville",
+      "year": 1835,
+      "size": 24,
+      "group": "classical",
+      "summary": "Voluntary associations, tyranny of the majority, and democratic accountability",
+      "layers": {
+        "democracy": "Democracy in America: American universities were originally Tocquevillean voluntary associations — self-governing communities that drew their legitimacy from the participation of their members. ExI documents what happens when those associations lose their accountability structure while retaining their power.",
+        "tyranny": "The 'tyranny of the majority' that Tocqueville warned about operates within universities through the faction capture mechanism in Part I. When a capturing faction controls governance, it exercises majoritarian tyranny within the institution — even when it represents a minority of the broader university community.",
+        "connection_to_exi": "Tocqueville's analysis predicts that voluntary associations without accountability mechanisms will be captured by their most organized factions. That is ExI's core structural claim."
+      }
+    },
+    {
+      "id": "mill",
+      "label": "Mill",
+      "year": 1859,
+      "size": 20,
+      "group": "classical",
+      "summary": "The harm principle, individual freedom, and the tyranny of prevailing opinion",
+      "layers": {
+        "liberty": "On Liberty: 'the tyranny of the prevailing opinion and feeling' is more dangerous than governmental tyranny because it is harder to identify and resist. Mill's concern is precisely what ExI documents: institutions that suppress minority viewpoints not through explicit policy but through the weight of unchecked institutional culture.",
+        "connection_to_exi": "Mill would recognize exclusive inclusion as a species of the social tyranny he warned about — one that operates through institutional architecture rather than public opinion, making it even harder to identify and resist than the tyranny he described."
+      }
+    },
+    {
+      "id": "locke",
+      "label": "Locke",
+      "year": 1689,
+      "size": 20,
+      "group": "classical",
+      "summary": "Consent of the governed, right of revolution when institutions fail",
+      "layers": {
+        "treatise": "Second Treatise: Government derives authority from the consent of the governed. When an institution systematically excludes stakeholders from governance, it loses its Lockean legitimacy. Stakeholder standing is the legal mechanism for what Locke would call the right to hold governors accountable.",
+        "connection_to_exi": "ExI's stakeholder standing reform is a Lockean reform: giving affected parties the legal right to challenge governance decisions that exclude them. Without standing, there is no consent — and without consent, there is no legitimate governance."
+      }
+    }
   ],
   "edges": [
-    {"source": "exi", "target": "sovereign", "type": "companion"},
-    {"source": "exi", "target": "gcg", "type": "theoretical"},
-    {"source": "exi", "target": "sfcg", "type": "theoretical"},
-    {"source": "exi", "target": "beyond", "type": "self_cite"},
-    {"source": "exi", "target": "mktpower", "type": "self_cite"},
-    {"source": "exi", "target": "esg", "type": "self_cite"},
-    {"source": "exi", "target": "hansmann", "type": "cites"},
-    {"source": "exi", "target": "ostrom", "type": "cites"},
-    {"source": "exi", "target": "suchman", "type": "cites"},
-    {"source": "exi", "target": "carmichael", "type": "cites"},
-    {"source": "exi", "target": "olson", "type": "supports"},
-    {"source": "exi", "target": "buchanan", "type": "supports"},
-    {"source": "exi", "target": "tullock", "type": "supports"},
-    {"source": "exi", "target": "kalven", "type": "cites"},
-    {"source": "exi", "target": "phillips", "type": "cites"},
-    {"source": "exi", "target": "fulton", "type": "cites"},
-    {"source": "exi", "target": "smithers", "type": "cites"},
-    {"source": "exi", "target": "robertson", "type": "cites"},
-    {"source": "exi", "target": "mill", "type": "draws_on"},
-    {"source": "exi", "target": "tocqueville", "type": "draws_on"},
-    {"source": "exi", "target": "aristotle", "type": "draws_on"},
-
-    {"source": "hansmann", "target": "ostrom", "type": "converges"},
-    {"source": "ostrom", "target": "olson", "type": "responds_to"},
-    {"source": "buchanan", "target": "tullock", "type": "coauthor"},
-    {"source": "buchanan", "target": "olson", "type": "school"},
-
-    {"source": "aristotle", "target": "aquinas", "type": "influenced"},
-    {"source": "aquinas", "target": "locke", "type": "influenced"},
-    {"source": "locke", "target": "tocqueville", "type": "influenced"},
-    {"source": "locke", "target": "mill", "type": "influenced"},
-    {"source": "smith", "target": "mill", "type": "influenced"},
-    {"source": "tocqueville", "target": "ostrom", "type": "influenced"},
-    {"source": "aristotle", "target": "smith", "type": "influenced"},
-    {"source": "carmichael", "target": "suchman", "type": "influenced"}
+    {
+      "source": "exi",
+      "target": "sovereign",
+      "type": "companion"
+    },
+    {
+      "source": "exi",
+      "target": "gcg",
+      "type": "companion"
+    },
+    {
+      "source": "exi",
+      "target": "beyond",
+      "type": "self_cite"
+    },
+    {
+      "source": "exi",
+      "target": "mktpower",
+      "type": "self_cite"
+    },
+    {
+      "source": "exi",
+      "target": "esg",
+      "type": "self_cite"
+    },
+    {
+      "source": "breger",
+      "target": "exi",
+      "type": "engages"
+    },
+    {
+      "source": "colinvaux",
+      "target": "exi",
+      "type": "engages"
+    },
+    {
+      "source": "miles",
+      "target": "exi",
+      "type": "engages"
+    },
+    {
+      "source": "degirolami",
+      "target": "exi",
+      "type": "engages"
+    },
+    {
+      "source": "alicea",
+      "target": "exi",
+      "type": "engages"
+    },
+    {
+      "source": "destro",
+      "target": "exi",
+      "type": "engages"
+    },
+    {
+      "source": "silecchia",
+      "target": "exi",
+      "type": "engages"
+    },
+    {
+      "source": "buckles",
+      "target": "exi",
+      "type": "engages"
+    },
+    {
+      "source": "rienzi",
+      "target": "exi",
+      "type": "engages"
+    },
+    {
+      "source": "walsh",
+      "target": "exi",
+      "type": "engages"
+    },
+    {
+      "source": "aristotle",
+      "target": "aquinas",
+      "type": "influenced"
+    },
+    {
+      "source": "aquinas",
+      "target": "locke",
+      "type": "influenced"
+    },
+    {
+      "source": "locke",
+      "target": "tocqueville",
+      "type": "influenced"
+    },
+    {
+      "source": "locke",
+      "target": "mill",
+      "type": "influenced"
+    },
+    {
+      "source": "tocqueville",
+      "target": "exi",
+      "type": "supports"
+    },
+    {
+      "source": "mill",
+      "target": "exi",
+      "type": "supports"
+    },
+    {
+      "source": "aristotle",
+      "target": "exi",
+      "type": "supports"
+    },
+    {
+      "source": "aquinas",
+      "target": "exi",
+      "type": "supports"
+    },
+    {
+      "source": "silecchia",
+      "target": "aquinas",
+      "type": "draws_on"
+    },
+    {
+      "source": "degirolami",
+      "target": "aquinas",
+      "type": "draws_on"
+    },
+    {
+      "source": "alicea",
+      "target": "aquinas",
+      "type": "draws_on"
+    },
+    {
+      "source": "walsh",
+      "target": "aquinas",
+      "type": "draws_on"
+    },
+    {
+      "source": "colinvaux",
+      "target": "miles",
+      "type": "converges"
+    },
+    {
+      "source": "buckles",
+      "target": "silecchia",
+      "type": "converges"
+    },
+    {
+      "source": "breger",
+      "target": "rienzi",
+      "type": "converges"
+    },
+    {
+      "source": "beyond",
+      "target": "aristotle",
+      "type": "draws_on"
+    },
+    {
+      "source": "gcg",
+      "target": "tocqueville",
+      "type": "draws_on"
+    },
+    {
+      "source": "sovereign",
+      "target": "locke",
+      "type": "draws_on"
+    }
   ],
   "groups": {
-    "focal": {"color": "#E82F35", "label": "This Paper"},
-    "oranburg": {"color": "#FFD65C", "label": "Oranburg Scholarship"},
-    "theorist": {"color": "#6DACDE", "label": "Organizational Theory"},
-    "classical": {"color": "#B5E1E1", "label": "Classical Philosophy"},
-    "case": {"color": "#E96955", "label": "Case Law"},
-    "institutional": {"color": "#9CA3AF", "label": "Institutional Documents"},
-    "empirical": {"color": "#2459A9", "label": "Empirical Studies"}
-  },
-  "timeline_eras": [
-    {"label": "Classical", "start": -400, "end": 0},
-    {"label": "Medieval", "start": 1100, "end": 1500},
-    {"label": "Enlightenment", "start": 1600, "end": 1800},
-    {"label": "Modern", "start": 1800, "end": 1970},
-    {"label": "Contemporary", "start": 1970, "end": 2026}
-  ]
+    "focal": {
+      "color": "#E82F35",
+      "label": "This Paper"
+    },
+    "oranburg": {
+      "color": "#FFD65C",
+      "label": "Oranburg Scholarship"
+    },
+    "cua_p1": {
+      "color": "#FF6B35",
+      "label": "CUA Faculty — Read Before April 13"
+    },
+    "cua_p2": {
+      "color": "#6DACDE",
+      "label": "CUA Faculty — For Submission"
+    },
+    "classical": {
+      "color": "#B5E1E1",
+      "label": "Classical Philosophy"
+    }
+  }
 }
