@@ -208,12 +208,12 @@
 
     <div class="footnote-bar">
       <p><sup>1</sup> Case data loaded from <code>../data/legal_logic.json</code>. Network layout is schematic; edge weights represent analytical dependency, not citation frequency.</p>
-      <p><sup>2</sup> Rumsfeld v. FAIR, 547 U.S. 47 (2006); Burt v. Gates, 354 F.Supp.2d 156 (D.D.C. 2005); Griggs v. Duke Power Co., 401 U.S. 424 (1971); Turner v. Victoria, 67 Cal.App.5th 1099 (Cal. Ct. App. 2021).</p>
+      <p><sup>2</sup> Rumsfeld v. FAIR, 547 U.S. 47 (2006); Burt v. Gates, 354 F.Supp.2d 156 (D.D.C. 2005); Griggs v. Duke Power Co., 401 U.S. 424 (1971); Turner v. Victoria, 67 Cal.App.5th 1099 (Cal. Ct. App. 2021); Robertson v. Princeton University, No. C-99-02 (N.J. Super. Ct. 2007).</p>
     </div>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2025 Seth C. Oranburg. Working paper. All rights reserved.</p>
+    <p>&copy; 2026 Seth C. Oranburg. Working paper. All rights reserved.</p>
     <p><a href="/">Home</a> &middot; <a href="../visualize/">Visualization Hub</a> &middot; <a href="https://dx.doi.org/10.2139/ssrn.6423378" target="_blank" rel="noopener noreferrer">DOI: 10.2139/ssrn.6423378</a></p>
   </footer>
 
@@ -225,144 +225,157 @@
       drawNetwork(); // redraw with new colors
     });
 
-    // Node definitions with full law card data
-    var nodes = [
-      {
-        id: 'FAIR',
-        label: 'Rumsfeld v. FAIR',
-        sub: '547 U.S. 47 (2006)',
-        color: '#6DACDE',
-        size: 38,
-        category: 'constitutional',
-        citation: '547 U.S. 47 (2006) · 8-0 · Roberts, C.J.',
-        holdings: [
-          'Equal access conditions regulate conduct, not speech — the Solomon Amendment "neither limits what law schools may say nor requires them to say anything."',
-          'Any speech burden incidental to conduct regulation is constitutionally permissible as "plainly incidental."',
-          'Congress may condition federal spending on equal access without violating the First Amendment if it could directly impose the same requirement.',
-          'Expressive association doctrine does not prevent government from requiring equal access to students through institutional channels.'
-        ],
-        application: 'FAIR is the primary constitutional basis for Reform 3 (Operational Test). Just as conditioning funding on equal military recruiter access was upheld as conduct regulation, conditioning 501(c)(3) status on governance structures preventing systematic identity-based exclusion targets institutional conduct — not speech. FAIR also limits the Jurisdictional Retreat: institutions cannot claim First Amendment protection for institutional deployment of official authority against a protected group simply because that conduct has expressive dimensions.'
-      },
-      {
-        id: 'Griggs',
-        label: 'Griggs v. Duke Power',
-        sub: '401 U.S. 424 (1971)',
-        color: '#FFD65C',
-        size: 34,
-        category: 'civilrights',
-        citation: '401 U.S. 424 (1971) · 8-0 · Burger, C.J.',
-        holdings: [
-          'Title VII prohibits not only overt discrimination but also practices that are fair in form but discriminatory in operation — disparate impact liability.',
-          'The employer bears the burden of demonstrating business necessity when facially neutral practices produce disproportionate exclusion of a protected class.',
-          'Congress directed the thrust of Title VII to the consequences of employment practices, not simply to the motivation.',
-          '90% disproportionate impact threshold: Duke Power\'s tests excluded approximately 90% of Black applicants while passing 58% of white applicants — the operational trigger for the Griggs burden-shift.'
-        ],
-        application: 'Griggs supplies the analytical structure for the disentanglement matrix\'s operational test. When institutional action disproportionately excludes members of a protected class — the 90% disproportionate impact threshold — the identity-based character predominates, and the burden shifts to the institution to demonstrate legitimate mission-related justification. The Identity axis of the matrix incorporates Griggs: institutional action falls in the Exclusive Inclusion zone when it produces disparate impact on a protected group regardless of stated intent.'
-      },
-      {
-        id: 'Turner',
-        label: 'Turner v. Victoria',
-        sub: '67 Cal.App.5th 1099 (2021)',
-        color: '#B5E1E1',
-        size: 30,
-        category: 'standing',
-        citation: '67 Cal.App.5th 1099 (Cal. Ct. App. 2021) · cert. granted (Cal. 2023)',
-        holdings: [
-          'Director of nonprofit public benefit corporation may bring derivative action alleging breach of fiduciary duties by co-directors.',
-          'Director loses standing to continue derivative action once her term expires and she is not reelected — standing is tied to governance position, not affected-party status.',
-          'On remand, Superior Court must determine whether Attorney General or some other relator should step into plaintiff\'s role to continue litigation — suggesting legislative receptivity to alternative standing holders.',
-          'Derivative-style litigation against nonprofit boards is available in principle; current law makes standing precarious but not unavailable.'
-        ],
-        application: 'Turner v. Victoria is the primary case authority for Reform 1 (Stakeholder Standing). It establishes three things directly relevant: (a) derivative litigation against nonprofit boards is available in principle; (b) current law makes standing precarious because it is tied to governance position rather than affected-party status; (c) the relator-substitution direction suggests judicial receptivity to standing held by parties other than board members. Reform 1 addresses the standing-precarity problem Turner identified by creating enrolled-student and current-faculty standing as a matter of statutory right.'
-      },
-      {
-        id: 'BurtGates',
-        label: 'Burt v. Gates',
-        sub: '354 F.Supp.2d 156 (D.D.C. 2005)',
-        color: '#E96955',
-        size: 28,
-        category: 'acfreedom',
-        citation: '354 F.Supp.2d 156 (D.D.C. 2005) · Sullivan, J.',
-        holdings: [
-          'No substantive due process right to "educational autonomy" that would block equal access requirements imposed by federal law.',
-          'Academic freedom is not a constitutional trump card against facially neutral conduct requirements that impose incidental burdens on institutional expression.',
-          'Institutions claiming academic freedom to exclude do not have a categorical immunity from civil rights accountability for conduct — as opposed to pure speech.',
-          'The constitutional protection for academic decisions extends to the content of scholarship and pedagogy, not to institutional governance decisions about who may access institutional resources.'
-        ],
-        application: 'Burt v. Gates limits the academic freedom version of the Jurisdictional Retreat. When departments or faculty claim "academic judgment" to shield institutional deployment of official authority against identity-group members, Burt establishes that academic freedom does not extend to conduct decisions about institutional access and resource allocation. The case anchors the Actor axis of the disentanglement matrix: institutional conduct is not immunized from civil rights accountability by labeling it "academic."'
-      },
-      {
-        id: 'Palmiter',
-        label: 'Palmiter Framework',
-        sub: '55 N.Y.L. Sch. L. Rev. 457 (2011)',
-        color: '#aaa',
-        size: 22,
-        category: 'secondary',
-        citation: 'Alan R. Palmiter, "Duty of Obedience: The Forgotten Duty," 55 N.Y.L. Sch. L. Rev. 457 (2011)',
-        holdings: [
-          'The duty of obedience is the third fiduciary duty — alongside care and loyalty — historically recognized for both for-profit and nonprofit directors, now largely forgotten in corporate law but alive in the nonprofit context.',
-          'Nonprofit obedience norms are more robust than for-profit equivalents because nonprofit organizations exist to serve stated public purposes.',
-          'Injunctive relief is the preferred remedy for obedience duty breaches — consistent with a prospective, structural remedy model.',
-          'The duty is toothless when: (a) courts defer under the business judgment rule; and (b) enforcement standing is limited to under-resourced state attorneys general.'
-        ],
-        application: 'The Palmiter Framework operationalizes Reform 2 (Mission Specificity). When mission statements meet the specificity standard required by Reform 2, the Palmiter obedience duty — historically substantive but practically hollow — regains enforcement teeth through stakeholder standing (Reform 1). Palmiter diagnoses the pathology; Reform 1 provides the cure.'
-      },
-      {
-        id: 'Buckles',
-        label: 'Buckles Taxonomy',
-        sub: '62 Cath. U. L. Rev. 913 (2013)',
-        color: '#aaa',
-        size: 22,
-        category: 'secondary',
-        citation: 'Johnny Rex Buckles, "How Deep Are the Springs of Obedience Norms That Bind the Overseers of Charities?" 62 Cath. U. L. Rev. 913 (2013)',
-        holdings: [
-          'Six obedience norms: Legality Norm, Dynamic Charter Fidelity Norm, Static Charter Fidelity Norm, Donor Restriction Norm, Law Observance Norm, and Public Purpose Norm.',
-          'When mission statements have operational content (as Reform 2 requires), the Dynamic Charter Fidelity Norm binds fiduciaries to honor those commitments in all governance decisions.',
-          'Systematic identity-based exclusion violating Title VI/ADA is not merely a policy failing but a fiduciary breach under the Legality and Law Observance Norms.',
-          'The "depth of the springs" depends on enforcement mechanisms — the springs are shallow without standing, deep when stakeholders can enforce.'
-        ],
-        application: 'The Buckles Taxonomy transforms vague institutional commitments into cognizable legal obligations once Reform 2 gives mission statements operational benchmarks. Each of the six norms gains enforcement teeth through stakeholder standing (Reform 1) and the Operational Test (Reform 3). Together, the three reforms restore the depth of the springs that Buckles documents have been drained by the governance void.'
-      },
-      {
-        id: 'Griggs2',
-        label: 'Title VI Extension',
-        sub: 'Alexander v. Sandoval (2001)',
-        color: '#FFD65C',
-        size: 18,
-        category: 'civilrights',
-        citation: 'Alexander v. Sandoval, 532 U.S. 275 (2001); Guardians Ass\'n v. Civil Serv. Comm\'n, 463 U.S. 582 (1983)',
-        holdings: [
-          'No private right of action to enforce disparate-impact regulations under Title VI — enforcement rests with federal agencies.',
-          'Title VI agency regulations prohibiting disparate impact are valid and enforceable by federal agencies, providing the Griggs standard in the education context.',
-          'The standing gap created by Sandoval reinforces the need for Reform 1: if private parties cannot enforce Title VI disparate impact standards, stakeholder standing in derivative suits targeting governance structures provides a parallel enforcement pathway.'
-        ],
-        application: 'Alexander v. Sandoval creates the enforcement gap that makes Reform 1 necessary in the civil rights context: because private parties cannot enforce Title VI disparate-impact regulations directly, governance reform creating derivative standing is essential to fill the gap. The case also illustrates why the Operational Test (Reform 3) targeting the tax-exempt status mechanism provides a supplementary enforcement pathway that does not depend on private Title VI litigation.'
-      }
-    ];
+    // ── Nodes loaded from legal_logic.json ──────────────────────────────────
+    // Node data is fetched from ../data/legal_logic.json so it stays in sync
+    // when the source data is updated or replaced by the LawJ repository.
+    var nodes = [];
 
-    // Edge definitions
-    var edges = [
-      { from: 'FAIR', to: 'BurtGates', label: 'Conduct–Speech Distinction', strength: 0.9 },
-      { from: 'FAIR', to: 'Palmiter', label: 'Reform 2 Basis', strength: 0.6 },
-      { from: 'Griggs', to: 'Griggs2', label: 'Disparate Impact Doctrine', strength: 0.85 },
-      { from: 'Griggs', to: 'FAIR', label: 'Operational Test', strength: 0.7 },
-      { from: 'Turner', to: 'Palmiter', label: 'Standing Mechanism', strength: 0.8 },
-      { from: 'Turner', to: 'Buckles', label: 'Obedience Enforcement', strength: 0.75 },
-      { from: 'Palmiter', to: 'Buckles', label: 'Taxonomy Anchor', strength: 0.95 },
-      { from: 'BurtGates', to: 'Griggs', label: 'Conduct Limit', strength: 0.65 },
-      { from: 'Buckles', to: 'Griggs2', label: 'Legality Norm', strength: 0.5 }
-    ];
-
-    // Node positions (proportional: 0..1 in each dimension)
+    // Schematic layout — positions encode the analytical relationship diagram,
+    // not citation frequency.  Updated whenever a new case is added to the JSON.
     var positions = {
-      'FAIR':     { x: 0.5,  y: 0.15 },
-      'Griggs':   { x: 0.15, y: 0.45 },
-      'Turner':   { x: 0.82, y: 0.45 },
-      'BurtGates':{ x: 0.5,  y: 0.45 },
-      'Palmiter': { x: 0.75, y: 0.78 },
-      'Buckles':  { x: 0.55, y: 0.88 },
-      'Griggs2':  { x: 0.2,  y: 0.80 }
+      'legal_001':    { x: 0.50, y: 0.13 },   // Rumsfeld v. FAIR (top)
+      'legal_003':    { x: 0.12, y: 0.43 },   // Griggs (left)
+      'legal_005':    { x: 0.85, y: 0.43 },   // Turner (right)
+      'legal_002':    { x: 0.50, y: 0.43 },   // Burt v. Gates (center)
+      'legal_004':    { x: 0.20, y: 0.72 },   // Robertson v. Princeton
+      'framework_001':{ x: 0.75, y: 0.75 },   // Palmiter Framework
+      'framework_002':{ x: 0.55, y: 0.88 },   // Buckles Taxonomy
+      'Griggs2':      { x: 0.35, y: 0.80 },   // Alexander v. Sandoval (secondary)
     };
+
+    // Analytical edges — represent doctrinal dependency, not citation frequency.
+    // Source IDs match legal_logic.json case/framework IDs.
+    var edges = [
+      { from: 'legal_001',    to: 'legal_002',    label: 'Conduct–Speech Distinction' },
+      { from: 'legal_001',    to: 'framework_001',label: 'Reform 2 Basis' },
+      { from: 'legal_003',    to: 'Griggs2',      label: 'Disparate Impact' },
+      { from: 'legal_003',    to: 'legal_001',    label: 'Operational Test' },
+      { from: 'legal_005',    to: 'framework_001',label: 'Standing Mechanism' },
+      { from: 'legal_005',    to: 'framework_002',label: 'Obedience Enforcement' },
+      { from: 'framework_001',to: 'framework_002',label: 'Taxonomy Anchor' },
+      { from: 'legal_002',    to: 'legal_003',    label: 'Conduct Limit' },
+      { from: 'framework_002',to: 'Griggs2',      label: 'Legality Norm' },
+      { from: 'legal_004',    to: 'legal_005',    label: 'Mission Specificity Model' },
+    ];
+
+    // Color by doctrinal category
+    var categoryColors = {
+      constitutional: '#6DACDE',
+      civilrights:    '#FFD65C',
+      standing:       '#B5E1E1',
+      acfreedom:      '#E96955',
+      fiduciary:      '#B5E1E1',
+      secondary:      '#aaa',
+    };
+
+    // Size by case importance to ExI theory
+    var caseSizes = {
+      legal_001: 38,
+      legal_002: 28,
+      legal_003: 34,
+      legal_004: 26,
+      legal_005: 30,
+    };
+
+    var caseCategories = {
+      legal_001: 'constitutional',
+      legal_002: 'acfreedom',
+      legal_003: 'civilrights',
+      legal_004: 'fiduciary',
+      legal_005: 'standing',
+    };
+
+    // Build a renderable node from a legal_logic.json case object
+    function caseToNode(c) {
+      var cat = caseCategories[c.id] || 'secondary';
+      var holdings = [];
+      if (c.key_holdings) {
+        holdings = c.key_holdings.map(function(h) { return h.holding + (h.quote ? ' — \u201c' + h.quote.slice(0, 120) + (h.quote.length > 120 ? '\u2026' : '') + '\u201d' : ''); });
+      } else if (c.key_legal_principles) {
+        holdings = c.key_legal_principles.map(function(p) { return p.principle + ': ' + (p.description || ''); });
+      }
+      var relObj = c.relevance_to_exclusive_inclusion || {};
+      var application = Object.values(relObj).filter(function(v) { return typeof v === 'string'; }).join(' ');
+      return {
+        id: c.id,
+        label: c.short_name,
+        sub: c.citation,
+        color: categoryColors[cat],
+        size: caseSizes[c.id] || 24,
+        category: cat,
+        citation: c.citation + (c.court ? ' \u00b7 ' + c.court : '') + (c.vote ? ' \u00b7 ' + c.vote : ''),
+        holdings: holdings,
+        application: application,
+      };
+    }
+
+    // Build a renderable node from a legal_logic.json framework object
+    function frameworkToNode(fw) {
+      var nameShort = fw.name.includes(':') ? fw.name.split(':')[1].trim() : fw.name;
+      var citation = '';
+      if (fw.source) citation = (fw.source.author ? fw.source.author + ', ' : '') + '\u201c' + (fw.source.title || fw.name) + ',\u201d ' + (fw.source.citation || '');
+      var applyObj = fw.application_to_reform || {};
+      var application = Object.values(applyObj).filter(function(v) { return typeof v === 'string'; }).join(' ');
+      var holdings = (fw.norms || []).map(function(n) { return n.name + ': ' + (n.description || ''); });
+      if (!holdings.length && fw.description) holdings = [fw.description];
+      return {
+        id: fw.id,
+        label: nameShort,
+        sub: fw.source ? fw.source.citation || '' : '',
+        color: '#aaa',
+        size: 22,
+        category: 'secondary',
+        citation: citation || fw.name,
+        holdings: holdings,
+        application: application,
+      };
+    }
+
+    // ── Fetch node data, then initialise the canvas ───────────────────────
+    fetch('../data/legal_logic.json')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        data.cases.forEach(function(c) {
+          if (positions[c.id]) nodes.push(caseToNode(c));
+        });
+        data.frameworks.forEach(function(fw) {
+          if (positions[fw.id]) nodes.push(frameworkToNode(fw));
+        });
+
+        // Synthetic node: Alexander v. Sandoval — referenced in argument chain
+        // but not yet a separate entry in legal_logic.json.
+        nodes.push({
+          id: 'Griggs2',
+          label: 'Title VI Extension',
+          sub: 'Alexander v. Sandoval (2001)',
+          color: '#FFD65C',
+          size: 18,
+          category: 'civilrights',
+          citation: 'Alexander v. Sandoval, 532 U.S. 275 (2001)',
+          holdings: [
+            'No private right of action to enforce disparate-impact regulations under Title VI.',
+            'Title VI agency disparate-impact regulations are valid and enforceable by federal agencies.',
+            'Creates the standing gap addressed by Reform 1 (Stakeholder Standing).',
+          ],
+          application: 'Creates the enforcement gap that makes Reform\u00a01 necessary: because private parties cannot enforce Title\u00a0VI disparate-impact regulations directly, governance reform providing derivative standing fills the gap.',
+        });
+
+        initCanvas();
+        drawNetwork();
+        attachEvents();
+      })
+      .catch(function(err) {
+        console.error('Failed to load legal_logic.json:', err);
+        var c = document.getElementById('networkCanvas');
+        c.width = c.parentElement.clientWidth;
+        c.height = Math.round(c.parentElement.clientWidth * 0.62);
+        var cx = c.getContext('2d');
+        cx.fillStyle = '#E96955';
+        cx.font = '14px Oswald, sans-serif';
+        cx.textAlign = 'center';
+        cx.textBaseline = 'middle';
+        cx.fillText('Failed to load case data. Please serve from a web server.', c.width / 2, c.height / 2);
+      });
 
     var W, H, hoveredNode = null, selectedNode = null;
     var canvas, ctx;
@@ -377,12 +390,9 @@
       ctx = canvas.getContext('2d');
     }
 
-    function getColor(id) {
-      return nodes.find(n => n.id === id)?.color || '#aaa';
-    }
-
     function px(node) {
       var p = positions[node.id];
+      if (!p) return { x: W / 2, y: H / 2 };
       return { x: p.x * W, y: p.y * H };
     }
 
@@ -520,10 +530,8 @@
       return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
-    window.addEventListener('DOMContentLoaded', function() {
-      initCanvas();
-      drawNetwork();
-
+    // attachEvents is called after fetch completes and nodes are populated.
+    function attachEvents() {
       canvas.addEventListener('mousemove', function(e) {
         var pos = getCanvasXY(e);
         var n = getNodeAt(pos.x, pos.y);
@@ -551,7 +559,7 @@
         initCanvas();
         drawNetwork();
       });
-    });
+    }
   </script>
 </body>
 </html>
