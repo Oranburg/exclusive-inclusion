@@ -290,7 +290,7 @@
       var cat = caseCategories[c.id] || 'secondary';
       var holdings = [];
       if (c.key_holdings) {
-        holdings = c.key_holdings.map(function(h) { return h.holding + (h.quote ? ' — \u201c' + h.quote.slice(0, 120) + (h.quote.length > 120 ? '\u2026' : '') + '\u201d' : ''); });
+        holdings = c.key_holdings.map(function(h) { return h.holding + (h.quote ? ' \u2014 \u201c' + truncate(h.quote, 120) + '\u201d' : ''); });
       } else if (c.key_legal_principles) {
         holdings = c.key_legal_principles.map(function(p) { return p.principle + ': ' + (p.description || ''); });
       }
@@ -524,6 +524,11 @@
       selectedNode = null;
       document.getElementById('lawCard').classList.remove('visible');
       drawNetwork();
+    }
+
+    function truncate(str, maxLen) {
+      str = String(str || '');
+      return str.length > maxLen ? str.slice(0, maxLen - 1) + '\u2026' : str;
     }
 
     function escHtml(s) {

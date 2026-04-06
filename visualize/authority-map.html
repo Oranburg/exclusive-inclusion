@@ -476,7 +476,7 @@
           tabs.push({
             label: 'Key Holdings',
             list: c.key_holdings.map(function(h) {
-              return h.holding + (h.quote ? ' — "' + h.quote.slice(0, 140) + (h.quote.length > 140 ? '…' : '') + '"' : '');
+              return h.holding + (h.quote ? ' \u2014 \u201c' + truncate(h.quote, 140) + '\u201d' : '');
             })
           });
         }
@@ -516,7 +516,7 @@
           addNode({
             id: ssId, type: 'secondary', size: 12,
             label: authorName + yearStr,
-            sublabel: (ss.citation || '').slice(0, 50),
+            sublabel: truncate(ss.citation || '', 50),
             detail: {
               title: ss.title || ss.citation,
               citation: ss.citation || '',
@@ -540,7 +540,7 @@
         addNode({
           id: fw.id, type: 'framework', size: 16,
           label: nameShort,
-          sublabel: citation.slice(0, 50),
+          sublabel: truncate(citation, 50),
           detail: {
             title: fw.name,
             citation: citation,
@@ -569,7 +569,7 @@
         addNode({
           id: r.id, type: 'reform', size: 16,
           label: r.reform_name,
-          sublabel: desc.slice(0, 55) + (desc.length > 55 ? '…' : ''),
+          sublabel: truncate(desc, 55),
           detail: {
             title: r.reform_name,
             citation: 'Exclusive Inclusion, §IV — Reform ' + r.id.replace('reform_', ''),
@@ -599,11 +599,19 @@
       if (ancestors) {
         ancestors.forEach(function(ta, ti) {
           var taId = 'theory_' + ti;
-          var lastName = ta.author ? ta.author.split(' ').filter(function(p) { return !p.includes('&') && !p.includes(','); }).pop() || ta.author.slice(0, 12) : 'Scholar';
+          // Extract a short display name from the author string.
+          // Author strings may be "Last, First", "First Last", or "A & B".
+          // We want the last meaningful word before any '&' separator.
+          var lastName = 'Scholar';
+          if (ta.author) {
+            var firstAuthor = ta.author.split('&')[0].trim();
+            var parts = firstAuthor.replace(/,.*$/, '').trim().split(/\s+/);
+            lastName = parts[parts.length - 1] || truncate(ta.author, 12);
+          }
           addNode({
             id: taId, type: 'theory', size: 12,
             label: lastName,
-            sublabel: ta.work ? ta.work.slice(0, 45) : '',
+            sublabel: ta.work ? truncate(ta.work, 45) : '',
             detail: {
               title: ta.work || ta.author,
               citation: ta.author + (ta.work ? ', ' + ta.work : ''),
@@ -855,7 +863,7 @@
         .attr('font-weight', function(d) { return d.type === 'paper' ? '700' : '600'; })
         .text(function(d) {
           var maxLen = d.type === 'paper' ? 22 : (d.size >= 16 ? 18 : 14);
-          return d.label.length > maxLen ? d.label.slice(0, maxLen - 1) + '…' : d.label;
+          return truncate(d.label, maxLen);
         });
 
       // Sub-label (citation stub)
@@ -864,9 +872,7 @@
         .attr('class', 'node-sublabel')
         .attr('dy', '1em')
         .attr('font-size', '8px')
-        .text(function(d) {
-          return d.sublabel.length > 22 ? d.sublabel.slice(0, 21) + '…' : d.sublabel;
-        });
+        .text(function(d) { return truncate(d.sublabel, 22); });
 
       // Pulsing ring for paper node
       var paperNode = nodeSel.filter(function(d) { return d.type === 'paper'; });
@@ -1257,6 +1263,12 @@
         );
       }
     };
+
+    // ── Utility helpers ────────────────────────────────────────────────────
+    function truncate(str, maxLen) {
+      str = String(str || '');
+      return str.length > maxLen ? str.slice(0, maxLen - 1) + '\u2026' : str;
+    }
 
     // ── Escape HTML ────────────────────────────────────────────────────────
     function escHtml(s) {
