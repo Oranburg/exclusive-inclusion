@@ -70,8 +70,18 @@
       try { var t=localStorage.getItem('ei-theme'); document.documentElement.setAttribute('data-theme',t==='light'||t==='dark'?t:'dark'); } catch(e){}
     })();
   </script>
+  <link rel="stylesheet" href="../assets/css/og-tokens.css">
 </head>
 <body>
+
+<nav aria-label="Breadcrumb" class="og-breadcrumb">
+  <ol>
+      <li><a href="https://oranburg.law">oranburg.law</a></li>
+      <li><a href="/">Exclusive Inclusion</a></li>
+      <li><span aria-current="page">Learning</span></li>
+  </ol>
+</nav>
+
   <nav class="site-nav" aria-label="Site navigation">
     <ul>
       <li><a href="../">Home</a></li>
@@ -197,9 +207,23 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>&copy; 2026 Seth C. Oranburg &middot; <a href="../">Exclusive Inclusion</a></p>
-  </footer>
+  <footer role="contentinfo" class="og-footer">
+  <div class="og-footer-inner">
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="https://oranburg.law">Home</a></li>
+        <li><a href="/paper/">Paper</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/activities/">Activities</a></li>
+        <li><a href="/learning/">Learning</a></li>
+        <li><a href="/visualize/">Visualize</a></li>
+        <li><a href="https://ssrn.com/abstract=6423378">SSRN</a></li>
+      </ul>
+    </nav>
+    <p class="og-footer-copyright">&copy; 2026 Seth C. Oranburg. All rights reserved.</p>
+  </div>
+</footer>
+
 
   <script>
     document.getElementById('themeToggle').addEventListener('click', function() {
